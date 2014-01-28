@@ -1,0 +1,165 @@
+$header: #587833;
+$quality: #D87400;
+$natural: #909D51;
+$arrow: #3C72A5;
+$points: #F8FF00;
+$applicable: #D1E7BC;
+
+.wrapper {
+	width: 930px;
+	padding: 10px 15px;
+	background: #FFF;
+	margin: 0 auto;
+	padding-bottom: 25px;
+
+	.score {
+		font-size: 36px;
+		padding: 22px 24px;
+		border: 2px solid rgb(0, 0, 0);
+		display: inline-block;
+		margin-bottom: 10px;
+
+		.margin-right {
+			display: inline-block;
+			margin-right: 80px;
+		}
+	}
+
+	.form {
+		font-size: 12px;
+		line-height: 14px;
+		border-top: 3px solid $quality;
+		border-left: 3px solid $quality;
+		text-align: left;
+
+		.thinnest, .thin, .medium, .wide {
+			padding: 8px;
+			height: inherit;
+			vertical-align: top;
+			display: inline-block;
+			border-right: 3px solid $quality;
+		}
+
+		.thinnest {
+			width: 48px;
+			left: 0;
+		}
+
+		.thin {
+			width: 74px;
+		}
+
+		.medium {
+			width: 195px;
+		}
+
+		.wide {
+			width: 224px;
+		}
+
+		.table-cell {
+			width: inherit;
+			height: inherit;
+			display: table-cell;
+			vertical-align: bottom;
+		}
+	}
+
+	.category-titles {
+		padding-bottom: 16px;
+		height: 27px;
+		text-align: center;
+	}
+
+	.main-heading {
+		color: #FFF;
+		height: 70px;
+		line-height: 70px;
+		font-size: 30px;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: left;
+		padding-left: 15px;
+		background: $quality;
+	}
+
+	.category {
+		height: 155px;
+		border-right: 3px solid $quality;
+		border-bottom: 3px solid $quality;
+		padding-bottom: 5px;
+		overflow: hidden;
+
+		.set-height {
+			// height: 155px;
+		}
+
+		.inner-section {
+			display: inline-block;			
+		}
+
+		.top-section {
+			height: 55px;
+			overflow: hidden;
+			display: inline-block;
+			text-align: center;
+			border-bottom: 3px solid $quality;
+
+			select {
+				display: block;
+				margin: 0 auto;
+				font-size: 20px;
+			}
+
+			.applicability {
+				background: $applicable;
+
+				span {
+					display: block;
+					margin-bottom: 5px;
+
+				}
+			}
+
+			.added-value select {
+				margin-top: 20px;
+			}
+
+			.category-score , .possible-points{
+				font-weight: bold;
+				font-size: 22px;
+				line-height: 45px;
+			}
+
+			.category-score {
+				background: $points;
+			}
+
+			.possible-points {
+				border-right: none;
+			}
+		}
+
+		.bottom-section {
+			padding: 0 8px;
+			text-align: right;
+
+			.word-minimum {
+				font-weight: bold;
+				font-size: 14px;
+			}
+
+			textarea {
+				display: block;
+				max-width: 588px;
+				min-width: 588px;
+				min-height: 70px;
+				max-height: 70px;
+			}
+		}
+	}
+}
+
+.bold {
+	font-weight: bold;
+}

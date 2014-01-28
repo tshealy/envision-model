@@ -1,0 +1,65 @@
+$header: #587833;
+$quality: #D87400;
+$natural: #909D51;
+$arrow: #3C72A5;
+$points: #F8FF00;
+
+.wrapper {
+	width: 960px;
+	background: #FFF;
+	margin: 0 auto;
+	padding-bottom: 25px;
+
+	.directions {
+		padding-top: 40px;
+		display: block;
+		margin-left: 100px;
+		font-weight: bold;
+	}
+
+	.directions-copy {
+		width: 650px;
+		margin-left: 150px;
+	}
+
+	.name-form {
+		width: 650px;
+		margin: 50px 0 0 145px;
+		padding: 50px 10px 10px;
+		background: #FFF;
+		border: 1px solid #000;
+
+		.please-enter {
+			display: inline-block;
+			margin: 20px 35px 0 25px;
+			vertical-align: top;
+		}
+
+		.name {
+			display: inline-block;
+			margin-right: 45px;
+
+			input {
+				padding: 20px 10px;
+				font-size: 18px;
+				width: 135px;
+				border: 1px solid #000;
+				margin-bottom: 8px;
+			}
+
+			.name-type {
+				display: block;
+			}
+		}
+	}
+
+	.note {
+		margin-top: 30px;
+		font-size: 18px;
+		line-height: 22px;
+	}
+}
+
+
+
+
