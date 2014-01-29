@@ -120,9 +120,9 @@ table {
 
 		textarea {
 			display: block;
-			max-width: 588px;
-			min-width: 588px;
+			width: 99%;
 			min-height: 70px;
+			resize: vertical;
 		}
 	}
 }

@@ -116,9 +116,9 @@ table .bottom-section .word-minimum {
 /* line 121, ../sass/form.scss */
 table .bottom-section textarea {
   display: block;
-  max-width: 588px;
-  min-width: 588px;
+  width: 99%;
   min-height: 70px;
+  resize: vertical;
 }
 
 /* line 130, ../sass/form.scss */
