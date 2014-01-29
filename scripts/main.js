@@ -58,7 +58,7 @@ envision.questions = [
 ]
 
 envision.template = _.template($('#question').text())
-
+envision.totalScore = 0;
 
 $(document).ready(function() {
 	display(envision.questions)
@@ -71,11 +71,18 @@ function display(questions) {
 	displayQuestions(questions)
 }
 
-// sets maxPoints each question based on return value of maxPoints function
+// sets maxPoints each question based on return value of maxPoints function. also side-effectively sets envisions maxScore.
 function determineMaxPoints(questions) {
+	var maxScore = 0;
+
 	_.each(questions, function(question) {
 		question.maxPoints = _.first(maxPoints(question.addedValue)).val
+		maxScore += question.maxPoints;
 	})
+
+	envision.maxScore = maxScore;
+	$('#max-score').text(envision.maxScore)
+	console.log(envision.maxScore)
 }
 
 // sorts vals to find greatest
@@ -89,8 +96,7 @@ function maxPoints(addedValue) {
 function processSelectOptions(questions) {
 	_.each(questions, function(question) {
 		question.selectOptions = _.map(question.addedValue, function(val) {
-			console.log(val.level)
-			return "<option value='" + val.level + " " + val.val + "'>" + val.level + " " + val.val + "</option>"
+			return "<option value='" + val.val + "'>" + val.level + " " + val.val + "</option>"
 		}).reverse().join('')
 	})
 }
@@ -99,9 +105,51 @@ function processSelectOptions(questions) {
 function displayQuestions(questions) {
 	_.each(questions, function(question) {
 		$('tbody').append(envision.template({question: question}))
+		// console.log($('.category').last())
+		$('.category').last().children('.applicability').children('select').change(applicable(question))
+		$('.category').last().children('.added-value').children('select').change(addValue(question))
 	})
 
 	$('.question-separator').last().remove()
+}
+
+// onchange function for applicability select
+function applicable(question) {
+
+	return function() {
+
+		var select = this;
+		var val = $(select).val();
+		var addedValue = $(select).parent().parent().children('.added-value').children('select')
+
+		if (val === 'unapplicable') {
+			addedValue.children('.no-value').attr('selected', true)
+			// sayHey(addedValue)
+			addedValue.attr('disabled', 'disabled');
+		} else {
+			addedValue.attr('disabled', false);
+		}
+	}
+
+}
+
+// onchange function for value added select
+function addValue(question) {
+
+	return function() {
+		var select = this;
+		var val = $(select).val()
+		var score = $(select).parent().parent().children('.category-score')
+
+		envision.totalScore += parseInt(val) - parseInt(score.text())
+
+		// if relative vals
+		// score.text(parseInt(score.text()) + parseInt(val))
+
+
+		$('#actual-score').text(envision.totalScore)
+		score.text(val)
+	}
 }
 
 
