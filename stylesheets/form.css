@@ -40,28 +40,33 @@ table select {
   font-size: 20px;
 }
 /* line 47, ../sass/form.scss */
+table .question-separator {
+  height: 30px;
+  background: #d87400;
+}
+/* line 52, ../sass/form.scss */
 table .table-cell {
   display: table-cell;
   vertical-align: bottom;
   text-align: center;
 }
-/* line 53, ../sass/form.scss */
+/* line 58, ../sass/form.scss */
 table .thinnest {
   width: 48px;
 }
-/* line 57, ../sass/form.scss */
+/* line 62, ../sass/form.scss */
 table .thin {
   width: 74px;
 }
-/* line 61, ../sass/form.scss */
+/* line 66, ../sass/form.scss */
 table .medium {
   width: 195px;
 }
-/* line 65, ../sass/form.scss */
+/* line 70, ../sass/form.scss */
 table .wide {
   width: 224px;
 }
-/* line 69, ../sass/form.scss */
+/* line 74, ../sass/form.scss */
 table .main-heading {
   color: #FFF;
   line-height: 35px;
@@ -72,43 +77,43 @@ table .main-heading {
   padding-left: 15px;
   background: #d87400;
 }
-/* line 80, ../sass/form.scss */
+/* line 85, ../sass/form.scss */
 table .applicability {
   text-align: center;
   font-weight: bold;
   background: #d1e7bc;
 }
-/* line 85, ../sass/form.scss */
+/* line 90, ../sass/form.scss */
 table .applicability span {
   display: block;
   margin-bottom: 5px;
 }
-/* line 92, ../sass/form.scss */
+/* line 97, ../sass/form.scss */
 table .added-value select {
   margin-top: 20px;
 }
-/* line 96, ../sass/form.scss */
+/* line 101, ../sass/form.scss */
 table .category-score, table .possible-points {
   font-weight: bold;
   font-size: 22px;
   line-height: 45px;
   text-align: center;
 }
-/* line 103, ../sass/form.scss */
+/* line 108, ../sass/form.scss */
 table .category-score {
   background: #f8ff00;
 }
-/* line 107, ../sass/form.scss */
+/* line 112, ../sass/form.scss */
 table .bottom-section {
   padding: 4px 8px;
   text-align: right;
 }
-/* line 111, ../sass/form.scss */
+/* line 116, ../sass/form.scss */
 table .bottom-section .word-minimum {
   font-weight: bold;
   font-size: 14px;
 }
-/* line 116, ../sass/form.scss */
+/* line 121, ../sass/form.scss */
 table .bottom-section textarea {
   display: block;
   max-width: 588px;
@@ -116,12 +121,12 @@ table .bottom-section textarea {
   min-height: 70px;
 }
 
-/* line 125, ../sass/form.scss */
+/* line 130, ../sass/form.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 129, ../sass/form.scss */
+/* line 134, ../sass/form.scss */
 .tac {
   text-align: center;
 }

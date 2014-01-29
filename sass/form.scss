@@ -44,6 +44,11 @@ table {
 		font-size: 20px;
 	}
 
+	.question-separator {
+		height: 30px;
+		background: $quality;
+	}
+
 	.table-cell {
 		display: table-cell;
 		vertical-align: bottom;

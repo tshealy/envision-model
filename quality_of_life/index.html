@@ -4,6 +4,11 @@
 <head>
 	<title>Envision: Quality of Life</title>
 
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
 	<link href="../stylesheets/main.css" media="screen, projection" rel="stylesheet" type="text/css"/>
 	<link href="../stylesheets/form.css" media="screen, projection" rel="stylesheet" type="text/css"/>
 
@@ -38,43 +43,56 @@
 					<td colspan="6" class="main-heading">Quality of Life</td>
 				</tr>
 
-				<tr class="category">
+				<!-- categories go here -->
 
-					<td rowspan="2" class="thinnest category-number bold">QL1.1</td>
-					<td class="wide description" rowspan="2">
-						<span class="bold">Improve community quality of life.</span>
-						<br>
-						<p>Improve the net quality of life of all communities affected by the project and mitigate negateve impacts to communities.</p>
-
-						<a href="">details / guidance</a>
-					</td>
-
-					<td class="medium applicability">
-						<span>Applicability</span>
-						<select>
-							<option value="Applicable">Applicable</option>
-							<option value="Unapplicable">Unapplicable</option>
-						</select>
-					</td>
-					<td class="wide added-value">
-						<select>
-							<option value="">No Value Added</option>
-							<option value="Unapplicable">Unapplicable</option>
-						</select>
-					</td>
-					<td class="thinnest category-score">0</td>
-					<td class="thin possible-points">25</td>
-
-				</tr>
-				<tr>
-					<td class="bottom-section" colspan="6">
-						<span class="word-minimum">*<span class="word-number">0</span> word minimum required for this level</span>
-						<textarea></textarea>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
+	<script type="text/template" id="question">
+
+		<tr class="category">
+
+			<td rowspan="2" class="thinnest category-number bold"><%= question.number %></td>
+			<td class="wide description" rowspan="2">
+				<span class="bold"><%= question.synopsis %></span>
+				<br>
+				<p><%= question.body %></p>
+
+				<a href="">details / guidance</a>
+			</td>
+
+			<td class="medium applicability">
+				<span>Applicability</span>
+				<select>
+					<option value="Applicable">Applicable</option>
+					<option value="Unapplicable">Unapplicable</option>
+				</select>
+			</td>
+			<td class="wide added-value">
+				<select>
+					<option value="">No Value Added</option>
+					<%= question.selectOptions %>
+				</select>
+			</td>
+			<td class="thinnest category-score">0</td>
+			<td class="thin possible-points"><%= question.maxPoints %></td>
+
+		</tr>
+		<tr>
+			<td class="bottom-section" colspan="6">
+				<span class="word-minimum">*<span class="word-number">0</span> word minimum required for this level</span>
+				<textarea></textarea>
+			</td>
+		</tr>
+
+		<tr class="question-separator">
+			<td colspan="6"></td>
+		</tr>
+
+	</script>
+
+	<script type="text/javascript" src="../scripts/main.js"></script>
+
 
 </body>
 </html>
