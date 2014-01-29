@@ -1,65 +1,3 @@
-var envision = {};
-
-envision.questions = [
-	{
-		number: 'QL1.1',
-		synopsis: 'Improve community quality of life.',
-		body: 'Improve the net quality of life of all communities affected by the project and mitigate negative impacts to communities.',
-		addedValue: [
-			{
-				level: 'Improved',
-				val: 2
-			},
-			{
-				level: 'Enhanced',
-				val: 5
-			},
-			{
-				level: 'Superior',
-				val: 10
-			},
-			{
-				level: 'Conserving',
-				val: 20
-			},
-			{
-				level: 'Restorative',
-				val: 25
-			}
-		]
-	},
-	{
-		number: 'QL1.2',
-		synopsis: 'Stimulate sustainable growth and development.',
-		body: 'Support and stimulate sustainable growth and development, including improvements in job growth, capacity building, productivity, business attractiveness and livability.',
-		addedValue: [
-			{
-				level: 'Improved',
-				val: 1
-			},
-			{
-				level: 'Enhanced',
-				val: 2
-			},
-			{
-				level: 'Superior',
-				val: 5
-			},
-			{
-				level: 'Conserving',
-				val: 13
-			},
-			{
-				level: 'Restorative',
-				val: 16
-			}
-		]
-	}
-]
-
-envision.template = _.template($('#question').text())
-envision.totalScore = 0;
-
 $(document).ready(function() {
 	display(envision.questions)
 })
@@ -107,7 +45,7 @@ function displayQuestions(questions) {
 		$('tbody').append(envision.template({question: question}))
 		// console.log($('.category').last())
 		$('.category').last().children('.applicability').children('select').change(applicable(question))
-		$('.category').last().children('.added-value').children('select').change(addValue(question))
+		$('.category').last().children('.added-value').children('select').change(updateValues)
 	})
 
 	$('.question-separator').last().remove()
@@ -121,35 +59,41 @@ function applicable(question) {
 		var select = this;
 		var val = $(select).val();
 		var addedValue = $(select).parent().parent().children('.added-value').children('select')
+		var score = $(select).parent().parent().children('.category-score')
+		var maxPoints = $(select).parent().parent().children('.possible-points')
+		var maxScore = $('#max-score')
+
 
 		if (val === 'unapplicable') {
 			addedValue.children('.no-value').attr('selected', true)
-			// sayHey(addedValue)
+			// updateValues(addedValue)
+			updateValues.call(addedValue)
 			addedValue.attr('disabled', 'disabled');
+			
+			maxScore.text(envision.maxScore -= question.maxPoints)
+			score.text('- -')
+			maxPoints.text('- -')
+
 		} else {
 			addedValue.attr('disabled', false);
+			maxScore.text(envision.maxScore += question.maxPoints)
+			score.text(0)
+			maxPoints.text(question.maxPoints)
 		}
 	}
 
 }
 
 // onchange function for value added select
-function addValue(question) {
+function updateValues() {
+	var select = this;
+	var val = $(select).val()
+	var score = $(select).parent().parent().children('.category-score')
 
-	return function() {
-		var select = this;
-		var val = $(select).val()
-		var score = $(select).parent().parent().children('.category-score')
+	envision.totalScore += parseInt(val) - parseInt(score.text())
+	$('#actual-score').text(envision.totalScore)
 
-		envision.totalScore += parseInt(val) - parseInt(score.text())
-
-		// if relative vals
-		// score.text(parseInt(score.text()) + parseInt(val))
-
-
-		$('#actual-score').text(envision.totalScore)
-		score.text(val)
-	}
+	score.text(val)
 }
 
 
