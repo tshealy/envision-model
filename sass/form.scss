@@ -24,58 +24,52 @@ $applicable: #D1E7BC;
 			margin-right: 80px;
 		}
 	}
+}
 
-	.form {
-		font-size: 12px;
-		line-height: 14px;
-		border-top: 3px solid $quality;
-		border-left: 3px solid $quality;
-		text-align: left;
+table {
+	font-size: 12px;
+	line-height: 14px;
+	text-align: left;
+	border-collapse: collapse;
 
-		.thinnest, .thin, .medium, .wide {
-			padding: 8px;
-			height: inherit;
-			vertical-align: top;
-			display: inline-block;
-			border-right: 3px solid $quality;
-		}
-
-		.thinnest {
-			width: 48px;
-			left: 0;
-		}
-
-		.thin {
-			width: 74px;
-		}
-
-		.medium {
-			width: 195px;
-		}
-
-		.wide {
-			width: 224px;
-		}
-
-		.table-cell {
-			width: inherit;
-			height: inherit;
-			display: table-cell;
-			vertical-align: bottom;
-		}
+	td {
+		padding: 8px;
+		border: 3px solid $quality;
+		vertical-align: top;
 	}
 
-	.category-titles {
-		padding-bottom: 16px;
-		height: 27px;
+	select {
+		display: block;
+		margin: 0 auto;
+		font-size: 20px;
+	}
+
+	.table-cell {
+		display: table-cell;
+		vertical-align: bottom;
 		text-align: center;
+	}
+
+	.thinnest {
+		width: 48px;
+	}
+
+	.thin {
+		width: 74px;
+	}
+
+	.medium {
+		width: 195px;
+	}
+
+	.wide {
+		width: 224px;
 	}
 
 	.main-heading {
 		color: #FFF;
-		height: 70px;
-		line-height: 70px;
-		font-size: 30px;
+		line-height: 35px;
+		font-size: 28px;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: left;
@@ -83,79 +77,47 @@ $applicable: #D1E7BC;
 		background: $quality;
 	}
 
-	.category {
-		height: 155px;
-		border-right: 3px solid $quality;
-		border-bottom: 3px solid $quality;
-		padding-bottom: 5px;
-		overflow: hidden;
+	.applicability {
+		text-align: center;
+		font-weight: bold;
+		background: $applicable;
 
-		.set-height {
-			// height: 155px;
+		span {
+			display: block;
+			margin-bottom: 5px;
+
+		}
+	}
+
+	.added-value select {
+		margin-top: 20px;
+	}
+
+	.category-score , .possible-points{
+		font-weight: bold;
+		font-size: 22px;
+		line-height: 45px;
+		text-align: center;
+	}
+
+	.category-score {
+		background: $points;
+	}
+
+	.bottom-section {
+		padding: 4px 8px;
+		text-align: right;
+
+		.word-minimum {
+			font-weight: bold;
+			font-size: 14px;
 		}
 
-		.inner-section {
-			display: inline-block;			
-		}
-
-		.top-section {
-			height: 55px;
-			overflow: hidden;
-			display: inline-block;
-			text-align: center;
-			border-bottom: 3px solid $quality;
-
-			select {
-				display: block;
-				margin: 0 auto;
-				font-size: 20px;
-			}
-
-			.applicability {
-				background: $applicable;
-
-				span {
-					display: block;
-					margin-bottom: 5px;
-
-				}
-			}
-
-			.added-value select {
-				margin-top: 20px;
-			}
-
-			.category-score , .possible-points{
-				font-weight: bold;
-				font-size: 22px;
-				line-height: 45px;
-			}
-
-			.category-score {
-				background: $points;
-			}
-
-			.possible-points {
-				border-right: none;
-			}
-		}
-
-		.bottom-section {
-			padding: 0 8px;
-			text-align: right;
-
-			.word-minimum {
-				font-weight: bold;
-				font-size: 14px;
-			}
-
-			textarea {
-				display: block;
-				max-width: 588px;
-				min-width: 588px;
-				min-height: 70px;
-				max-height: 70px;
-			}
+		textarea {
+			display: block;
+			max-width: 588px;
+			min-width: 588px;
+			min-height: 70px;
 		}
 	}
 }
@@ -163,3 +125,20 @@ $applicable: #D1E7BC;
 .bold {
 	font-weight: bold;
 }
+
+.tac {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

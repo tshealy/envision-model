@@ -19,137 +19,109 @@
   display: inline-block;
   margin-right: 80px;
 }
-/* line 28, ../sass/form.scss */
-.wrapper .form {
+
+/* line 29, ../sass/form.scss */
+table {
   font-size: 12px;
   line-height: 14px;
-  border-top: 3px solid #d87400;
-  border-left: 3px solid #d87400;
   text-align: left;
+  border-collapse: collapse;
 }
 /* line 35, ../sass/form.scss */
-.wrapper .form .thinnest, .wrapper .form .thin, .wrapper .form .medium, .wrapper .form .wide {
+table td {
   padding: 8px;
-  height: inherit;
+  border: 3px solid #d87400;
   vertical-align: top;
-  display: inline-block;
-  border-right: 3px solid #d87400;
 }
-/* line 43, ../sass/form.scss */
-.wrapper .form .thinnest {
-  width: 48px;
-  left: 0;
+/* line 41, ../sass/form.scss */
+table select {
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
 }
-/* line 48, ../sass/form.scss */
-.wrapper .form .thin {
-  width: 74px;
-}
-/* line 52, ../sass/form.scss */
-.wrapper .form .medium {
-  width: 195px;
-}
-/* line 56, ../sass/form.scss */
-.wrapper .form .wide {
-  width: 224px;
-}
-/* line 60, ../sass/form.scss */
-.wrapper .form .table-cell {
-  width: inherit;
-  height: inherit;
+/* line 47, ../sass/form.scss */
+table .table-cell {
   display: table-cell;
   vertical-align: bottom;
-}
-/* line 68, ../sass/form.scss */
-.wrapper .category-titles {
-  padding-bottom: 16px;
-  height: 27px;
   text-align: center;
 }
-/* line 74, ../sass/form.scss */
-.wrapper .main-heading {
+/* line 53, ../sass/form.scss */
+table .thinnest {
+  width: 48px;
+}
+/* line 57, ../sass/form.scss */
+table .thin {
+  width: 74px;
+}
+/* line 61, ../sass/form.scss */
+table .medium {
+  width: 195px;
+}
+/* line 65, ../sass/form.scss */
+table .wide {
+  width: 224px;
+}
+/* line 69, ../sass/form.scss */
+table .main-heading {
   color: #FFF;
-  height: 70px;
-  line-height: 70px;
-  font-size: 30px;
+  line-height: 35px;
+  font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: left;
   padding-left: 15px;
   background: #d87400;
 }
-/* line 86, ../sass/form.scss */
-.wrapper .category {
-  height: 155px;
-  border-right: 3px solid #d87400;
-  border-bottom: 3px solid #d87400;
-  padding-bottom: 5px;
-  overflow: hidden;
-}
-/* line 97, ../sass/form.scss */
-.wrapper .category .inner-section {
-  display: inline-block;
-}
-/* line 101, ../sass/form.scss */
-.wrapper .category .top-section {
-  height: 55px;
-  overflow: hidden;
-  display: inline-block;
+/* line 80, ../sass/form.scss */
+table .applicability {
   text-align: center;
-  border-bottom: 3px solid #d87400;
-}
-/* line 108, ../sass/form.scss */
-.wrapper .category .top-section select {
-  display: block;
-  margin: 0 auto;
-  font-size: 20px;
-}
-/* line 114, ../sass/form.scss */
-.wrapper .category .top-section .applicability {
+  font-weight: bold;
   background: #d1e7bc;
 }
-/* line 117, ../sass/form.scss */
-.wrapper .category .top-section .applicability span {
+/* line 85, ../sass/form.scss */
+table .applicability span {
   display: block;
   margin-bottom: 5px;
 }
-/* line 124, ../sass/form.scss */
-.wrapper .category .top-section .added-value select {
+/* line 92, ../sass/form.scss */
+table .added-value select {
   margin-top: 20px;
 }
-/* line 128, ../sass/form.scss */
-.wrapper .category .top-section .category-score, .wrapper .category .top-section .possible-points {
+/* line 96, ../sass/form.scss */
+table .category-score, table .possible-points {
   font-weight: bold;
   font-size: 22px;
   line-height: 45px;
+  text-align: center;
 }
-/* line 134, ../sass/form.scss */
-.wrapper .category .top-section .category-score {
+/* line 103, ../sass/form.scss */
+table .category-score {
   background: #f8ff00;
 }
-/* line 138, ../sass/form.scss */
-.wrapper .category .top-section .possible-points {
-  border-right: none;
-}
-/* line 143, ../sass/form.scss */
-.wrapper .category .bottom-section {
-  padding: 0 8px;
+/* line 107, ../sass/form.scss */
+table .bottom-section {
+  padding: 4px 8px;
   text-align: right;
 }
-/* line 147, ../sass/form.scss */
-.wrapper .category .bottom-section .word-minimum {
+/* line 111, ../sass/form.scss */
+table .bottom-section .word-minimum {
   font-weight: bold;
   font-size: 14px;
 }
-/* line 152, ../sass/form.scss */
-.wrapper .category .bottom-section textarea {
+/* line 116, ../sass/form.scss */
+table .bottom-section textarea {
   display: block;
   max-width: 588px;
   min-width: 588px;
   min-height: 70px;
-  max-height: 70px;
 }
 
-/* line 163, ../sass/form.scss */
+/* line 125, ../sass/form.scss */
 .bold {
   font-weight: bold;
+}
+
+/* line 129, ../sass/form.scss */
+.tac {
+  text-align: center;
 }
