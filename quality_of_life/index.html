@@ -23,7 +23,7 @@
 
 		<div class="score">
 
-			<span class="margin-right">Your Score: <span id="actual-score">0</span></span>
+			<span class="margin-right">Your Score: <span id="actual-score"></span></span>
 			<span>Max Score: <span id="max-score"></span></span>
 
 		</div>
@@ -49,6 +49,7 @@
 		</table>
 	</div>
 
+					<!-- <option class="no-value" value="0">No Value Added</option> -->
 	<script type="text/template" id="question">
 
 		<tr class="category" id="<%= question.number %>">
@@ -64,14 +65,13 @@
 
 			<td class="medium applicability">
 				<span>Applicability</span>
-				<select>
+				<select class="ap">
 					<option value="applicable">Applicable</option>
 					<option value="unapplicable">Unapplicable</option>
 				</select>
 			</td>
-			<td class="wide added-value">
-				<select class="what">
-					<option class="no-value" value="0">No Value Added</option>
+			<td class="wide value-added">
+				<select class="va">
 					<%= question.selectOptions %>
 				</select>
 			</td>
