@@ -1,8 +1,6 @@
 @import "compass/reset";
 
 $header: #587833;
-$quality: #D87400;
-$natural: #909D51;
 $arrow: #3C72A5;
 $points: #F8FF00;
 
@@ -35,41 +33,90 @@ header {
 	}
 }
 
-.next-page {
-	position: relative;
-	display: block;
+.next-page, .previous-page {
+	position: absolute;
+	display: inline-block;
 	width: 145px;
 	height: 120px;
-	margin: -8px 0 0 765px;
-
+	top: 0;
 
 	.rectangle {
 		color: #FFF;
-		line-height: 65px;
-		height: 65px;
 		width: 105px;
-		padding-left: 15px;
 		position: absolute;
-		left: 0;
 		top: 26px;
-		border-radius: 0 15px 15px 0;
 		display: inline-block;
 		background: $arrow;
 		vertical-align: top;
 	}
 
-	.arrow-right {
+	.arrow-right, .arrow-left {
 		position: absolute;
 		top: 0;
-		right: 0;
 		width: 0; 
 		height: 0; 
 		border-top: 60px solid transparent;
 		border-bottom: 60px solid transparent;
-		
-		border-left: 60px solid $arrow;
 
 		display: inline-block;
 		vertical-align: top;
+	}
+
+	.arrow-right {
+		right: 0;
+		border-left: 60px solid $arrow;
+	}
+
+	.arrow-left {
+		left: 0px;	
+		border-right: 60px solid $arrow;
+	}
+}
+
+.next-page {
+	right: 0;
+	
+	.rectangle {
+		line-height: 65px;
+		height: 65px;
+		left: 0;
+		padding-left: 15px;
+		border-radius: 0 15px 15px 0;
+	}
+
+	.submit {
+		text-align: center;
+		border-radius: 15px;
+		padding: 0 20px;
+	}
+}
+
+.previous-page {
+	left: 0;
+
+	.rectangle {
+		line-height: 25px;
+		padding-top: 7px;
+		height: 58px;
+		text-align: center;
+		padding-left: 5px;
+		right: 0;
+		border-radius: 15px 0 0 15px;
+	}
+}
+
+
+.bottom-nav {
+	position: relative;
+	width: 95%;
+	height: 100px;
+	margin: 40px auto 0;
+	padding-top: 15px;
+
+	.review {
+		border: 1px solid rgb(0, 0, 0);
+		width: 414px;
+		padding: 15px;
+		margin: 0 auto 0;
 	}
 }

@@ -1,12 +1,13 @@
-/* line 8, ../sass/form.scss */
+/* line 6, ../sass/_form.scss */
 .wrapper {
   width: 930px;
   padding: 10px 15px;
   background: #FFF;
   margin: 0 auto;
-  padding-bottom: 25px;
+  padding-bottom: 50px;
+  position: relative;
 }
-/* line 15, ../sass/form.scss */
+/* line 14, ../sass/_form.scss */
 .wrapper .score {
   font-size: 36px;
   padding: 22px 24px;
@@ -14,59 +15,59 @@
   display: inline-block;
   margin-bottom: 10px;
 }
-/* line 22, ../sass/form.scss */
+/* line 21, ../sass/_form.scss */
 .wrapper .score .margin-right {
   display: inline-block;
   margin-right: 80px;
 }
 
-/* line 29, ../sass/form.scss */
+/* line 28, ../sass/_form.scss */
 table {
   font-size: 12px;
   line-height: 14px;
   text-align: left;
   border-collapse: collapse;
 }
-/* line 35, ../sass/form.scss */
+/* line 34, ../sass/_form.scss */
 table td {
   padding: 8px;
-  border: 3px solid #d87400;
+  border: 3px solid #909d51;
   vertical-align: top;
 }
-/* line 41, ../sass/form.scss */
+/* line 40, ../sass/_form.scss */
 table select {
   display: block;
   margin: 0 auto;
   font-size: 20px;
 }
-/* line 47, ../sass/form.scss */
+/* line 46, ../sass/_form.scss */
 table .question-separator {
   height: 30px;
-  background: #d87400;
+  background: #909d51;
 }
-/* line 52, ../sass/form.scss */
+/* line 51, ../sass/_form.scss */
 table .table-cell {
   display: table-cell;
   vertical-align: bottom;
   text-align: center;
 }
-/* line 58, ../sass/form.scss */
+/* line 57, ../sass/_form.scss */
 table .thinnest {
   width: 48px;
 }
-/* line 62, ../sass/form.scss */
+/* line 61, ../sass/_form.scss */
 table .thin {
   width: 74px;
 }
-/* line 66, ../sass/form.scss */
+/* line 65, ../sass/_form.scss */
 table .medium {
   width: 195px;
 }
-/* line 70, ../sass/form.scss */
+/* line 69, ../sass/_form.scss */
 table .wide {
   width: 224px;
 }
-/* line 74, ../sass/form.scss */
+/* line 73, ../sass/_form.scss */
 table .main-heading {
   color: #FFF;
   line-height: 35px;
@@ -75,45 +76,45 @@ table .main-heading {
   text-transform: uppercase;
   text-align: left;
   padding-left: 15px;
-  background: #d87400;
+  background: #909d51;
 }
-/* line 85, ../sass/form.scss */
+/* line 84, ../sass/_form.scss */
 table .applicability {
   text-align: center;
   font-weight: bold;
   background: #d1e7bc;
 }
-/* line 90, ../sass/form.scss */
+/* line 89, ../sass/_form.scss */
 table .applicability span {
   display: block;
   margin-bottom: 5px;
 }
-/* line 97, ../sass/form.scss */
+/* line 96, ../sass/_form.scss */
 table .value-added select {
   margin-top: 20px;
 }
-/* line 101, ../sass/form.scss */
+/* line 100, ../sass/_form.scss */
 table .category-score, table .possible-points {
   font-weight: bold;
   font-size: 22px;
   line-height: 45px;
   text-align: center;
 }
-/* line 108, ../sass/form.scss */
+/* line 107, ../sass/_form.scss */
 table .category-score {
   background: #f8ff00;
 }
-/* line 112, ../sass/form.scss */
+/* line 111, ../sass/_form.scss */
 table .bottom-section {
   padding: 4px 8px;
   text-align: right;
 }
-/* line 116, ../sass/form.scss */
+/* line 115, ../sass/_form.scss */
 table .bottom-section .word-minimum {
   font-weight: bold;
   font-size: 14px;
 }
-/* line 121, ../sass/form.scss */
+/* line 120, ../sass/_form.scss */
 table .bottom-section textarea {
   display: block;
   max-width: 588px;
@@ -121,12 +122,12 @@ table .bottom-section textarea {
   min-height: 70px;
 }
 
-/* line 130, ../sass/form.scss */
+/* line 129, ../sass/_form.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 134, ../sass/form.scss */
+/* line 133, ../sass/_form.scss */
 .tac {
   text-align: center;
 }
