@@ -1,19 +1,17 @@
-$(document).ready(function() {
+;$(document).ready(function() {
 	display(envision.questions)
 })
 
 // combined functions for displaying questions
 function display(questions) {
-	// reset score since otherwise it would continue to add on page load
-	envision.totalScore = 0;
-	// envision total posible points
-	envision.maxScore = maxScore(envision.questions)
 	// throw the questions into the DOM
 	displayQuestions(questions)
 	// change selected and corresponding scores based on current session for value added
 	updateSelect('va', 'valueAdded')
 	// change selected based on current session for applicability
 	updateSelect('ap', 'applicable')
+	// need to re-update data ater updateSelect functions run
+	setSession()
 }
 
 // appends each question to the tbody tag
@@ -22,7 +20,6 @@ function displayQuestions(questions) {
 
 	_.each(questions, function(question) {
 		$('tbody').append(template({question: question}))
-		// console.log($('.category').last())
 		$('.category').last().children('.applicability').children('select').change(applicable(question))
 		$('.category').last().children('.value-added').children('select').change(updateValues)
 	})
@@ -100,6 +97,10 @@ function setSession() {
 
 // update selects with selected option selected
 function updateSelect(klass, propName) {
+	// must catch the values here because activating each selects change method will alter the varacity of these values
+	var totalScore = envision.totalScore;
+	var maxScore = envision.maxScore;
+
 	$('.' + klass).each(function(index) {
 		var selectedIndex = envision.DOM[propName][index]
 		// 0 to avoid unecessary processing
@@ -107,12 +108,11 @@ function updateSelect(klass, propName) {
 			$(this).prop('selectedIndex', selectedIndex).change()
 		}
 	})
-} 
 
-
-// count words
-// var words = $('#yo').val().split(' ');
-//     alert(words.length);
-
-
+	// reset values to what they should be here
+	envision.totalScore = totalScore;
+	envision.maxScore = maxScore;
+	$('#actual-score').text(envision.totalScore)
+	$('#max-score').text(envision.maxScore)
+}
 

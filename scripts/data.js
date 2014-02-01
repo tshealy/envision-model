@@ -9,7 +9,7 @@ function getCache() {
 
 		envision = {};
 
-		envision.questions = [
+		envision.qualityQuestions = [
 			{
 				number: 'QL1.1',
 				synopsis: 'Improve community quality of life.',
@@ -304,21 +304,346 @@ function getCache() {
 			},
 		]
 
-		envision.totalScore = 0;
-		envision.DOM = {
-			applicable: makeArray(envision.questions.length),
+		envision.naturalQuestions = [
+			{
+				number: 'NW1.1',
+				synopsis: 'Preserve prime habitat.',
+				body: 'Avoid placing the project – and the site compound/temporary works – on land that has been identified as of high ecological value or as having species of high value.',
+				addedValue: [
+					{
+						level: 'Superior',
+						val: 9
+					},
+					{
+						level: 'Conserving',
+						val: 14
+					},
+					{
+						level: 'Restorative',
+						val: 18
+					}
+				]
+			},
+			{
+				number: 'NW1.2',
+				synopsis: 'Protect wetlands and surface water.',
+				body: 'Protect, buffer, enhance and restore areas designated as wetlands, shorelines, and waterbodies by providing natural buffer zones, vegetation and soil protection zones.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 1
+					},
+					{
+						level: 'Enhanced',
+						val: 4
+					},
+					{
+						level: 'Superior',
+						val: 9
+					},
+					{
+						level: 'Conserving',
+						val: 14
+					},
+					{
+						level: 'Restorative',
+						val: 18
+					}
+				]
+			},
+			{
+				number: 'NW1.3',
+				synopsis: 'Preserve prime farmland.',
+				body: 'Identify and protect soils designated as prime farmland, unique farmland, or farmland of statewide importance.',
+				addedValue: [
+					{
+						level: 'Superior',
+						val: 6
+					},
+					{
+						level: 'Conserving',
+						val: 12
+					},
+					{
+						level: 'Restorative',
+						val: 15
+					}
+				]
+			},
+			{
+				number: 'NW1.4',
+				synopsis: 'Avoid adverse geology.',
+				body: 'Avoid development in adverse geologic formations and safeguard aquifers to reduce natural hazards risk and preserve high quality groundwater resources.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 1
+					},
+					{
+						level: 'Enhanced',
+						val: 2
+					},
+					{
+						level: 'Superior',
+						val: 3
+					},
+					{
+						level: 'Conserving',
+						val: 5
+					}
+				]
+			},
+			{
+				number: 'NW1.5',
+				synopsis: 'Preserve floodplain functions.',
+				body: 'Preserve floodplain functions by limiting development and development impacts to maintain water management capacities and capabilities.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 2
+					},
+					{
+						level: 'Enhanced',
+						val: 5
+					},
+					{
+						level: 'Superior',
+						val: 8
+					},
+					{
+						level: 'Conserving',
+						val: 14
+					}
+				]
+			},
+			{
+				number: 'NW1.6',
+				synopsis: 'Avoid unsuitable development on steep slopes.',
+				body: 'Protect steep slopes and hillsides from inappropriate and unsuitable development in order to avoid exposures and risks from erosion and landslides, and other natural hazards.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 1
+					},
+					{
+						level: 'Superior',
+						val: 4
+					},
+					{
+						level: 'Conserving',
+						val: 6
+					}
+				]
+			},
+			{
+				number: 'NW1.7',
+				synopsis: 'Preserve greenfields.',
+				body: 'Conserve undeveloped land by locating projects on previously developed greyfield sites and/or sites classified as brownfields.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 3
+					},
+					{
+						level: 'Enhanced',
+						val: 6
+					},
+					{
+						level: 'Superior',
+						val: 10
+					},
+					{
+						level: 'Conserving',
+						val: 15
+					},
+					{
+						level: 'Restorative',
+						val: 23
+					}
+				]
+			},
+			{
+				number: 'NW2.1',
+				synopsis: 'Manage stormwater.',
+				body: 'Minimize the impact of infrastructure on stormwater runoff quantity and quality.',
+				addedValue: [
+					{
+						level: 'Enhanced',
+						val: 4
+					},
+					{
+						level: 'Superior',
+						val: 9
+					},
+					{
+						level: 'Conserving',
+						val: 17
+					},
+					{
+						level: 'Restorative',
+						val: 21
+					}
+				]
+			},
+			{
+				number: 'NW2.2',
+				synopsis: 'Reduce pesticide and fertilizer impacts.',
+				body: 'Reduce non-point source pollution by reducing the quantity, toxicity, bioavailability and persistence of pesticides and fertilizers, or by eliminating the need for the use of these materials.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 1
+					},
+					{
+						level: 'Enhanced',
+						val: 2
+					},
+					{
+						level: 'Superior',
+						val: 5
+					},
+					{
+						level: 'Conserving',
+						val: 9
+					}
+				]
+			},
+			{
+				number: 'NW2.3',
+				synopsis: 'Prevent surface and groundwater contamination.',
+				body: 'Preserve fresh water resources by incorporating measures to prevent pollutants from contaminating surface and groundwater and monitor impacts over operations.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 1
+					},
+					{
+						level: 'Enhanced',
+						val: 4
+					},
+					{
+						level: 'Superior',
+						val: 9
+					},
+					{
+						level: 'Conserving',
+						val: 14
+					},
+					{
+						level: 'Restorative',
+						val: 18
+					}
+				]
+			},
+			{
+				number: 'NW3.1',
+				synopsis: 'Preserve species biodiversity.',
+				body: 'Protect biodiversity by preserving and restoring species and habitats.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 2
+					},
+					{
+						level: 'Conserving',
+						val: 13
+					},
+					{
+						level: 'Restorative',
+						val: 16
+					}
+				]
+			},
+			{
+				number: 'NW3.2',
+				synopsis: 'Control invasive species.',
+				body: 'Use appropriate non-invasive species and control or eliminate existing invasive species.',
+				addedValue: [
+					{
+						level: 'Superior',
+						val: 5
+					},
+					{
+						level: 'Conserving',
+						val: 9
+					},
+					{
+						level: 'Restorative',
+						val: 11
+					}
+				]
+			},
+			{
+				number: 'NW3.3',
+				synopsis: 'Restore disturbed soils.',
+				body: 'Restore soils disturbed during construction and previous development to bring back ecological and hydrological functions.',
+				addedValue: [
+					{
+						level: 'Conserving',
+						val: 8
+					},
+					{
+						level: 'Restorative',
+						val: 10
+					}
+				]
+			},
+			{
+				number: 'NW3.4',
+				synopsis: 'Maintain wetland and surface water functions.',
+				body: 'Maintain and restore the ecosystem functions of streams, wetlands, waterbodies and their riparian areas.',
+				addedValue: [
+					{
+						level: 'Improved',
+						val: 3
+					},
+					{
+						level: 'Enhanced',
+						val: 6
+					},
+					{
+						level: 'Superior',
+						val: 9
+					},
+					{
+						level: 'Conserving',
+						val: 15
+					},
+					{
+						level: 'Restorative',
+						val: 19
+					}
+				]
+			}
+		]
+
+		// envision.totalScore = 0;
+
+		// for Conserving default
+		envision.totalScore = conservingTotalScore(envision.qualityQuestions.concat(envision.naturalQuestions))
+
+		envision.qualityDOM = {
+			applicable: makeArray(envision.qualityQuestions.length),
+			// valueAdded: makeArray(envision.qualityQuestions.length),
 			// for Conserving default
 			valueAdded: [4,4,4,2,2,4,4,4,3,3,4,4]
 		}
 
+		envision.naturalDOM = {
+			applicable: makeArray(envision.naturalQuestions.length),
+			// valueAdded: makeArray(envision.naturalQuestions.length),
+			// for Conserving default
+			valueAdded: [2,4,2,4,4,3,4,3,4,4,2,2,1,4]
+		}
+
 		// set question max points
-		determineMaxPoints(envision.questions)
+		determineMaxPoints(envision.qualityQuestions.concat(envision.naturalQuestions))
 
 		// create select drop down data
-		processSelectOptions(envision.questions)
+		processSelectOptions(envision.qualityQuestions.concat(envision.naturalQuestions))
 
 		// envision total posible points
-		envision.maxScore = maxScore(envision.questions)
+		envision.maxScore = maxScore(envision.qualityQuestions.concat(envision.naturalQuestions))
 
 		// stores envision
 		sessionStorage.setItem('envision', JSON.stringify(envision));
@@ -373,3 +698,21 @@ function processSelectOptions(questions) {
 		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
 	})
 }
+
+function conservingTotalScore(questions) {
+	return _.reduce(_.map(questions, function(question) {
+		return _.findWhere(question.addedValue, {level: 'Conserving'}).val
+	}), function(memo, num) {return memo + num})
+}
+
+
+
+
+
+
+
+
+
+
+
+
