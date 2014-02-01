@@ -4,6 +4,7 @@
 <head>
 	<title>Envision: Natural World</title>
 
+	<script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -62,7 +63,9 @@
 
 			<div class="arrow next-page">
 
-				<a href="../survey/index.html" class="rectangle submit">Submit</a>
+				<!-- <a href="../survey/index.html" class="rectangle submit">Submit</a> -->
+				<div class="rectangle submit">Submit</div>
+
 			</div>
 		</div>
 	</div>
@@ -97,7 +100,7 @@
 			<td class="thin possible-points"><%= question.maxPoints %></td>
 
 		</tr>
-		<tr>
+		<tr class="text-area">
 			<td class="bottom-section" colspan="6">
 				<span class="word-minimum">*<span class="word-number">0</span> word minimum required for this level</span>
 				<textarea></textarea>
@@ -110,6 +113,7 @@
 
 	</script>
 
+	<script type="text/javascript" src="../scripts/parse.js"></script>
 	<script type="text/javascript" src="../scripts/data.js"></script>
 	<script type="text/javascript" src="../scripts/natural.js"></script>
 	<script type="text/javascript" src="../scripts/main.js"></script>

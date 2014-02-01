@@ -1,4 +1,5 @@
 $(document).ready(function() {
-	envision.questions = envision.qualityQuestions;
-	envision.DOM = envision.qualityDOM;
+	envision.questions = envision.quality.questions;
+	envision.DOM = envision.quality.DOM;
+	envision.explanations = envision.quality.explanations;
 })

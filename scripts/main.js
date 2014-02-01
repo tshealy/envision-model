@@ -5,13 +5,15 @@
 // combined functions for displaying questions
 function display(questions) {
 	// throw the questions into the DOM
-	displayQuestions(questions)
+	displayQuestions(questions);
 	// change selected and corresponding scores based on current session for value added
-	updateSelect('va', 'valueAdded')
+	updateSelect('va', 'valueAdded');
 	// change selected based on current session for applicability
-	updateSelect('ap', 'applicable')
+	updateSelect('ap', 'applicable');
+	// display explanation text
+	retrieveExplanations();
 	// need to re-update data ater updateSelect functions run
-	setSession()
+	setSession();
 }
 
 // appends each question to the tbody tag
@@ -22,12 +24,13 @@ function displayQuestions(questions) {
 		$('tbody').append(template({question: question}))
 		$('.category').last().children('.applicability').children('select').change(applicable(question))
 		$('.category').last().children('.value-added').children('select').change(updateValues)
+		$('.text-area').last().children('.bottom-section').children('textarea').change(updateExplanation(question))
 	})
 
 	$('.question-separator').last().remove()
 }
 
-// onchange function for applicability select
+// change function for applicability select
 function applicable(question) {
 
 	return function() {
@@ -61,7 +64,7 @@ function applicable(question) {
 
 }
 
-// onchange function for value added select
+// change function for value added select
 function updateValues() {
 	var select = this;
 	var val = $(select).val()
@@ -74,6 +77,23 @@ function updateValues() {
 	score.text(val)
 	envision.DOM.valueAdded[$('.va').index(this)] = $(this).prop('selectedIndex')
 	setSession()
+}
+
+// change function for textarea
+function updateExplanation(question) {
+	
+	return function() {
+		var index = envision.questions.indexOf(question);
+		envision.explanations[index] = $(this).val();
+		setSession()
+	}
+}
+
+// retrieve explanations
+function retrieveExplanations() {
+	$('textarea').each(function(index) {
+		$(this).val(envision.explanations[index])
+	})
 }
 
 // relate vals for default Conservative
@@ -115,4 +135,17 @@ function updateSelect(klass, propName) {
 	$('#actual-score').text(envision.totalScore)
 	$('#max-score').text(envision.maxScore)
 }
+
+// integrates data from parse into the envision object
+function reconnect(fromParse) {
+	envision.quality.DOM          = fromParse.quality.DOM
+	envision.quality.explanations = fromParse.quality.explanations
+
+	envision.natural.DOM          = fromParse.natural.DOM
+	envision.natural.explanations = fromParse.natural.explanations
+
+	envision.totalScore           = fromParse.totalScore;
+	envision.maxScore             = fromParse.maxScore;
+}
+
 
