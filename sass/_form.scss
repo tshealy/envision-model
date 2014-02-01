@@ -1,6 +1,4 @@
 $header: #587833;
-$quality: #D87400;
-$natural: #909D51;
 $arrow: #3C72A5;
 $points: #F8FF00;
 $applicable: #D1E7BC;
@@ -10,7 +8,8 @@ $applicable: #D1E7BC;
 	padding: 10px 15px;
 	background: #FFF;
 	margin: 0 auto;
-	padding-bottom: 25px;
+	padding-bottom: 50px;
+	position: relative;
 
 	.score {
 		font-size: 36px;
@@ -34,7 +33,7 @@ table {
 
 	td {
 		padding: 8px;
-		border: 3px solid $quality;
+		border: 3px solid $form-color;
 		vertical-align: top;
 	}
 
@@ -46,7 +45,7 @@ table {
 
 	.question-separator {
 		height: 30px;
-		background: $quality;
+		background: $form-color;
 	}
 
 	.table-cell {
@@ -79,7 +78,7 @@ table {
 		text-transform: uppercase;
 		text-align: left;
 		padding-left: 15px;
-		background: $quality;
+		background: $form-color;
 	}
 
 	.applicability {
@@ -94,7 +93,7 @@ table {
 		}
 	}
 
-	.added-value select {
+	.value-added select {
 		margin-top: 20px;
 	}
 

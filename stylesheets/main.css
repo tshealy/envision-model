@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 9, ../sass/main.scss */
+/* line 7, ../sass/main.scss */
 body {
   font-family: Helvetica, sans-serif;
   background: #acacac;
@@ -71,17 +71,17 @@ body {
   line-height: 28px;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 14, ../sass/main.scss */
 * {
   vertical-align: top;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 18, ../sass/main.scss */
 a {
   text-decoration: none;
 }
 
-/* line 24, ../sass/main.scss */
+/* line 22, ../sass/main.scss */
 header {
   color: #FFF;
   height: 100px;
@@ -89,46 +89,99 @@ header {
   background: #587833;
   margin: 0 auto;
 }
-/* line 31, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 header h1 {
   font-size: 60px;
   line-height: 110px;
   padding-left: 20px;
 }
 
-/* line 38, ../sass/main.scss */
-.next-page {
-  position: relative;
-  display: block;
+/* line 36, ../sass/main.scss */
+.next-page, .previous-page {
+  position: absolute;
+  display: inline-block;
   width: 145px;
   height: 120px;
-  margin: -8px 0 0 765px;
+  top: 0;
 }
-/* line 46, ../sass/main.scss */
-.next-page .rectangle {
+/* line 43, ../sass/main.scss */
+.next-page .rectangle, .previous-page .rectangle {
   color: #FFF;
-  line-height: 65px;
-  height: 65px;
   width: 105px;
-  padding-left: 15px;
   position: absolute;
-  left: 0;
   top: 26px;
-  border-radius: 0 15px 15px 0;
   display: inline-block;
   background: #3c72a5;
   vertical-align: top;
 }
-/* line 61, ../sass/main.scss */
-.next-page .arrow-right {
+/* line 53, ../sass/main.scss */
+.next-page .arrow-right, .next-page .arrow-left, .previous-page .arrow-right, .previous-page .arrow-left {
   position: absolute;
   top: 0;
-  right: 0;
   width: 0;
   height: 0;
   border-top: 60px solid transparent;
   border-bottom: 60px solid transparent;
-  border-left: 60px solid #3c72a5;
   display: inline-block;
   vertical-align: top;
+}
+/* line 65, ../sass/main.scss */
+.next-page .arrow-right, .previous-page .arrow-right {
+  right: 0;
+  border-left: 60px solid #3c72a5;
+}
+/* line 70, ../sass/main.scss */
+.next-page .arrow-left, .previous-page .arrow-left {
+  left: 0px;
+  border-right: 60px solid #3c72a5;
+}
+
+/* line 76, ../sass/main.scss */
+.next-page {
+  right: 0;
+}
+/* line 79, ../sass/main.scss */
+.next-page .rectangle {
+  line-height: 65px;
+  height: 65px;
+  left: 0;
+  padding-left: 15px;
+  border-radius: 0 15px 15px 0;
+}
+/* line 87, ../sass/main.scss */
+.next-page .submit {
+  text-align: center;
+  border-radius: 15px;
+  padding: 0 20px;
+}
+
+/* line 94, ../sass/main.scss */
+.previous-page {
+  left: 0;
+}
+/* line 97, ../sass/main.scss */
+.previous-page .rectangle {
+  line-height: 25px;
+  padding-top: 7px;
+  height: 58px;
+  text-align: center;
+  padding-left: 5px;
+  right: 0;
+  border-radius: 15px 0 0 15px;
+}
+
+/* line 109, ../sass/main.scss */
+.bottom-nav {
+  position: relative;
+  width: 95%;
+  height: 100px;
+  margin: 40px auto 0;
+  padding-top: 15px;
+}
+/* line 116, ../sass/main.scss */
+.bottom-nav .review {
+  border: 1px solid black;
+  width: 414px;
+  padding: 15px;
+  margin: 0 auto 0;
 }
