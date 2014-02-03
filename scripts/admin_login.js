@@ -8,9 +8,6 @@ function login() {
 		var username = $('.username').val();
 		var password = $('.password').val();
 
-		console.log('username: ', username)
-		console.log('password: ', password)
-
 		Parse.User.logIn(username, password, {
 			success: function(user) {
 				window.location = "../admin/index.html"

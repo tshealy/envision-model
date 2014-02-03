@@ -22,7 +22,7 @@ function validateName() {
 
 function toAdmin() {
 	$('.admin-login').click(function() {
-		if (Parse.User.current === null) {
+		if (Parse.User.current() === null) {
 			window.location = "admin_login/index.html";
 		} else {
 			window.location = "admin/index.html";
