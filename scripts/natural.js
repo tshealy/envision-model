@@ -13,6 +13,7 @@ $(document).ready(function() {
 	envision.questions = envision.natural.questions;
 	envision.DOM = envision.natural.DOM;
 	envision.explanations = envision.natural.explanations;
+	envision.scores = envision.natural.scores;
 	savePerson();
 });
 
@@ -29,11 +30,13 @@ function disect() {
 	var form = {
 		quality: {
 			DOM:          envision.quality.DOM,
-			explanations: envision.quality.explanations
+			explanations: envision.quality.explanations,
+			scores:       envision.quality.scores
 		},
 		natural: {
 			DOM:          envision.natural.DOM,
-			explanations: envision.natural.explanations
+			explanations: envision.natural.explanations,
+			scores:       envision.natural.scores
 		},
 
 		totalScore:       envision.totalScore,

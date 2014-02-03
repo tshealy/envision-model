@@ -653,6 +653,10 @@ function getCache() {
 		envision.quality.explanations = makeArray(envision.quality.questions.length, '');
 		envision.natural.explanations = makeArray(envision.natural.questions.length, '');
 
+		// set score
+		envision.quality.scores = makeArray(envision.quality.questions.length, 0);
+		envision.natural.scores = makeArray(envision.natural.questions.length, 0);
+
 		// set question max points
 		determineMaxPoints(envision.quality.questions.concat(envision.natural.questions))
 

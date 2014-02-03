@@ -41,8 +41,10 @@ function applicable(question) {
 		var score = $(select).parent().parent().children('.category-score')
 		var maxPoints = $(select).parent().parent().children('.possible-points')
 		var maxScore = $('#max-score')
+		var index = $('.ap').index(this)
 
-		envision.DOM.applicable[$('.ap').index(this)] = $(this).prop('selectedIndex')
+		envision.DOM.applicable[index] = $(this).prop('selectedIndex')
+		envision.scores[index] = 0;
 
 		if (val === 'unapplicable') {
 			addedValue.children('.no-value').attr('selected', true)
@@ -66,16 +68,28 @@ function applicable(question) {
 
 // change function for value added select
 function updateValues() {
+	// this is the select that triggered the change method
 	var select = this;
+	// val is current value of this select
 	var val = $(select).val()
+	// finding this question's current score
 	var score = $(select).parent().parent().children('.category-score')
-	var index = $(this).prop('selectedIndex')
+	// getting index of this select (finding it's order of appearance in the DOM)
+	var index = $('.va').index(this)
 
+	// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
 	envision.totalScore += parseInt(val) - parseInt(score.text())
+	// setting score based on order of question
+	envision.scores[index] = parseInt(val);
+	
+	// set new score in DOM
 	$('#actual-score').text(envision.totalScore)
-
+	// set question's score to the value of the selected option
 	score.text(val)
-	envision.DOM.valueAdded[$('.va').index(this)] = $(this).prop('selectedIndex')
+
+	// store the index of the selected option for recall purposes
+	envision.DOM.valueAdded[index] = $(this).prop('selectedIndex')
+	// save changes in envision to the session
 	setSession()
 }
 
