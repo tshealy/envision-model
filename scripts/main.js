@@ -5,13 +5,15 @@
 // combined functions for displaying questions
 function display(questions) {
 	// throw the questions into the DOM
-	displayQuestions(questions)
+	displayQuestions(questions);
 	// change selected and corresponding scores based on current session for value added
-	updateSelect('va', 'valueAdded')
+	updateSelect('va', 'valueAdded');
 	// change selected based on current session for applicability
-	updateSelect('ap', 'applicable')
+	updateSelect('ap', 'applicable');
+	// display explanation text
+	retrieveExplanations();
 	// need to re-update data ater updateSelect functions run
-	setSession()
+	setSession();
 }
 
 // appends each question to the tbody tag
@@ -22,12 +24,13 @@ function displayQuestions(questions) {
 		$('tbody').append(template({question: question}))
 		$('.category').last().children('.applicability').children('select').change(applicable(question))
 		$('.category').last().children('.value-added').children('select').change(updateValues)
+		$('.text-area').last().children('.bottom-section').children('textarea').change(updateExplanation(question))
 	})
 
 	$('.question-separator').last().remove()
 }
 
-// onchange function for applicability select
+// change function for applicability select
 function applicable(question) {
 
 	return function() {
@@ -38,10 +41,12 @@ function applicable(question) {
 		var score = $(select).parent().parent().children('.category-score')
 		var maxPoints = $(select).parent().parent().children('.possible-points')
 		var maxScore = $('#max-score')
+		var index = $('.ap').index(this)
 
-		envision.DOM.applicable[$('.ap').index(this)] = $(this).prop('selectedIndex')
+		envision.DOM.applicable[index] = $(this).prop('selectedIndex')
+		envision.scores[index] = 0;
 
-		if (val === 'unapplicable') {
+		if (val === 'not applicable') {
 			addedValue.children('.no-value').attr('selected', true)
 			updateValues.call(addedValue)
 			addedValue.attr('disabled', 'disabled');
@@ -61,19 +66,48 @@ function applicable(question) {
 
 }
 
-// onchange function for value added select
+// change function for value added select
 function updateValues() {
+	// this is the select that triggered the change method
 	var select = this;
+	// val is current value of this select
 	var val = $(select).val()
+	// finding this question's current score
 	var score = $(select).parent().parent().children('.category-score')
-	var index = $(this).prop('selectedIndex')
+	// getting index of this select (finding it's order of appearance in the DOM)
+	var index = $('.va').index(this)
 
+	// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
 	envision.totalScore += parseInt(val) - parseInt(score.text())
-	$('#actual-score').text(envision.totalScore)
+	// setting score based on order of question
+	envision.scores[index] = parseInt(val);
 
+	// set new score in DOM
+	$('#actual-score').text(envision.totalScore)
+	// set question's score to the value of the selected option
 	score.text(val)
-	envision.DOM.valueAdded[$('.va').index(this)] = $(this).prop('selectedIndex')
+
+	// store the index of the selected option for recall purposes
+	envision.DOM.valueAdded[index] = $(this).prop('selectedIndex')
+	// save changes in envision to the session
 	setSession()
+}
+
+// change function for textarea
+function updateExplanation(question) {
+	
+	return function() {
+		var index = envision.questions.indexOf(question);
+		envision.explanations[index] = $(this).val();
+		setSession()
+	}
+}
+
+// retrieve explanations
+function retrieveExplanations() {
+	$('textarea').each(function(index) {
+		$(this).val(envision.explanations[index])
+	})
 }
 
 // relate vals for default Conservative
@@ -115,4 +149,17 @@ function updateSelect(klass, propName) {
 	$('#actual-score').text(envision.totalScore)
 	$('#max-score').text(envision.maxScore)
 }
+
+// integrates data from parse into the envision object
+function reconnect(fromParse) {
+	envision.quality.DOM          = fromParse.quality.DOM
+	envision.quality.explanations = fromParse.quality.explanations
+
+	envision.natural.DOM          = fromParse.natural.DOM
+	envision.natural.explanations = fromParse.natural.explanations
+
+	envision.totalScore           = fromParse.totalScore;
+	envision.maxScore             = fromParse.maxScore;
+}
+
 

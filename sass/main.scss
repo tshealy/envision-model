@@ -25,11 +25,27 @@ header {
 	width: 960px;
 	background: $header;
 	margin: 0 auto;
+	position: relative;
+
+	a {
+		color: #FFF;
+	}
 
 	h1 {
 		font-size: 60px;
 		line-height: 110px;
 		padding-left: 20px;
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.admin {
+		text-align: right;
+		display: inline-block;
+		position: absolute;
+		right: 20px;
+		top: 55px;
+		cursor: pointer;
 	}
 }
 
