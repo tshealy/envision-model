@@ -1,10 +1,5 @@
 // temporary spot for parse stuff . .
-var Person = Parse.Object.extend("Person");
-var AllPersons = Parse.Collection.extend({
-	model: Person
-})
-
-var col = new AllPersons()
+var Student = Parse.Object.extend("Student");
 
 
 $(document).ready(function() {

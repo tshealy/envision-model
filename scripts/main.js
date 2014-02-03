@@ -46,7 +46,7 @@ function applicable(question) {
 		envision.DOM.applicable[index] = $(this).prop('selectedIndex')
 		envision.scores[index] = 0;
 
-		if (val === 'unapplicable') {
+		if (val === 'not applicable') {
 			addedValue.children('.no-value').attr('selected', true)
 			updateValues.call(addedValue)
 			addedValue.attr('disabled', 'disabled');
@@ -81,7 +81,7 @@ function updateValues() {
 	envision.totalScore += parseInt(val) - parseInt(score.text())
 	// setting score based on order of question
 	envision.scores[index] = parseInt(val);
-	
+
 	// set new score in DOM
 	$('#actual-score').text(envision.totalScore)
 	// set question's score to the value of the selected option

@@ -10,6 +10,9 @@ function validateName() {
 		if (firstName === '' || lastName === '') {
 			alert('Please submit a first and last name.')
 		} else {
+			envision.firstName = firstName;
+			envision.lastName = lastName;
+			setSession();
 			window.location = 'quality_of_life/index.html';		
 		}
 

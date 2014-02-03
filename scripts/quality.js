@@ -3,4 +3,6 @@ $(document).ready(function() {
 	envision.DOM = envision.quality.DOM;
 	envision.explanations = envision.quality.explanations;
 	envision.scores = envision.quality.scores;
+	// put name in DOM
+	// $('.name').text(envision.firstName + ' ' + envision.lastName)
 })

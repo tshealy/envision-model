@@ -14,13 +14,15 @@ $(document).ready(function() {
 	envision.DOM = envision.natural.DOM;
 	envision.explanations = envision.natural.explanations;
 	envision.scores = envision.natural.scores;
+	// put name in DOM
+	// $('.name').text(envision.firstName + ' ' + envision.lastName)
 	savePerson();
 });
 
 function savePerson() {
 	$('.submit').click(function() {
-		var person = new Person();
-		person.save(disect()).then(function(object) {
+		var student = new Student();
+		student.save(disect()).then(function(object) {
 		  alert("yay! it worked");
 		});
 	})
@@ -41,6 +43,8 @@ function disect() {
 
 		totalScore:       envision.totalScore,
 		maxScore:         envision.maxScore,
+		firstName:        envision.firstName,
+		lastName:         envision.lastName
 	}
 
 	return form;

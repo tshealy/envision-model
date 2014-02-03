@@ -1,0 +1,49 @@
+/* line 1, ../sass/admin.scss */
+.wrapper {
+  background: #FFF;
+  margin: 0 auto;
+}
+
+/* line 7, ../sass/admin.scss */
+table {
+  font-size: 16px;
+  line-height: 20px;
+  border-collapse: collapse;
+  background: #FFF;
+}
+/* line 13, ../sass/admin.scss */
+table td {
+  border: 1px solid #000;
+  white-space: nowrap;
+  padding: 2px 10px;
+}
+/* line 19, ../sass/admin.scss */
+table .credit-rating {
+  padding: 10px 0;
+  text-align: center;
+}
+/* line 24, ../sass/admin.scss */
+table .question-number {
+  font-weight: bold;
+  padding: 10px 10px 0 10px;
+}
+/* line 29, ../sass/admin.scss */
+table .score {
+  text-align: right;
+}
+/* line 33, ../sass/admin.scss */
+table .quality {
+  background: #D87400;
+}
+/* line 37, ../sass/admin.scss */
+table .natural {
+  background: #909D51;
+}
+/* line 41, ../sass/admin.scss */
+table .name {
+  cursor: pointer;
+}
+/* line 44, ../sass/admin.scss */
+table .name:hover {
+  background: #e0e0e0;
+}

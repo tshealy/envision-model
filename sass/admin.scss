@@ -1,0 +1,48 @@
+.wrapper {
+	background: #FFF;
+	margin: 0 auto;
+}
+
+
+table {
+	font-size: 16px;
+	line-height: 20px;
+	border-collapse: collapse;
+	background: #FFF;
+
+	td {
+		border: 1px solid #000;
+		white-space: nowrap;
+		padding: 2px 10px;
+	}
+
+	.credit-rating {
+		padding: 10px 0;
+		text-align: center;
+	}
+
+	.question-number {
+		font-weight: bold;
+		padding: 10px 10px 0 10px;
+	}
+
+	.score {
+		text-align: right;
+	}
+
+	.quality {
+		background: #D87400;
+	}
+
+	.natural {
+		background: #909D51;
+	}
+
+	.name {
+		cursor: pointer;
+
+		&:hover {
+			background: rgb(224, 224, 224);
+		}
+	}
+}
