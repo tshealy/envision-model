@@ -6,6 +6,8 @@ StudentView = Parse.View.extend({
 
 	tagName: 'tr',
 
+	className: 'student',
+
 	events: {
 		'click .name': 'showForm'
 	},
@@ -34,7 +36,10 @@ StudentView = Parse.View.extend({
 	showForm: function() {
 		reconnect(this.model.attributes);
 		setSession();
-		window.location = '../quality_of_life/index.html';
+		window.open(
+		  '../quality_of_life/index.html',
+		  '_blank'
+		);
 	}
 })
 
@@ -60,6 +65,20 @@ function checkAdmin() {
 	} else {
 		admin.students = new Students(admin.students)
 		displayStudents(admin.students.models)
+
+		var length = admin.students.length
+		console.log('length before: ', length)
+		admin.studentsCheck = new Students(admin.students)
+		// to check for if students have submitted during current session
+		admin.studentsCheck.fetch().then(function(students) {
+			console.log('length after: ', students.length)
+			if (students.length !== length) {
+				$('.student').remove()
+				displayStudents(students.models);
+				admin.students = admin.studentsCheck;
+				sessionStorage.setItem('admin', JSON.stringify(admin));			
+			}
+		})
 	}
 }
 

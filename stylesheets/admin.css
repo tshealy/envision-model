@@ -42,8 +42,9 @@ table .natural {
 /* line 41, ../sass/admin.scss */
 table .name {
   cursor: pointer;
+  text-align: right;
 }
-/* line 44, ../sass/admin.scss */
+/* line 45, ../sass/admin.scss */
 table .name:hover {
   background: #e0e0e0;
 }

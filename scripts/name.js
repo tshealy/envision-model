@@ -1,5 +1,6 @@
 ;$(document).ready(function() {
-	validateName()
+	validateName();
+	toAdmin();
 })
 
 function validateName() {
@@ -16,5 +17,15 @@ function validateName() {
 			window.location = 'quality_of_life/index.html';		
 		}
 
+	})
+}
+
+function toAdmin() {
+	$('.admin-login').click(function() {
+		if (Parse.User.current === null) {
+			window.location = "admin_login/index.html";
+		} else {
+			window.location = "admin/index.html";
+		}
 	})
 }
