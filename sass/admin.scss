@@ -21,9 +21,13 @@ table {
 		text-align: center;
 	}
 
-	.question-number {
+	.question-number, .total-score {
 		font-weight: bold;
 		padding: 10px 10px 0 10px;
+	}
+
+	.question-number {
+		cursor: pointer;
 	}
 
 	.score {

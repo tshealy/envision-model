@@ -112,14 +112,17 @@ table {
 		padding: 4px 8px;
 		text-align: right;
 
-		.word-minimum {
+		.words {
 			font-weight: bold;
 			font-size: 14px;
 		}
 
 		textarea {
+			font-size: 16px;
+			line-height: 20px;
+			padding: 5px 10px;
 			display: block;
-			width: 99%;
+			width: 96%;
 			min-height: 70px;
 			resize: vertical;
 		}

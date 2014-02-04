@@ -14,8 +14,6 @@ StudentView = Parse.View.extend({
 
 	initialize: function() {
 		$('#table').append(this.$el);
-		console.log(this)
-		console.log(this.model)
 
 		this.render();
 	},
@@ -45,8 +43,10 @@ StudentView = Parse.View.extend({
 
 
 $(document).ready(function() {
-	createRows();
-	checkAdmin();
+	// redirect to admin login if admin not logged in
+	if (adminLoggedIn()) {
+		checkAdmin();
+	}
 })
 
 function checkAdmin() {
@@ -58,23 +58,23 @@ function checkAdmin() {
 
 		admin.students = new Students();
 		admin.students.fetch().then(function(students) {
-			displayStudents(students.models);
+			adminSetup(students)
+
 			sessionStorage.setItem('admin', JSON.stringify(admin));
 		})
 
 	} else {
-		admin.students = new Students(admin.students)
-		displayStudents(admin.students.models)
+		admin.students = new Students(admin.students);
+		adminSetup(admin.students)
 
-		var length = admin.students.length
-		console.log('length before: ', length)
-		admin.studentsCheck = new Students(admin.students)
+		var length = admin.students.length;
+		admin.studentsCheck = new Students(admin.students);
 		// to check for if students have submitted during current session
 		admin.studentsCheck.fetch().then(function(students) {
-			console.log('length after: ', students.length)
 			if (students.length !== length) {
-				$('.student').remove()
-				displayStudents(students.models);
+				$('.student').remove();
+				adminSetup(students)
+
 				admin.students = admin.studentsCheck;
 				sessionStorage.setItem('admin', JSON.stringify(admin));			
 			}
@@ -82,18 +82,65 @@ function checkAdmin() {
 	}
 }
 
+// setup admin
+function adminSetup(students) {
+	// get explanations
+	complieExplanations(students);
+	// display column headers
+	createRows();
+	// display students
+	displayStudents(students);
+}
+
+// create student views
 function displayStudents(students) {
-	_.each(students, function(student) {
+	_.each(students.models, function(student) {
 		new StudentView({model: student})
 	})
 }
 
+// make a row with a question number in each column
 function createRows() {
 	var backgroundClass;
-	_.each(envision.quality.questions.concat(envision.natural.questions), function(question) {
+	_.each(envision.quality.questions.concat(envision.natural.questions), function(question, index) {
 		backgroundClass = question.number.slice(0,1) === 'Q' ? 'quality' : 'natural';
-
-		$('#question-number').append('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>')
+		// insert question num into the table as a <td>
+		$('#question-number').append('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>');
+		// set click event for question number
+		$('#question-number').children().last().click(function() {
+			admin.explanationIndex = index;
+			admin.explanations[admin.explanationIndex];
+			sessionStorage.setItem('admin', JSON.stringify(admin));
+			window.open(
+			  	'../responses/index.html',
+			  	'_blank'
+			);
+		})
 	})
-	$('#question-number').append('<td class="question-number">Total Score</td>')
+	$('#question-number').append('<td class="total-score">Total Score</td>')
+}
+
+// click event for question number to compile all explanations for that question
+function complieExplanations(students) {
+	// get quality questions explanations
+	var quality = _.map(envision.quality.questions, function(question, index) {
+		return getExplanation(students, 'quality', index)
+	})
+
+	// get natural questions explanations
+	var natural = _.map(envision.natural.questions, function(question, index) {
+		return getExplanation(students, 'natural', index)
+	})
+
+	admin.explanations = quality.concat(natural);
+	sessionStorage.setItem('admin', JSON.stringify(admin));
+}
+
+function getExplanation(students, type, index) {
+	return _.map(students.models, function(student) {
+		return {
+			name:        student.get('firstName') + ' ' + student.get('lastName'),
+			explanation: student.get(type).explanations[index]
+		}
+	})
 }

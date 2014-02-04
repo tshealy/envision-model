@@ -110,24 +110,27 @@ table .bottom-section {
   text-align: right;
 }
 /* line 115, ../sass/_form.scss */
-table .bottom-section .word-minimum {
+table .bottom-section .words {
   font-weight: bold;
   font-size: 14px;
 }
 /* line 120, ../sass/_form.scss */
 table .bottom-section textarea {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 5px 10px;
   display: block;
-  width: 99%;
+  width: 96%;
   min-height: 70px;
   resize: vertical;
 }
 
-/* line 129, ../sass/_form.scss */
+/* line 132, ../sass/_form.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 133, ../sass/_form.scss */
+/* line 136, ../sass/_form.scss */
 .tac {
   text-align: center;
 }

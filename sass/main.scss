@@ -64,6 +64,7 @@ header {
 		display: inline-block;
 		background: $arrow;
 		vertical-align: top;
+		cursor: pointer;
 	}
 
 	.arrow-right, .arrow-left {
@@ -76,6 +77,7 @@ header {
 
 		display: inline-block;
 		vertical-align: top;
+		cursor: pointer;
 	}
 
 	.arrow-right {

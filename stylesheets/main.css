@@ -129,8 +129,9 @@ header .admin {
   display: inline-block;
   background: #3c72a5;
   vertical-align: top;
+  cursor: pointer;
 }
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 .next-page .arrow-right, .next-page .arrow-left, .previous-page .arrow-right, .previous-page .arrow-left {
   position: absolute;
   top: 0;
@@ -140,23 +141,24 @@ header .admin {
   border-bottom: 60px solid transparent;
   display: inline-block;
   vertical-align: top;
+  cursor: pointer;
 }
-/* line 81, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 .next-page .arrow-right, .previous-page .arrow-right {
   right: 0;
   border-left: 60px solid #3c72a5;
 }
-/* line 86, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .next-page .arrow-left, .previous-page .arrow-left {
   left: 0px;
   border-right: 60px solid #3c72a5;
 }
 
-/* line 92, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 .next-page {
   right: 0;
 }
-/* line 95, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 .next-page .rectangle {
   line-height: 65px;
   height: 65px;
@@ -164,18 +166,18 @@ header .admin {
   padding-left: 15px;
   border-radius: 0 15px 15px 0;
 }
-/* line 103, ../sass/main.scss */
+/* line 105, ../sass/main.scss */
 .next-page .submit {
   text-align: center;
   border-radius: 15px;
   padding: 0 20px;
 }
 
-/* line 110, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .previous-page {
   left: 0;
 }
-/* line 113, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 .previous-page .rectangle {
   line-height: 25px;
   padding-top: 7px;
@@ -186,7 +188,7 @@ header .admin {
   border-radius: 15px 0 0 15px;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .bottom-nav {
   position: relative;
   width: 95%;
@@ -194,7 +196,7 @@ header .admin {
   margin: 40px auto 0;
   padding-top: 15px;
 }
-/* line 132, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .bottom-nav .review {
   border: 1px solid black;
   width: 414px;

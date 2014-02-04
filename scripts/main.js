@@ -6,12 +6,12 @@
 function display(questions) {
 	// throw the questions into the DOM
 	displayQuestions(questions);
+	// display explanation text
+	retrieveExplanations();
 	// change selected and corresponding scores based on current session for value added
 	updateSelect('va', 'valueAdded');
 	// change selected based on current session for applicability
 	updateSelect('ap', 'applicable');
-	// display explanation text
-	retrieveExplanations();
 	// need to re-update data ater updateSelect functions run
 	setSession();
 }
@@ -27,7 +27,10 @@ function displayQuestions(questions) {
 		// set DOM values for question to be reference in change callbacks
 		var DOM = {
 			textArea:   $('.text-area').last().children('.bottom-section').children('textarea'),
-			wordCount:  $('.text-area').last().children('.bottom-section').children('.word-minimum').children('.word-number'),
+			wordCount:  $('.text-area').last().children('.bottom-section').children('.word-number'),
+			wordMet:    $('.text-area').last().children('.bottom-section').children('.word-minimum'),
+			currentWord:$('.text-area').last().children('.bottom-section').children('.current-word-count'),
+			// wordCount:  $('.text-area').last().children('.bottom-section').children('.word-minimum').children('.word-number'),
 			score:      $('.category').last().children('.category-score'),
 			maxPoints:  $('.category').last().children('.possible-points'),
 			valueAdded: $('.category').last().children('.value-added').children('select'),
@@ -38,7 +41,8 @@ function displayQuestions(questions) {
 		// set change callbacks
 		DOM.applicable.change(applicable(question, DOM));
 		DOM.valueAdded.change(updateValues(question, DOM));
-		DOM.textArea.change(updateExplanation(question));
+		DOM.textArea.change(setSession);
+		DOM.textArea.keyup(updateExplanation(question, DOM));
 	})
 
 	$('.question-separator').last().remove()
@@ -104,33 +108,40 @@ function updateValues(question, DOM) {
 
 		// store the index of the selected option for recall purposes
 		envision.DOM.valueAdded[DOM.indexVal] = selectedIndex;
+		// update word minimum requirement
+		DOM.textArea.keyup();
 		// save changes in envision to the session
 		setSession();
 	}
 }
 
-// change function for textarea
-function updateExplanation(question) {
+// keyup function for textarea
+function updateExplanation(question, DOM) {
 	
 	return function() {
-		var index = envision.questions.indexOf(question);
-		var words = $(this).val().split(' ').length;
-		envision.explanations[index] = $(this).val();
+		var words = _.without($(this).val().split(' '), '').length;
+		envision.explanations[DOM.indexVal] = $(this).val();
 
-		// if (words < question.wordCount) {
-		// 	$(this).css('border', '3px solid red')
-		// } else {
-		// 	question.enoughWords = true;
-		// }
-
-		setSession()
+		// if word minimum requirement not met
+		if (words < question.wordCount) {
+			DOM.wordCount.css('color', 'rgb(255, 0, 0)');
+			DOM.wordMet.text(' word minimum required for this level.');
+			DOM.currentWord.text(question.wordCount - words + ' to go.');
+			question.enoughWords = false;
+		} else {
+			DOM.wordCount.css('color', 'rgb(0, 187, 0)');
+			DOM.wordMet.text(' word minimum requirement met.');
+			DOM.currentWord.text('');
+			question.enoughWords = true;
+		}
 	}
 }
 
 // retrieve explanations
 function retrieveExplanations() {
 	$('textarea').each(function(index) {
-		$(this).val(envision.explanations[index])
+		$(this).val(envision.explanations[index]);
+		$(this).keyup();
 	})
 }
 
@@ -200,6 +211,15 @@ function determineWordCount(level) {
 // returns first word in string
 function getText(text) {
 	return text.slice(0, text.indexOf(' '))
+}
+
+function adminLoggedIn() {
+	if (Parse.User.current() === null) {
+		$('body').css('disply', 'none')
+		window.location = '../admin_login/index.html';
+		return false;
+	}
+	return true;
 }
 
 
