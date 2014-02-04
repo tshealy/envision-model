@@ -20,46 +20,56 @@ function display(questions) {
 function displayQuestions(questions) {
 	var template = _.template($('#question').text())
 
-	_.each(questions, function(question) {
+	_.each(questions, function(question, index) {
+		// append question
 		$('tbody').append(template({question: question}))
-		$('.category').last().children('.applicability').children('select').change(applicable(question))
-		$('.category').last().children('.value-added').children('select').change(updateValues)
-		$('.text-area').last().children('.bottom-section').children('textarea').change(updateExplanation(question))
+
+		// set DOM values for question to be reference in change callbacks
+		var DOM = {
+			textArea:   $('.text-area').last().children('.bottom-section').children('textarea'),
+			wordCount:  $('.text-area').last().children('.bottom-section').children('.word-minimum').children('.word-number'),
+			score:      $('.category').last().children('.category-score'),
+			maxPoints:  $('.category').last().children('.possible-points'),
+			valueAdded: $('.category').last().children('.value-added').children('select'),
+			applicable: $('.category').last().children('.applicability').children('select'),
+			indexVal:   index
+		}
+
+		// set change callbacks
+		DOM.applicable.change(applicable(question, DOM));
+		DOM.valueAdded.change(updateValues(question, DOM));
+		DOM.textArea.change(updateExplanation(question));
 	})
 
 	$('.question-separator').last().remove()
 }
 
 // change function for applicability select
-function applicable(question) {
+function applicable(question, DOM) {
 
 	return function() {
-
-		var select = this;
-		var val = $(select).val();
-		var valueAdded = $(select).parent().parent().children('.value-added').children('select')
-		var score = $(select).parent().parent().children('.category-score')
-		var maxPoints = $(select).parent().parent().children('.possible-points')
+		// this is the select who's change callback was triggered
+		var val = $(this).val();
 		var maxScore = $('#max-score')
-		var index = $('.ap').index(this)
 
-		envision.DOM.applicable[index] = $(this).prop('selectedIndex')
-		envision.scores[index] = 0;
+		envision.DOM.applicable[DOM.indexVal] = $(this).prop('selectedIndex')
+		envision.scores[DOM.indexVal] = 0;
 
+		// if select has been changed to not applicable . .
 		if (val === 'not applicable') {
-			valueAdded.children('.no-value').attr('selected', true)
-			updateValues.call(valueAdded)
-			valueAdded.attr('disabled', 'disabled');
+			DOM.valueAdded.children('.no-value').attr('selected', true)
+			DOM.valueAdded.change();
+			DOM.valueAdded.attr('disabled', 'disabled');
 			
 			maxScore.text(envision.maxScore -= question.maxPoints)
-			score.text('- -')
-			maxPoints.text('- -')
+			DOM.score.text('- -')
+			DOM.maxPoints.text('- -')
 
 		} else {
-			valueAdded.attr('disabled', false);
+			DOM.valueAdded.attr('disabled', false);
 			maxScore.text(envision.maxScore += question.maxPoints)
-			score.text(0)
-			maxPoints.text(question.maxPoints)
+			DOM.score.text(0)
+			DOM.maxPoints.text(question.maxPoints)
 		}
 		setSession()
 	}
@@ -67,42 +77,36 @@ function applicable(question) {
 }
 
 // change function for value added select
-function updateValues() {
-	// this is the select that triggered the change method
-	var select = this;
-	// val is current value of this select
-	var val = $(select).val();
-	// finding this question's current score
-	var score = $(select).parent().parent().children('.category-score');
-	// getting index of this select (finding it's order of appearance in the DOM)
-	var index = $('.va').index(this);
-	// get question
-	var question = envision.questions[index];
-	// get selected index
-	var selectedIndex = $(this).prop('selectedIndex');
-	// find word count
-	var wordCount = $(this).parent().parent().next().children('.bottom-section').children('.word-minimum').children('.word-number');
-	// get text
-	var text = $($(this).children()[selectedIndex]).text()
-	
-	// now set wordCount and change in DOM
-	question.wordCount = determineWordCount(getText(text));
-	wordCount.text(question.wordCount);
+function updateValues(question, DOM) {
 
-	// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
-	envision.totalScore += parseInt(val) - parseInt(score.text());
-	// setting score based on order of question
-	envision.scores[index] = parseInt(val);
+	return function() {
+		// this is the select who's change callback was triggered
+		// val is current value of this select
+		var val = $(this).val();
+		// get selected index
+		var selectedIndex = $(this).prop('selectedIndex');
+		// get text
+		var text = $($(this).children()[selectedIndex]).text()
+		
+		// now set wordCount and change in DOM
+		question.wordCount = determineWordCount(getText(text));
+		DOM.wordCount.text(question.wordCount);
 
-	// set new score in DOM
-	$('#actual-score').text(envision.totalScore);
-	// set question's score to the value of the selected option
-	score.text(val);
+		// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
+		envision.totalScore += parseInt(val) - parseInt(DOM.score.text());
+		// setting score based on order of question
+		envision.scores[DOM.indexVal] = parseInt(val);
 
-	// store the index of the selected option for recall purposes
-	envision.DOM.valueAdded[index] = selectedIndex;
-	// save changes in envision to the session
-	setSession();
+		// set new score in DOM
+		$('#actual-score').text(envision.totalScore);
+		// set question's score to the value of the selected option
+		DOM.score.text(val);
+
+		// store the index of the selected option for recall purposes
+		envision.DOM.valueAdded[DOM.indexVal] = selectedIndex;
+		// save changes in envision to the session
+		setSession();
+	}
 }
 
 // change function for textarea
