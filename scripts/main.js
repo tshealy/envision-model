@@ -37,7 +37,7 @@ function applicable(question) {
 
 		var select = this;
 		var val = $(select).val();
-		var addedValue = $(select).parent().parent().children('.value-added').children('select')
+		var valueAdded = $(select).parent().parent().children('.value-added').children('select')
 		var score = $(select).parent().parent().children('.category-score')
 		var maxPoints = $(select).parent().parent().children('.possible-points')
 		var maxScore = $('#max-score')
@@ -47,16 +47,16 @@ function applicable(question) {
 		envision.scores[index] = 0;
 
 		if (val === 'not applicable') {
-			addedValue.children('.no-value').attr('selected', true)
-			updateValues.call(addedValue)
-			addedValue.attr('disabled', 'disabled');
+			valueAdded.children('.no-value').attr('selected', true)
+			updateValues.call(valueAdded)
+			valueAdded.attr('disabled', 'disabled');
 			
 			maxScore.text(envision.maxScore -= question.maxPoints)
 			score.text('- -')
 			maxPoints.text('- -')
 
 		} else {
-			addedValue.attr('disabled', false);
+			valueAdded.attr('disabled', false);
 			maxScore.text(envision.maxScore += question.maxPoints)
 			score.text(0)
 			maxPoints.text(question.maxPoints)
@@ -71,26 +71,38 @@ function updateValues() {
 	// this is the select that triggered the change method
 	var select = this;
 	// val is current value of this select
-	var val = $(select).val()
+	var val = $(select).val();
 	// finding this question's current score
-	var score = $(select).parent().parent().children('.category-score')
+	var score = $(select).parent().parent().children('.category-score');
 	// getting index of this select (finding it's order of appearance in the DOM)
-	var index = $('.va').index(this)
+	var index = $('.va').index(this);
+	// get question
+	var question = envision.questions[index];
+	// get selected index
+	var selectedIndex = $(this).prop('selectedIndex');
+	// find word count
+	var wordCount = $(this).parent().parent().next().children('.bottom-section').children('.word-minimum').children('.word-number');
+	// get text
+	var text = $($(this).children()[selectedIndex]).text()
+	
+	// now set wordCount and change in DOM
+	question.wordCount = determineWordCount(getText(text));
+	wordCount.text(question.wordCount);
 
 	// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
-	envision.totalScore += parseInt(val) - parseInt(score.text())
+	envision.totalScore += parseInt(val) - parseInt(score.text());
 	// setting score based on order of question
 	envision.scores[index] = parseInt(val);
 
 	// set new score in DOM
-	$('#actual-score').text(envision.totalScore)
+	$('#actual-score').text(envision.totalScore);
 	// set question's score to the value of the selected option
-	score.text(val)
+	score.text(val);
 
 	// store the index of the selected option for recall purposes
-	envision.DOM.valueAdded[index] = $(this).prop('selectedIndex')
+	envision.DOM.valueAdded[index] = selectedIndex;
 	// save changes in envision to the session
-	setSession()
+	setSession();
 }
 
 // change function for textarea
@@ -98,7 +110,15 @@ function updateExplanation(question) {
 	
 	return function() {
 		var index = envision.questions.indexOf(question);
+		var words = $(this).val().split(' ').length;
 		envision.explanations[index] = $(this).val();
+
+		// if (words < question.wordCount) {
+		// 	$(this).css('border', '3px solid red')
+		// } else {
+		// 	question.enoughWords = true;
+		// }
+
 		setSession()
 	}
 }
@@ -112,7 +132,7 @@ function retrieveExplanations() {
 
 // relate vals for default Conservative
 function relate(question, val) {
-	var conservativeVal = _.findWhere(question.addedValue, {level: 'Conserving'}).val
+	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
 
 	if (val === conservativeVal) {
 		return val;
@@ -161,5 +181,22 @@ function reconnect(fromParse) {
 	envision.totalScore           = fromParse.totalScore;
 	envision.maxScore             = fromParse.maxScore;
 }
+
+function determineWordCount(level) {
+	switch (level) {
+		case "Improved": return 20;
+		case "Enhanced": return 40;
+		case "Superior": return 60;
+		case "Conserving": return 80;
+		case "Restorative": return 100;
+		default: return 0;
+	}
+}
+
+// returns first word in string
+function getText(text) {
+	return text.slice(0, text.indexOf(' '))
+}
+
 
 

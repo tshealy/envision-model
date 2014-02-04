@@ -19,7 +19,7 @@ function getCache() {
 					number: 'QL1.1',
 					synopsis: 'Improve community quality of life.',
 					body: 'Improve the net quality of life of all communities affected by the project and mitigate negative impacts to communities.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 2
@@ -46,7 +46,7 @@ function getCache() {
 					number: 'QL1.2',
 					synopsis: 'Stimulate sustainable growth and development.',
 					body: 'Support and stimulate sustainable growth and development, including improvements in job growth, capacity building, productivity, business attractiveness and livability.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -73,7 +73,7 @@ function getCache() {
 					number: 'QL1.3',
 					synopsis: 'Develop local skills and capabilities.',
 					body: 'Expand the knowledge, skills and capacity of the community workforce to improve their ability to grow and develop.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -100,7 +100,7 @@ function getCache() {
 					number: 'QL2.1',
 					synopsis: 'Enhance public health and safety.',
 					body: 'Take into account the health and safety implications of using new materials, technologies or methodologies above and beyond meeting regulatory requirements.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 2
@@ -115,7 +115,7 @@ function getCache() {
 					number: 'QL2.2',
 					synopsis: 'Minimize noise and vibration.',
 					body: 'Minimize noise and vibration generated during construction and in the operation of the constructed works to maintain and improve community livability.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -134,7 +134,7 @@ function getCache() {
 					number: 'QL2.3',
 					synopsis: 'Minimize light pollution.',
 					body: 'Prevent excessive glare, light at night, and light directed skyward to conserve energy and reduce obtrusive lighting and excessive glare.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -161,7 +161,7 @@ function getCache() {
 					number: 'QL2.4',
 					synopsis: 'Improve community mobility and access.',
 					body: 'Locate, design and construct the project in a way that eases traffic congestion, improves mobility and access, does not promote urban sprawl, and otherwise improves community livability.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -184,7 +184,7 @@ function getCache() {
 					number: 'QL2.5',
 					synopsis: 'Encourage alternative modes of transportation.',
 					body: 'Improve accessibility to non-motorized transportation and public transit. Promote alternative transportation and reduce congestion.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -211,7 +211,7 @@ function getCache() {
 					number: 'QL2.6',
 					synopsis: 'Improve site accessibility, safety and wayfinding.',
 					body: 'Improve user accessibility, safety, and wayfinding of the site and surrounding areas.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Enhanced',
 							val: 3
@@ -234,7 +234,7 @@ function getCache() {
 					number: 'QL3.1',
 					synopsis: 'Preserve historic and cultural resources.',
 					body: 'Preserve or restore significant historical and cultural sites and related resources to preserve and enhance community cultural resources.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -257,7 +257,7 @@ function getCache() {
 					number: 'QL3.2',
 					synopsis: 'Preserve views and local character.',
 					body: 'Design the project in a way that maintains the local character of the community and does not have negative impacts on community views.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -284,7 +284,7 @@ function getCache() {
 					number: 'QL3.3',
 					synopsis: 'Enhance public space.',
 					body: 'Improve existing public space including parks, plazas, recreational facilities, or wildlife refuges to enhance community livability.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -316,7 +316,7 @@ function getCache() {
 					number: 'NW1.1',
 					synopsis: 'Preserve prime habitat.',
 					body: 'Avoid placing the project – and the site compound/temporary works – on land that has been identified as of high ecological value or as having species of high value.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Superior',
 							val: 9
@@ -335,7 +335,7 @@ function getCache() {
 					number: 'NW1.2',
 					synopsis: 'Protect wetlands and surface water.',
 					body: 'Protect, buffer, enhance and restore areas designated as wetlands, shorelines, and waterbodies by providing natural buffer zones, vegetation and soil protection zones.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -362,7 +362,7 @@ function getCache() {
 					number: 'NW1.3',
 					synopsis: 'Preserve prime farmland.',
 					body: 'Identify and protect soils designated as prime farmland, unique farmland, or farmland of statewide importance.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Superior',
 							val: 6
@@ -381,7 +381,7 @@ function getCache() {
 					number: 'NW1.4',
 					synopsis: 'Avoid adverse geology.',
 					body: 'Avoid development in adverse geologic formations and safeguard aquifers to reduce natural hazards risk and preserve high quality groundwater resources.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -404,7 +404,7 @@ function getCache() {
 					number: 'NW1.5',
 					synopsis: 'Preserve floodplain functions.',
 					body: 'Preserve floodplain functions by limiting development and development impacts to maintain water management capacities and capabilities.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 2
@@ -427,7 +427,7 @@ function getCache() {
 					number: 'NW1.6',
 					synopsis: 'Avoid unsuitable development on steep slopes.',
 					body: 'Protect steep slopes and hillsides from inappropriate and unsuitable development in order to avoid exposures and risks from erosion and landslides, and other natural hazards.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -446,7 +446,7 @@ function getCache() {
 					number: 'NW1.7',
 					synopsis: 'Preserve greenfields.',
 					body: 'Conserve undeveloped land by locating projects on previously developed greyfield sites and/or sites classified as brownfields.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 3
@@ -473,7 +473,7 @@ function getCache() {
 					number: 'NW2.1',
 					synopsis: 'Manage stormwater.',
 					body: 'Minimize the impact of infrastructure on stormwater runoff quantity and quality.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Enhanced',
 							val: 4
@@ -496,7 +496,7 @@ function getCache() {
 					number: 'NW2.2',
 					synopsis: 'Reduce pesticide and fertilizer impacts.',
 					body: 'Reduce non-point source pollution by reducing the quantity, toxicity, bioavailability and persistence of pesticides and fertilizers, or by eliminating the need for the use of these materials.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -519,7 +519,7 @@ function getCache() {
 					number: 'NW2.3',
 					synopsis: 'Prevent surface and groundwater contamination.',
 					body: 'Preserve fresh water resources by incorporating measures to prevent pollutants from contaminating surface and groundwater and monitor impacts over operations.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 1
@@ -546,7 +546,7 @@ function getCache() {
 					number: 'NW3.1',
 					synopsis: 'Preserve species biodiversity.',
 					body: 'Protect biodiversity by preserving and restoring species and habitats.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 2
@@ -565,7 +565,7 @@ function getCache() {
 					number: 'NW3.2',
 					synopsis: 'Control invasive species.',
 					body: 'Use appropriate non-invasive species and control or eliminate existing invasive species.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Superior',
 							val: 5
@@ -584,7 +584,7 @@ function getCache() {
 					number: 'NW3.3',
 					synopsis: 'Restore disturbed soils.',
 					body: 'Restore soils disturbed during construction and previous development to bring back ecological and hydrological functions.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Conserving',
 							val: 8
@@ -599,7 +599,7 @@ function getCache() {
 					number: 'NW3.4',
 					synopsis: 'Maintain wetland and surface water functions.',
 					body: 'Maintain and restore the ecosystem functions of streams, wetlands, waterbodies and their riparian areas.',
-					addedValue: [
+					valueAdded: [
 						{
 							level: 'Improved',
 							val: 3
@@ -678,13 +678,13 @@ function makeArray(length, item) {
 // sets maxPoints each question based on return value of maxPoints function. also side-effectively sets envisions maxScore.
 function determineMaxPoints(questions) {
 	_.each(questions, function(question, index) {
-		question.maxPoints = _.first(maxPoints(question.addedValue)).val
+		question.maxPoints = _.first(maxPoints(question.valueAdded)).val
 	})
 }
 
 // sorts vals to find greatest
-function maxPoints(addedValue) {
-	return addedValue.sort(function(a, b) {
+function maxPoints(valueAdded) {
+	return valueAdded.sort(function(a, b) {
 		return b.val - a.val;
 	})
 }
@@ -701,10 +701,10 @@ function maxScore(questions) {
 	return maxScore;
 }
 
-// takes addedValue array of each question and generates option tags with correct values
+// takes valueAdded array of each question and generates option tags with correct values
 function processSelectOptions(questions) {
 	_.each(questions, function(question) {
-		question.selectOptions = _.map(question.addedValue, function(val) {
+		question.selectOptions = _.map(question.valueAdded, function(val) {
 			// return "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>"
 			// for Conservative default
 			return "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>"
@@ -717,7 +717,7 @@ function processSelectOptions(questions) {
 
 function conservingTotalScore(questions) {
 	return _.reduce(_.map(questions, function(question) {
-		return _.findWhere(question.addedValue, {level: 'Conserving'}).val
+		return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
 	}), function(memo, num) {return memo + num})
 }
 
