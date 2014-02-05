@@ -1,44 +1,59 @@
-// var TestObject = Parse.Object.extend("TestObject");
-// var testObject = new TestObject();
-// testObject.save({foo: "bar"}).then(function(object) {
-//   alert("yay! it worked");
-// });
-
-// var Person = Parse.Object.extend("Person");
-// var AllPersons = Parse.Collection.extend({
-// 	model: Person
-// })
 
 $(document).ready(function() {
-	envision.questions = envision.natural.questions;
-	envision.DOM = envision.natural.DOM;
-	envision.explanations = envision.natural.explanations;
-	envision.scores = envision.natural.scores;
-	// put name in DOM
-	// $('.name').text(envision.firstName + ' ' + envision.lastName)
-	savePerson();
+	syncEnvision('natural')
+	submitForm();
+	update();
 });
 
 // save the form if all word minimums have been met
-function savePerson() {
+function submitForm() {
 	$('.submit').click(function() {
 		// find questions not passing word count requirement
 		var questionsWordCount = verifyWordCount(envision.quality.questions.concat(envision.natural.questions));
 		// if all questions pass, save form
 		if (questionsWordCount.length === 0) {
 			// set timer to converted hours:mins:secs
-			envision.timer = getTimer(new Date() - new Date(envision.timer));
-			setSession();
-			// instantiate student
-			var student = new Student();
-			// save student
-			student.save(disect()).then(function(object) {
-			  alert("yay! it worked");
-			});		
+			envision.timeTaken = getTimer(new Date() - new Date(envision.timer));
+
+			save();
 		} else {
 			alert('You must meet the minimum word requirement for the following questions:\n\n' + questionsWordCount.join('\n'))
 		}
 	})
+}
+
+function save() {
+	// instantiate student
+	var student = new Student();
+	// set attributes
+	student.set(disect())
+
+	// check for if a submission has already been saved
+	if (envision._id === undefined) {
+		student.save(null, {
+			success: function(student) {
+				envision._id = student.id;
+		  		envision.message = "You've submitted successfully!";
+		  		setSession();
+		  		window.location = '../survey/index.html';
+			},
+			error: function() {
+				alert('Failure to save. Please submit again.')
+			}
+		})
+	} else {
+		student.id = envision._id;
+		student.save(null, {
+			success: function(student) {
+		  		envision.message = "You've updated successfully!";
+		  		setSession();
+		  		window.location = '../survey/index.html';
+			},
+			error: function() {
+				alert('Failure to update. Please update again.')
+			}
+		})
+	}
 }
 
 // select only certain values from envision to be saved.
@@ -59,7 +74,7 @@ function disect() {
 		maxScore:         envision.maxScore,
 		firstName:        envision.firstName,
 		lastName:         envision.lastName,
-		timer:            envision.timer
+		timeTaken:        envision.timeTaken
 	}
 
 	return form;
@@ -74,6 +89,12 @@ function verifyWordCount(questions) {
 		}
 	})
 	return questionNums;
+}
+
+function update() {
+	if (envision._id !== undefined) {
+		$('.submit').text('Update');
+	}
 }
 
 

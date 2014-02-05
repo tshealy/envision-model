@@ -29,7 +29,7 @@ StudentView = Parse.View.extend({
 		})
 
 		this.$el.append('<td class="score">'+ this.model.get('totalScore') +'</td>');
-		this.$el.append('<td class="score">'+ this.model.get('timer') +'</td>');
+		this.$el.append('<td class="score">'+ this.model.get('timeTaken') +'</td>');
 	},
 
 	showForm: function() {
@@ -178,7 +178,7 @@ function getScores(students, type) {
 
 function avgTime(students) {
 	var mils = _.map(students.models, function(student) {
-		var time = student.get('timer');
+		var time = student.get('timeTaken');
 		var hours = parseInt(time.slice(0, 2));
 		var mins  = parseInt(time.slice(3, 5));
 		var secs  = parseInt(time.slice(6));
