@@ -1,0 +1,54 @@
+header {
+	text-align: center;
+}
+
+
+.wrapper {
+	background: #FFF;
+	width: 960px;
+	margin: 0 auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+
+	td {
+		padding: 10px;
+		border: 1px solid #000;
+		font-size: 16px;
+	}
+
+	.thin {
+		width: 20%;
+	}
+
+	.wide {
+		width: 80%;
+	}
+
+	.name {
+		text-align: right;
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	.question-number {
+		font-weight: bold;
+		font-size: 24px;
+		text-align: center;
+		border-top: 3px solid #000;
+		border-bottom: 3px solid #000;
+	}
+
+	.header {
+		font-weight: bold;
+		font-size: 18px;
+		border-bottom: 2px solid #000;
+		text-align: center;
+	}
+
+	.right-border {
+		border-right: 2px solid #000;
+	}
+}

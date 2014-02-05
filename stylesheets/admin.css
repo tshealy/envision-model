@@ -23,7 +23,7 @@ table .credit-rating {
   text-align: center;
 }
 /* line 24, ../sass/admin.scss */
-table .question-number, table .total-score {
+table .question-number, table .total-score, table .time {
   font-weight: bold;
   padding: 10px 10px 0 10px;
 }
@@ -36,19 +36,15 @@ table .score {
   text-align: right;
 }
 /* line 37, ../sass/admin.scss */
-table .quality {
-  background: #D87400;
-}
-/* line 41, ../sass/admin.scss */
-table .natural {
-  background: #909D51;
-}
-/* line 45, ../sass/admin.scss */
 table .name {
   cursor: pointer;
   text-align: right;
 }
-/* line 49, ../sass/admin.scss */
+/* line 41, ../sass/admin.scss */
 table .name:hover {
   background: #e0e0e0;
+}
+/* line 46, ../sass/admin.scss */
+table .special {
+  background: #d2e9eb;
 }

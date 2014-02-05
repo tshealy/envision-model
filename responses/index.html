@@ -16,9 +16,36 @@
 </head>
 <body>
 
-	<div class="wrapper">
+	<header>
+		<h1>Response</h1>
+	</header>
 
+	<div class="wrapper">
+		<table>
+			<tbody id="responses">
+
+				<tr>
+					<td colspan="2" class="question-number"></td>
+				</tr>
+				<tr>
+					<td class="header thin right-border">Name</td>
+					<td class="header wide">Response</td>
+				</tr>
+
+			</tbody>
+
+		</table>
 	</div>
+
+
+	<script type="text/template" id="one-response">
+
+		<tr>
+			<td class="thin right-border name"><%= response.fullName %></td>
+			<td class="wide"><%= response.explanation %></td>
+		</tr>
+
+	</script>
 
 
 	<script type="text/javascript" src="../scripts/parse.js"></script>

@@ -145,19 +145,6 @@ function retrieveExplanations() {
 	})
 }
 
-// relate vals for default Conservative
-function relate(question, val) {
-	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
-
-	if (val === conservativeVal) {
-		return val;
-	}
-	if (val < conservativeVal) {
-		return '-' + (conservativeVal - val).toString();
-	}
-	return '+' + (question.maxPoints - conservativeVal).toString();
-}
-
 // update selects with selected option selected
 function updateSelect(klass, propName) {
 	// must catch the values here because activating each selects change method will alter the varacity of these values

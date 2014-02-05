@@ -29,6 +29,7 @@ StudentView = Parse.View.extend({
 		})
 
 		this.$el.append('<td class="score">'+ this.model.get('totalScore') +'</td>');
+		this.$el.append('<td class="score">'+ this.model.get('timer') +'</td>');
 	},
 
 	showForm: function() {
@@ -90,12 +91,16 @@ function adminSetup(students) {
 	createRows();
 	// display students
 	displayStudents(students);
+	// dispaly final avgs
+	compileScores(students);
+	// display avg time
+	avgTime(students);
 }
 
 // create student views
 function displayStudents(students) {
 	_.each(students.models, function(student) {
-		new StudentView({model: student})
+		new StudentView({model: student});
 	})
 }
 
@@ -103,7 +108,7 @@ function displayStudents(students) {
 function createRows() {
 	var backgroundClass;
 	_.each(envision.quality.questions.concat(envision.natural.questions), function(question, index) {
-		backgroundClass = question.number.slice(0,1) === 'Q' ? 'quality' : 'natural';
+		backgroundClass = questionBackground(question.number);
 		// insert question num into the table as a <td>
 		$('#question-number').append('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>');
 		// set click event for question number
@@ -112,12 +117,13 @@ function createRows() {
 			admin.explanations[admin.explanationIndex];
 			sessionStorage.setItem('admin', JSON.stringify(admin));
 			window.open(
-			  	'../responses/index.html',
+			  	'../responses/index.html?' + question.number,
 			  	'_blank'
 			);
 		})
 	})
 	$('#question-number').append('<td class="total-score">Total Score</td>')
+	$('#question-number').append('<td class="time">Time</td>')
 }
 
 // click event for question number to compile all explanations for that question
@@ -139,8 +145,52 @@ function complieExplanations(students) {
 function getExplanation(students, type, index) {
 	return _.map(students.models, function(student) {
 		return {
-			name:        student.get('firstName') + ' ' + student.get('lastName'),
+			fullName:  	 student.get('firstName') + ' ' + student.get('lastName'),
 			explanation: student.get(type).explanations[index]
 		}
 	})
 }
+
+function compileScores(students) {
+	var scores = getScores(students, 'quality').concat(getScores(students, 'natural'));
+
+	$('#table').append('<tr id="avgs"></tr>');
+	$('#avgs').append('<td class="name special">Average</td>')
+	_.each(scores, function(score) {
+		$('#avgs').append('<td class="score special">'+ score +'</td>');
+	})
+
+	$('#avgs').append('<td class="score special">'+ _.reduce(scores, function(memo, num) {return memo + num}) +'</td>');
+}
+
+function getScores(students, type) {
+	var length = envision[type].questions.length;
+	var scores = [];
+
+	for (var i = 0; i < length; i++) {
+		scores.push(Math.round(_.reduce(_.map(students.models, function(student) {
+			return student.get(type).scores[i];
+		}), function(memo, num) {return memo + num}) / students.models.length))
+	}
+
+	return scores;
+}
+
+function avgTime(students) {
+	var mils = _.map(students.models, function(student) {
+		var time = student.get('timer');
+		var hours = parseInt(time.slice(0, 2));
+		var mins  = parseInt(time.slice(3, 5));
+		var secs  = parseInt(time.slice(6));
+
+		return (secs * 1000) + (mins * 1000 * 60) + (hours * 1000 * 60 * 60);
+	})
+
+	mils = Math.floor(_.reduce(mils, function(memo, num) {return memo + num}) / students.models.length);
+
+	$('#avgs').append('<td class="score special">'+ getTimer(mils) +'</td>');
+}
+
+
+
+

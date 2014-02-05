@@ -203,3 +203,13 @@ header .admin {
   padding: 15px;
   margin: 0 auto 0;
 }
+
+/* line 142, ../sass/main.scss */
+.quality {
+  background: #D87400;
+}
+
+/* line 146, ../sass/main.scss */
+.natural {
+  background: #909D51;
+}

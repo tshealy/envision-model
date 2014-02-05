@@ -715,6 +715,19 @@ function processSelectOptions(questions) {
 	})
 }
 
+// relate vals for default Conservative
+function relate(question, val) {
+	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
+
+	if (val === conservativeVal) {
+		return val;
+	}
+	if (val < conservativeVal) {
+		return '-' + (conservativeVal - val).toString();
+	}
+	return '+' + (question.maxPoints - conservativeVal).toString();
+}
+
 function conservingTotalScore(questions) {
 	return _.reduce(_.map(questions, function(question) {
 		return _.findWhere(question.valueAdded, {level: 'Conserving'}).val

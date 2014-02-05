@@ -13,8 +13,10 @@ function validateName() {
 		} else {
 			envision.firstName = firstName;
 			envision.lastName = lastName;
+			envision.timer = envision.timer === undefined ? new Date() : envision.timer;
+
 			setSession();
-			window.location = 'quality_of_life/index.html';		
+			window.location = 'quality_of_life/index.html';
 		}
 
 	})

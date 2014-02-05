@@ -26,7 +26,12 @@ function savePerson() {
 		var questionsWordCount = verifyWordCount(envision.quality.questions.concat(envision.natural.questions));
 		// if all questions pass, save form
 		if (questionsWordCount.length === 0) {
+			// set timer to converted hours:mins:secs
+			envision.timer = getTimer(new Date() - new Date(envision.timer));
+			setSession();
+			// instantiate student
 			var student = new Student();
+			// save student
 			student.save(disect()).then(function(object) {
 			  alert("yay! it worked");
 			});		
@@ -53,7 +58,8 @@ function disect() {
 		totalScore:       envision.totalScore,
 		maxScore:         envision.maxScore,
 		firstName:        envision.firstName,
-		lastName:         envision.lastName
+		lastName:         envision.lastName,
+		timer:            envision.timer
 	}
 
 	return form;
@@ -69,6 +75,5 @@ function verifyWordCount(questions) {
 	})
 	return questionNums;
 }
-
 
 

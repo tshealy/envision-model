@@ -1,0 +1,56 @@
+/* line 1, ../sass/responses.scss */
+header {
+  text-align: center;
+}
+
+/* line 6, ../sass/responses.scss */
+.wrapper {
+  background: #FFF;
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* line 12, ../sass/responses.scss */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* line 16, ../sass/responses.scss */
+table td {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 16px;
+}
+/* line 22, ../sass/responses.scss */
+table .thin {
+  width: 20%;
+}
+/* line 26, ../sass/responses.scss */
+table .wide {
+  width: 80%;
+}
+/* line 30, ../sass/responses.scss */
+table .name {
+  text-align: right;
+  display: table-cell;
+  vertical-align: top;
+}
+/* line 36, ../sass/responses.scss */
+table .question-number {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+}
+/* line 44, ../sass/responses.scss */
+table .header {
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 2px solid #000;
+  text-align: center;
+}
+/* line 51, ../sass/responses.scss */
+table .right-border {
+  border-right: 2px solid #000;
+}
