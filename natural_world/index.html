@@ -63,14 +63,12 @@
 
 			<div class="arrow next-page">
 
-				<!-- <a href="../survey/index.html" class="rectangle submit">Submit</a> -->
 				<div class="rectangle submit">Submit</div>
 
 			</div>
 		</div>
 	</div>
 
-					<!-- <option class="no-value" value="0">No Value Added</option> -->
 	<script type="text/template" id="question">
 
 		<tr class="category" id="<%= question.number %>">
@@ -81,7 +79,7 @@
 				<br>
 				<p><%= question.body %></p>
 
-				<a href="">details / guidance</a>
+				<a href="../details_and_guidance/index.html?<%= question.number %>" target="_blank">details / guidance</a>
 			</td>
 
 			<td class="medium applicability">
@@ -117,6 +115,7 @@
 	</script>
 
 	<script type="text/javascript" src="../scripts/parse.js"></script>
+	<script type="text/javascript" src="../scripts/detailsData.js"></script>
 	<script type="text/javascript" src="../scripts/data.js"></script>
 	<script type="text/javascript" src="../scripts/natural.js"></script>
 	<script type="text/javascript" src="../scripts/form.js"></script>

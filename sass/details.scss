@@ -15,6 +15,11 @@ body {
 		display: inline;
 	}
 
+	ul {
+		list-style: initial;
+		margin-left: 40px;
+	}
+
 	.section-heading {
 		color: #587833;
 		font-size: 18px;
@@ -32,7 +37,6 @@ body {
 		color: #FFF;
 		width: 860px;
 		padding: 0 25px;
-		background: $color-change;
 		padding-top: 25px;
 
 		span {
@@ -82,16 +86,12 @@ table {
 		vertical-align: top;
 	}
 
-	.levels {
-		background: $color-change;
-
-		.level {
-			color: rgb(255, 255, 255);
-			font-size: 14px;
-			text-transform: uppercase;
-			padding: 15px 0;
-			text-align: center;
-		}
+	.level {
+		color: rgb(255, 255, 255);
+		font-size: 14px;
+		text-transform: uppercase;
+		padding: 15px 0;
+		text-align: center;
 	}
 
 	.points, .synopsis {
