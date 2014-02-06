@@ -625,23 +625,19 @@ function getCache() {
 			]
 		}
 
-		// envision.totalScore = 0;
+		// true for Conserving default
+		envision.conserving = true;
 
-		// for Conserving default
-		envision.totalScore = conservingTotalScore(envision.quality.questions.concat(envision.natural.questions))
+		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
 
 		envision.quality.DOM = {
 			applicable: makeArray(envision.quality.questions.length, 0),
-			// valueAdded: makeArray(envision.quality.questions.length, 0),
-			// for Conserving default
-			valueAdded: [4,4,4,2,2,4,4,4,3,3,4,4]
+			valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeArray(envision.quality.questions.length, 0)
 		}
 
 		envision.natural.DOM = {
 			applicable: makeArray(envision.natural.questions.length, 0),
-			// valueAdded: makeArray(envision.natural.questions.length, 0),
-			// for Conserving default
-			valueAdded: [2,4,2,4,4,3,4,3,4,4,2,2,1,4]
+			valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
 		}
 
 		// set explanation
@@ -660,6 +656,9 @@ function getCache() {
 
 		// envision total posible points
 		envision.maxScore = maxScore(envision.quality.questions.concat(envision.natural.questions))
+
+		// get details for links
+		envision.details = details();
 
 		// stores envision
 		sessionStorage.setItem('envision', JSON.stringify(envision));
@@ -705,13 +704,10 @@ function maxScore(questions) {
 function processSelectOptions(questions) {
 	_.each(questions, function(question) {
 		question.selectOptions = _.map(question.valueAdded, function(val) {
-			// return "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>"
-			// for Conservative default
-			return "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>"
+			var option = envision.conserving === true ? "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>" : "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>";
+			return option;
 		}).reverse().join('')
-		// question.selectOptions = "<option class='no-value' value='0'>No Value Added (0)</option>" + question.selectOptions;
-		// for Conservative default
-		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
+		question.selectOptions = envision.conserving === true ? "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions : "<option class='no-value' value='0'>No Value Added (0)</option>" + question.selectOptions;
 	})
 }
 
@@ -734,8 +730,88 @@ function conservingTotalScore(questions) {
 	}), function(memo, num) {return memo + num})
 }
 
+function findQuestion(questions, number) {
+	return _.findWhere(questions, {number: number})
+}
 
+function findValue(questions, number, level) {
+	return _.findWhere(findQuestion(questions, number).valueAdded, {level: level}).val
+}
 
+function details() {
+	return [
+		{
+			number: 'QL1.1',
+			synopsis: findQuestion(envision.quality.questions, 'QL1.1').synopsis,
+			intent: 'Improve the net quality of life of all communities affected by the project and mitigate negative impacts to communities.',
+			metric: 'Measures taken to assess community needs and improve quality of life while minimizing negative impacts.',
+			improved: {
+				points: envision.conserving === true ? relate(findQuestion(envision.quality.questions, 'QL1.1'), findValue(envision.quality.questions, 'QL1.1', 'Improved')) : findValue(envision.quality.questions, 'QL1.1', 'Improved'),
+				synopsis: 'Internal focus.',
+				copy: 'The project team has located and reviewed the most recent and relevant community planning information. Some, but not systematic outreach to stakeholders and decision makers has taken place. Some relatively easy, but not particularly important or meaningful changes made to the project. No significant adverse community effects are caused by the project (A, B, C)'
+			},
+			enhanced: {
+				points: envision.conserving === true ? relate(findQuestion(envision.quality.questions, 'QL1.1'), findValue(envision.quality.questions, 'QL1.1', 'Enhanced')) : findValue(envision.quality.questions, 'QL1.1', 'Enhanced'),
+				synopsis: 'Community linkages.',
+				copy: 'More substantive efforts to locate, review, assess and incorporate the needs, goals and plans of the host community into the project. Most potential negative adverse impacts of the project on the host community are reduced or eliminated. Key stakeholders are involved the project decision-making process. (A, B, C)'
+			},
+			superior: {
+				points: envision.conserving === true ? relate(findQuestion(envision.quality.questions, 'QL1.1'), findValue(envision.quality.questions, 'QL1.1', 'Superior')) : findValue(envision.quality.questions, 'QL1.1', 'Superior'),
+				synopsis: 'Broad community alignment.',
+				copy: 'All relevant community plans are reviewed and verified through stakeholder input. The project team works to achieve good project alignment with community plans, recognizing that the scope of the project is a limiting factor. Potential negative impacts on nearby affected communities are reduced or eliminated. (A, B, C)'
+			},
+			conserving: {
+				points: envision.conserving === true ? relate(findQuestion(envision.quality.questions, 'QL1.1'), findValue(envision.quality.questions, 'QL1.1', 'Conserving')) : findValue(envision.quality.questions, 'QL1.1', 'Conserving'),
+				synopsis: 'Holistic assessment and collaboration.',
+				copy: 'The project makes a net positive contribution to the quality of life of the host and nearby affected communities. The project team makes a holistic assessment of community needs, goals and plans, incorporating meaningful stakeholder input. Project meets or exceeds important identified community needs and long-term requirements for sustainability. Remaining adverse impacts are minimal, mostly accepted as reasonable tradeoffs for benefits achieved. The project has broad community endorsement. (A, B, C)'
+			},
+			restorative: {
+				points: envision.conserving === true ? relate(findQuestion(envision.quality.questions, 'QL1.1'), findValue(envision.quality.questions, 'QL1.1', 'Restorative')) : findValue(envision.quality.questions, 'QL1.1', 'Restorative'),
+				synopsis: 'Community renaissance.',
+				copy: 'Through rehabilitation of important community assets, upgraded and extended access, increased safety, improved environmental quality and additional infrastructure capacity, the project substantially reinvigorates the host and nearby communities. Working in genuine collaboration with stakeholders and community decision-makers, the project owner and the project team scope the project in a way that elevates community awareness and pride. Overall quality of life in these communities is markedly elevated. (A, B, C, D)'
+			},
+			description: [
+				"This credit addresses the extent to which the project contributes to the quality of life of the host community: the community in which the constructed works is situated and directly affects. This determination is based on how well the project team has identified and assessed community needs, goals and objectives, and incorporated them into the project. Relevant community plans are assumed to be a viable expression of those needs, goals, objectives and aspirations. In a real sense, they are the community's expression of their desired quality of life.",
+				"Communication and interactions with community stakeholders is essential to reaffirm and improve the assessment. The project team works closely with community stakeholders to identify and address issues and concerns. When operational, the constructed works is expected to contribute to the efficiency and effectiveness of community infrastructure, while having minimal impact on the environment. Its benefits should be seen as equitably distributed throughout the community.",
+				"A project designed to benefit one community may have adverse effects on others. The purpose of this credit is to recognize projects that provide significant benefits to affected communities, as well as reduce or eliminate negative impacts. Positive effects on all important dimensions of performance may not be practical. Thus the credit seeks a net positive impact.",
+				"If the project team can show that the affected community (or communities) has an existing project assessment and approval process that verifies that the project is in concert with community goals and objectives, and that the project has gone through that process successfully, then that success will constitute achievement of this credit. The level of achievement will be determined by the Assessor and Verifier, and is a function of the comprehensiveness of the process, the extent to which community stakeholders are engaged in collaborative dialogue (rather than merely outside input to the process), and the degree to which improvements were made and/or adverse impacts mitigated."
+			],
+			benchmark: "The project team may have located and reviewed community plans, looking for possible project fatal flaws. The team complies with local regulations and policies for stakeholder involvement.",
+			perfImprove: "Give increased attention to community needs, goals, plans and their relation to the project. Increase the thoroughness and participatory engagement by which community goals and plans are incorporated into the project. Give additional consideration to existing conditions and look for opportunities to rehabilitate community assets. Achieve strong endorsement by stakeholders and community leaders.",
+			list: [
+				{
+					letter: 'Has the project team identified and taken into account community needs, goals, plans and issues?',
+					nums: [
+						'Lists and examples of documents obtained and reviewed, minutes of meetings with key stakeholders, community leaders and decision-makers, letters and memoranda.',
+					]
+				},
+				{
+					letter: 'Has the project team sought to align the project vision and goals to the needs and goals of the host and affected communities as well as address potential adverse impacts?',
+					nums: [
+						'Comprehensive impact assessments conducted, identifying and evaluating the positive and negative impacts of the project on affected communities. Planned actions for mitigating adverse impacts.',
+						'Minutes of meetings, letters and memoranda with key stakeholders, community leaders and decision-makers for obtaining input and agreement regarding the impact assessment and planned actions.',
+					]
+				},
+				{
+					letter: 'To what extent has the affected communities been meaningfully engaged in the project design process?',
+					nums: [
+						'Reports and documented results of meetings, design charrettes and other activities conducted with representatives of affected communities.',
+						'Evidence of project processes for collecting, evaluating and incorporating community input into the project designs. Demonstration of the thoroughness of the evaluation and incorporation into the designs.',
+						'Evidence showing the extent to which options were identified, and needed and reasonable changes to project were made in accordance with community needs, plans.',
+						'Acknowledgments and endorsements by the community that the design participation process was helpful and that their input was appropriately assessed and incorporated into the project design.'
+					]
+				},
+				{
+					letter: 'Has the project owner and the project team designed the project in a way that improves existing community conditions and rehabilitates infrastructure assets?',
+					nums: [
+						'Plans, designs, meeting minutes with community stakeholders and decision-makers demonstrating an understanding of community conditions and assets, and substantive efforts to rehabilitate.',
+						'Evidence of community satisfaction and endorsement of plans.'
+					]
+				}
+			]
+		}
+	]
+}
 
 
 
