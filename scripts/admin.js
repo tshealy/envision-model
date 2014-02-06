@@ -1,5 +1,9 @@
-var Students = Parse.Collection.extend({
-	model: Student
+var StudentsA = Parse.Collection.extend({
+	model: StudentA
+})
+
+var StudentsB = Parse.Collection.extend({
+	model: StudentB
 })
 
 StudentView = Parse.View.extend({
@@ -57,7 +61,8 @@ function checkAdmin() {
 
 		admin = {};
 
-		admin.students = new Students();
+		admin.students = collectionSetup();
+		// admin.students = new Students();
 		admin.students.fetch().then(function(students) {
 			adminSetup(students)
 
@@ -65,11 +70,13 @@ function checkAdmin() {
 		})
 
 	} else {
-		admin.students = new Students(admin.students);
+		var tempCol = collectionSetup();
+		admin.students = tempCol.add(admin.students);
 		adminSetup(admin.students)
 
 		var length = admin.students.length;
-		admin.studentsCheck = new Students(admin.students);
+		var tempCol = collectionSetup();
+		admin.studentsCheck = tempCol.add(admin.students.models);
 		// to check for if students have submitted during current session
 		admin.studentsCheck.fetch().then(function(students) {
 			if (students.length !== length) {
@@ -81,6 +88,11 @@ function checkAdmin() {
 			}
 		})
 	}
+}
+
+// determine what is fetched
+function collectionSetup() {
+	return envision.conserving === true ? new StudentsB() : new StudentsA()
 }
 
 // setup admin
@@ -95,6 +107,8 @@ function adminSetup(students) {
 	compileScores(students);
 	// display avg time
 	avgTime(students);
+	// header message
+	tableHeader();
 }
 
 // create student views
@@ -189,6 +203,11 @@ function avgTime(students) {
 	mils = Math.floor(_.reduce(mils, function(memo, num) {return memo + num}) / students.models.length);
 
 	$('#avgs').append('<td class="score special">'+ getTimer(mils) +'</td>');
+}
+
+function tableHeader() {
+	var headerMsg = envision.conserving === true ? 'Credit Rating for Conserving Default' : 'Credit Rating for Standard Default';
+	$('.credit-rating').text(headerMsg);
 }
 
 

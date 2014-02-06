@@ -24,7 +24,7 @@ function submitForm() {
 
 function save() {
 	// instantiate student
-	var student = new Student();
+	var student = envision.conserving === true ? new StudentB() : new StudentA();
 	// set attributes
 	student.set(disect())
 

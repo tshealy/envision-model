@@ -41,6 +41,14 @@ table {
 		&:hover {
 			background: rgb(224, 224, 224);
 		}
+
+		&:last-child {
+			cursor: auto;
+
+			&:hover {
+				background: initial;
+			}
+		}
 	}
 
 	.special {

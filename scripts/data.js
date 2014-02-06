@@ -736,7 +736,6 @@ function findValue(question, level) {
 
 // gets relative points for details links
 function detailsPoints(type, number, level) {
-	console.log(number)
 	var question = findQuestion(envision[type].questions, number);
 	var val = findValue(question, level);
 	return envision.conserving === true ? relate(question, val) : val
