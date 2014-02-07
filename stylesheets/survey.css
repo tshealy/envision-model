@@ -1,0 +1,31 @@
+/* line 1, ../sass/survey.scss */
+.wrapper {
+  width: 960px;
+  background: #FFF;
+  margin: 0 auto;
+  padding: 25px 0;
+}
+/* line 7, ../sass/survey.scss */
+.wrapper a {
+  color: #000;
+}
+/* line 10, ../sass/survey.scss */
+.wrapper a:hover {
+  color: #587833;
+}
+/* line 15, ../sass/survey.scss */
+.wrapper .line {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  padding-bottom: 35px;
+}
+/* line 22, ../sass/survey.scss */
+.wrapper .line:last-child {
+  padding-bottom: 0;
+}
+/* line 27, ../sass/survey.scss */
+.wrapper .extra-grateful {
+  font-size: 28px;
+}

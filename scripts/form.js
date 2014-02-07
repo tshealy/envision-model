@@ -182,4 +182,11 @@ function getText(text) {
 	return text.slice(0, text.indexOf(' '))
 }
 
+// syncing envision
+function syncEnvision(category) {
+	envision.questions = envision[category].questions;
+	envision.DOM = envision[category].DOM;
+	envision.explanations = envision[category].explanations;
+	envision.scores = envision[category].scores;
+}
 

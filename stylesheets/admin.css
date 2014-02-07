@@ -44,7 +44,15 @@ table .name {
 table .name:hover {
   background: #e0e0e0;
 }
-/* line 46, ../sass/admin.scss */
+/* line 45, ../sass/admin.scss */
+table .name:last-child {
+  cursor: auto;
+}
+/* line 48, ../sass/admin.scss */
+table .name:last-child:hover {
+  background: initial;
+}
+/* line 54, ../sass/admin.scss */
 table .special {
   background: #d2e9eb;
 }

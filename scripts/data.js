@@ -1,7 +1,3 @@
-// temporary spot for parse stuff . .
-var Student = Parse.Object.extend("Student");
-
-
 $(document).ready(function() {
 	getCache()
 })
@@ -625,23 +621,19 @@ function getCache() {
 			]
 		}
 
-		// envision.totalScore = 0;
+		// true for Conserving default
+		envision.conserving = false;
 
-		// for Conserving default
-		envision.totalScore = conservingTotalScore(envision.quality.questions.concat(envision.natural.questions))
+		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
 
 		envision.quality.DOM = {
 			applicable: makeArray(envision.quality.questions.length, 0),
-			// valueAdded: makeArray(envision.quality.questions.length, 0),
-			// for Conserving default
-			valueAdded: [4,4,4,2,2,4,4,4,3,3,4,4]
+			valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeArray(envision.quality.questions.length, 0)
 		}
 
 		envision.natural.DOM = {
 			applicable: makeArray(envision.natural.questions.length, 0),
-			// valueAdded: makeArray(envision.natural.questions.length, 0),
-			// for Conserving default
-			valueAdded: [2,4,2,4,4,3,4,3,4,4,2,2,1,4]
+			valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
 		}
 
 		// set explanation
@@ -660,6 +652,9 @@ function getCache() {
 
 		// envision total posible points
 		envision.maxScore = maxScore(envision.quality.questions.concat(envision.natural.questions))
+
+		// get details for links
+		envision.details = details();
 
 		// stores envision
 		sessionStorage.setItem('envision', JSON.stringify(envision));
@@ -705,13 +700,10 @@ function maxScore(questions) {
 function processSelectOptions(questions) {
 	_.each(questions, function(question) {
 		question.selectOptions = _.map(question.valueAdded, function(val) {
-			// return "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>"
-			// for Conservative default
-			return "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>"
+			var option = envision.conserving === true ? "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>" : "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>";
+			return option;
 		}).reverse().join('')
-		// question.selectOptions = "<option class='no-value' value='0'>No Value Added (0)</option>" + question.selectOptions;
-		// for Conservative default
-		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
+		question.selectOptions = envision.conserving === true ? "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions : "<option class='no-value' value='0'>No Value Added (0)</option>" + question.selectOptions;
 	})
 }
 
@@ -734,13 +726,20 @@ function conservingTotalScore(questions) {
 	}), function(memo, num) {return memo + num})
 }
 
+function findQuestion(questions, number) {
+	return _.findWhere(questions, {number: number})
+}
 
+function findValue(question, level) {
+	return _.findWhere(question.valueAdded, {level: level}).val;
+}
 
-
-
-
-
-
+// gets relative points for details links
+function detailsPoints(type, number, level) {
+	var question = findQuestion(envision[type].questions, number);
+	var val = findValue(question, level);
+	return envision.conserving === true ? relate(question, val) : val
+}
 
 
 
