@@ -6,18 +6,22 @@
   padding-bottom: 50px;
 }
 /* line 13, ../sass/directions_normal.scss */
+.wrapper em {
+  font-style: italic;
+}
+/* line 17, ../sass/directions_normal.scss */
 .wrapper .directions {
   padding-top: 40px;
   display: block;
   margin-left: 100px;
   font-weight: bold;
 }
-/* line 20, ../sass/directions_normal.scss */
+/* line 24, ../sass/directions_normal.scss */
 .wrapper .directions-copy {
   width: 650px;
   margin-left: 150px;
 }
-/* line 25, ../sass/directions_normal.scss */
+/* line 29, ../sass/directions_normal.scss */
 .wrapper .name-form {
   width: 650px;
   margin: 50px 0 0 145px;
@@ -25,18 +29,18 @@
   background: #FFF;
   border: 1px solid #000;
 }
-/* line 32, ../sass/directions_normal.scss */
+/* line 36, ../sass/directions_normal.scss */
 .wrapper .name-form .please-enter {
   display: inline-block;
   margin: 20px 35px 0 25px;
   vertical-align: top;
 }
-/* line 38, ../sass/directions_normal.scss */
+/* line 42, ../sass/directions_normal.scss */
 .wrapper .name-form .name {
   display: inline-block;
   margin-right: 45px;
 }
-/* line 42, ../sass/directions_normal.scss */
+/* line 46, ../sass/directions_normal.scss */
 .wrapper .name-form .name input {
   padding: 20px 10px;
   font-size: 18px;
@@ -44,11 +48,11 @@
   border: 1px solid #000;
   margin-bottom: 8px;
 }
-/* line 50, ../sass/directions_normal.scss */
+/* line 54, ../sass/directions_normal.scss */
 .wrapper .name-form .name .name-type {
   display: block;
 }
-/* line 56, ../sass/directions_normal.scss */
+/* line 60, ../sass/directions_normal.scss */
 .wrapper .note {
   margin-top: 30px;
   font-size: 18px;
