@@ -48,6 +48,7 @@ StudentView = Parse.View.extend({
 
 
 $(document).ready(function() {
+	logout();
 	// redirect to admin login if admin not logged in
 	if (adminLoggedIn()) {
 		checkAdmin();
@@ -208,6 +209,13 @@ function avgTime(students) {
 function tableHeader() {
 	var headerMsg = envision.conserving === true ? 'Credit Rating for Conserving Default' : 'Credit Rating for Standard Default';
 	$('.credit-rating').text(headerMsg);
+}
+
+// logging admin out
+function logout() {
+	$('.logout').click(function() {
+		Parse.User.logOut();
+	})
 }
 
 

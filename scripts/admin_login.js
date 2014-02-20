@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	login();
-	logout();
 })
 
 function login() {
@@ -13,19 +12,10 @@ function login() {
 				window.location = "../admin/index.html"
 			},
 			error: function(user, error) {
-				console.log('ooops')
+				alert('Username and/or Password incorrect.')
+				var username = $('.username').val('');
+				var password = $('.password').val('');
 			}
 		});	
 	})
-}
-
-function logout() {
-	if (Parse.User.current() !== null) {
-		$('header').append('<div class="admin admin-logout">Logout</div>');
-
-		$('.admin-logout').click(function() {
-			Parse.User.logOut();
-			window.location = '../index.html'
-		})
-	}
 }
