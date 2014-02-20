@@ -622,7 +622,7 @@ function getCache() {
 		}
 
 		// true for Conserving default
-		envision.conserving = false;
+		envision.conserving = determineTest();
 
 		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
 
@@ -739,6 +739,12 @@ function detailsPoints(type, number, level) {
 	var question = findQuestion(envision[type].questions, number);
 	var val = findValue(question, level);
 	return envision.conserving === true ? relate(question, val) : val
+}
+
+// checks the url for envision or envisionit to determine default settings
+function determineTest() {
+	var index = location.pathname.split('/').indexOf('envision');
+	return index > -1 ? false : true;
 }
 
 
