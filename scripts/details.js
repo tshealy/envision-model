@@ -19,6 +19,7 @@ function displayDetails() {
 	removeParens();
 }
 
+// these DOM functions are so nasty . .
 // put ol's in the DOM
 function displayOL(list) {
 	_.each(list, function(ol) {		

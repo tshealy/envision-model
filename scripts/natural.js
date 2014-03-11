@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 	syncEnvision('natural')
 	submitForm();
@@ -23,36 +22,39 @@ function submitForm() {
 }
 
 function save() {
-	// instantiate student
-	var student = envision.conserving === true ? new StudentB() : new StudentA();
-	// set attributes
-	student.set(disect())
+	// a confirm for submission
+	if (confirm('Are you sure you want to submit')) {
+		// instantiate student
+		var student = envision.conserving === true ? new StudentB() : new StudentA();
+		// set attributes
+		student.set(disect())
 
-	// check for if a submission has already been saved
-	if (envision._id === undefined) {
-		student.save(null, {
-			success: function(student) {
-				envision._id = student.id;
-		  		envision.message = "You've submitted successfully!";
-		  		setSession();
-		  		window.location = '../survey/index.html';
-			},
-			error: function() {
-				alert('Failure to save. Please submit again.')
-			}
-		})
-	} else {
-		student.id = envision._id;
-		student.save(null, {
-			success: function(student) {
-		  		envision.message = "You've updated successfully!";
-		  		setSession();
-		  		window.location = '../survey/index.html';
-			},
-			error: function() {
-				alert('Failure to update. Please update again.')
-			}
-		})
+		// check for if a submission has already been saved
+		if (envision._id === undefined) {
+			student.save(null, {
+				success: function(student) {
+					envision._id = student.id;
+			  		envision.message = "You've submitted successfully!";
+			  		setSession();
+			  		window.location = '../survey/index.html';
+				},
+				error: function() {
+					alert('Failure to save. Please submit again.')
+				}
+			})
+		} else {
+			student.id = envision._id;
+			student.save(null, {
+				success: function(student) {
+			  		envision.message = "You've updated successfully!";
+			  		setSession();
+			  		window.location = '../survey/index.html';
+				},
+				error: function() {
+					alert('Failure to update. Please update again.')
+				}
+			})
+		}
 	}
 }
 
@@ -91,6 +93,7 @@ function verifyWordCount(questions) {
 	return questionNums;
 }
 
+// changing text to update after a successful submission
 function update() {
 	if (envision._id !== undefined) {
 		$('.submit').text('Update');

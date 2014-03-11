@@ -119,6 +119,7 @@ function updateValues(question, DOM) {
 function updateExplanation(question, DOM) {
 	
 	return function() {
+
 		var words = _.without($(this).val().split(' '), '').length;
 		envision.explanations[DOM.indexVal] = $(this).val();
 
@@ -126,7 +127,7 @@ function updateExplanation(question, DOM) {
 		if (words < question.wordCount) {
 			DOM.wordCount.css('color', 'rgb(255, 0, 0)');
 			DOM.wordMet.text(' word minimum required for this level.');
-			DOM.currentWord.text(question.wordCount - words + ' to go.');
+			DOM.currentWord.text(words + '/' + question.wordCount + '.');
 			question.enoughWords = false;
 		} else {
 			DOM.wordCount.css('color', 'rgb(0, 187, 0)');
@@ -173,7 +174,7 @@ function determineWordCount(level) {
 		case "Superior": return 60;
 		case "Conserving": return 80;
 		case "Restorative": return 100;
-		default: return 0;
+		default: return 20;
 	}
 }
 

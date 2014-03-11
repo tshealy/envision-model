@@ -622,7 +622,9 @@ function getCache() {
 		}
 
 		// true for Conserving default
-		envision.conserving = determineTest();
+		// envision.conserving = determineTest();
+		// envision.conserving = randomForm() ? true : false;
+		envision.conserving = true;
 
 		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
 
@@ -660,6 +662,11 @@ function getCache() {
 		sessionStorage.setItem('envision', JSON.stringify(envision));
 		
 	}
+}
+
+// randomize form given
+function randomForm() {
+	return Math.floor(Math.random() * 2);
 }
 
 function makeArray(length, item) {
@@ -742,10 +749,10 @@ function detailsPoints(type, number, level) {
 }
 
 // checks the url for envision or envisionit to determine default settings
-function determineTest() {
-	var index = location.pathname.split('/').indexOf('envision');
-	return index > -1 ? false : true;
-}
+// function determineTest() {
+// 	var index = location.pathname.split('/').indexOf('envision');
+// 	return index > -1 ? false : true;
+// }
 
 
 
