@@ -1,15 +1,15 @@
 .wrapper {
 	background: #FFF;
 	margin: 0 auto;
-	overflow-x: scroll;
+	// overflow-x: scroll;
 
-	.logout {
-		color: #000;
-		padding: 10px 32px;
-		background: rgb(210, 233, 235);
-		display: inline-block;
-		cursor: pointer;
-	}
+	// .logout {
+	// 	color: #000;
+	// 	padding: 10px 32px;
+	// 	background: rgb(210, 233, 235);
+	// 	display: inline-block;
+	// 	cursor: pointer;
+	// }
 }
 
 
@@ -24,6 +24,34 @@ table {
 		border: 1px solid #000;
 		white-space: nowrap;
 		padding: 2px 10px;
+	}
+
+	.options {
+
+		td {
+			color: #FFF;
+			text-align: center;
+			cursor: pointer;
+			// background: rgb(0, 150, 255);
+			// background: rgb(171, 171, 171);
+		}
+		td:first-child {
+			color: #000;
+			cursor: auto;
+			background: #FFF;
+		}
+
+		.logout {
+			background: rgb(0, 150, 255);
+		}
+
+		// .conserving {
+		// 	background: rgb(126, 125, 125);
+		// }
+
+		// .standard {
+		// 	background: rgb(171, 171, 171);
+		// }
 	}
 
 	.credit-rating {
@@ -64,4 +92,13 @@ table {
 	.special {
 		background: rgb(210, 233, 235);
 	}
+}
+
+.standard, .conserving {
+	background: rgb(171, 171, 171);
+}
+
+.selected {
+	color: #FFF;
+	background: rgb(126, 125, 125);
 }

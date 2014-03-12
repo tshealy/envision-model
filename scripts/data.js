@@ -624,7 +624,7 @@ function getCache() {
 		// true for Conserving default
 		// envision.conserving = determineTest();
 		// envision.conserving = randomForm() ? true : false;
-		envision.conserving = true;
+		envision.conserving = false;
 
 		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
 

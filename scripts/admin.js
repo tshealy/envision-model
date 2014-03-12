@@ -51,7 +51,10 @@ $(document).ready(function() {
 	logout();
 	// redirect to admin login if admin not logged in
 	if (adminLoggedIn()) {
-		checkAdmin();
+		// set click events
+		defaults('standard')
+		defaults('conserving')
+		$('.standard').click()
 	}
 })
 
@@ -207,7 +210,8 @@ function avgTime(students) {
 }
 
 function tableHeader() {
-	var headerMsg = envision.conserving === true ? 'Credit Rating for Conserving Default' : 'Credit Rating for Standard Default';
+	// var headerMsg = envision.conserving === true ? 'Credit Rating for Conserving Default' : 'Credit Rating for Standard Default';
+	var headerMsg = 'Credit Rating for ' + (envision.conserving === true ? 'Conserving' : 'Standard') + ' Default'
 	$('.credit-rating').text(headerMsg);
 }
 
@@ -215,9 +219,32 @@ function tableHeader() {
 function logout() {
 	$('.logout').click(function() {
 		Parse.User.logOut();
+		window.open('../admin_login/index.html')
 	})
 }
 
+// click for credit rating
+function defaults(klass) {
+	$('.' + klass).click(function() {
+		// set envision.conserving
+		setEnvision(klass);
+
+		checkAdmin();
+		// set text of the table header
+		tableHeader();
+		// remove selected class
+		$('.options td').removeClass('selected');
+		// add selected class to clicked element
+		$(this).addClass('selected');
+		console.log('conserving is: ', envision.conserving)
+	})
+}
+
+function setEnvision(klass) {
+	envision.conserving = klass === 'conserving' ? true : false;
+	// create select drop down data
+	processSelectOptions(envision.quality.questions.concat(envision.natural.questions))
+}
 
 
 

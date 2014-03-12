@@ -10,7 +10,7 @@ function submitForm() {
 		// find questions not passing word count requirement
 		var questionsWordCount = verifyWordCount(envision.quality.questions.concat(envision.natural.questions));
 		// if all questions pass, save form
-		if (questionsWordCount.length === 0) {
+		if (!questionsWordCount.length) {
 			// set timer to converted hours:mins:secs
 			envision.timeTaken = getTimer(new Date() - new Date(envision.timer));
 

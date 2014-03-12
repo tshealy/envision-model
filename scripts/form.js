@@ -13,6 +13,7 @@ function display(questions) {
 	// change selected based on current session for applicability
 	updateSelect('ap', 'applicable');
 	// need to re-update data ater updateSelect functions run
+	console.log(questions)
 	setSession();
 }
 
@@ -30,7 +31,6 @@ function displayQuestions(questions) {
 			wordCount:  $('.text-area').last().children('.bottom-section').children('.word-number'),
 			wordMet:    $('.text-area').last().children('.bottom-section').children('.word-minimum'),
 			currentWord:$('.text-area').last().children('.bottom-section').children('.current-word-count'),
-			// wordCount:  $('.text-area').last().children('.bottom-section').children('.word-minimum').children('.word-number'),
 			score:      $('.category').last().children('.category-score'),
 			maxPoints:  $('.category').last().children('.possible-points'),
 			valueAdded: $('.category').last().children('.value-added').children('select'),
@@ -75,9 +75,12 @@ function applicable(question, DOM) {
 			DOM.score.text(0)
 			DOM.maxPoints.text(question.maxPoints)
 		}
+
+		// plans changed. Needed 20 word limit for if user chose not applicable.
+		updateWordCount(question, DOM, val)
+		// // set session
 		setSession()
 	}
-
 }
 
 // change function for value added select
@@ -91,11 +94,9 @@ function updateValues(question, DOM) {
 		var selectedIndex = $(this).prop('selectedIndex');
 		// get text
 		var text = $($(this).children()[selectedIndex]).text()
-		
-		// now set wordCount and change in DOM
-		question.wordCount = determineWordCount(getText(text));
-		DOM.wordCount.text(question.wordCount);
 
+		// update word count
+		updateWordCount(question, DOM, text)
 		// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
 		envision.totalScore += parseInt(val) - parseInt(DOM.score.text());
 		// setting score based on order of question
@@ -108,11 +109,19 @@ function updateValues(question, DOM) {
 
 		// store the index of the selected option for recall purposes
 		envision.DOM.valueAdded[DOM.indexVal] = selectedIndex;
-		// update word minimum requirement
-		DOM.textArea.keyup();
 		// save changes in envision to the session
 		setSession();
 	}
+}
+
+// update word count
+function updateWordCount(question, DOM, text) {
+	// get the word count
+	question.wordCount = determineWordCount(getText(text));
+	// update DOM
+	DOM.wordCount.text(question.wordCount);
+	// call keyup in textarea
+	DOM.textArea.keyup();
 }
 
 // keyup function for textarea
@@ -121,6 +130,7 @@ function updateExplanation(question, DOM) {
 	return function() {
 
 		var words = _.without($(this).val().split(' '), '').length;
+		// recording the explanation
 		envision.explanations[DOM.indexVal] = $(this).val();
 
 		// if word minimum requirement not met
@@ -151,13 +161,14 @@ function updateSelect(klass, propName) {
 	// must catch the values here because activating each selects change method will alter the varacity of these values
 	var totalScore = envision.totalScore;
 	var maxScore = envision.maxScore;
+	var textareas = $('textarea');
 
 	$('.' + klass).each(function(index) {
 		var selectedIndex = envision.DOM[propName][index]
-		// 0 to avoid unecessary processing
-		if (selectedIndex > 0) {
+		// check for 0 to avoid unecessary processing
+		if (selectedIndex) {
 			$(this).prop('selectedIndex', selectedIndex).change()
-		}
+		} 
 	})
 
 	// reset values to what they should be here
@@ -167,14 +178,21 @@ function updateSelect(klass, propName) {
 	$('#max-score').text(envision.maxScore)
 }
 
+// update textareas
+function updateTextarea() {
+	$('textarea').keyup();
+}
+
 function determineWordCount(level) {
+	console.log('hey switch case: ', level)
 	switch (level) {
-		case "Improved": return 20;
-		case "Enhanced": return 40;
-		case "Superior": return 60;
-		case "Conserving": return 80;
-		case "Restorative": return 100;
-		default: return 20;
+		case 'not'        : return  20;
+		case 'Improved'   : return  20;
+		case 'Enhanced'   : return  40;
+		case 'Superior'   : return  60;
+		case 'Conserving' : return  80;
+		case 'Restorative': return 100;
+		default           : return   0;
 	}
 }
 
