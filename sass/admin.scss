@@ -1,17 +1,7 @@
 .wrapper {
 	background: #FFF;
 	margin: 0 auto;
-	// overflow-x: scroll;
-
-	// .logout {
-	// 	color: #000;
-	// 	padding: 10px 32px;
-	// 	background: rgb(210, 233, 235);
-	// 	display: inline-block;
-	// 	cursor: pointer;
-	// }
 }
-
 
 table {
 	font-size: 16px;
@@ -20,8 +10,11 @@ table {
 	background: #FFF;
 	margin-bottom: 12px;
 
-	td {
+	#table td {
 		border: 1px solid #000;
+	}
+
+	td {
 		white-space: nowrap;
 		padding: 2px 10px;
 	}
@@ -32,9 +25,8 @@ table {
 			color: #FFF;
 			text-align: center;
 			cursor: pointer;
-			// background: rgb(0, 150, 255);
-			// background: rgb(171, 171, 171);
 		}
+
 		td:first-child {
 			color: #000;
 			cursor: auto;
@@ -44,14 +36,6 @@ table {
 		.logout {
 			background: rgb(0, 150, 255);
 		}
-
-		// .conserving {
-		// 	background: rgb(126, 125, 125);
-		// }
-
-		// .standard {
-		// 	background: rgb(171, 171, 171);
-		// }
 	}
 
 	.credit-rating {
@@ -59,7 +43,7 @@ table {
 		text-align: center;
 	}
 
-	.question-number, .total-score, .time {
+	.question-number, .total-score, .time, .student-name {
 		font-weight: bold;
 		padding: 10px 10px 0 10px;
 	}
@@ -101,4 +85,12 @@ table {
 .selected {
 	color: #FFF;
 	background: rgb(126, 125, 125);
+}
+
+#group {
+	text-transform: capitalize;
+}
+
+.x {
+	cursor: pointer;
 }

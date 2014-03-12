@@ -1,3 +1,10 @@
+// global admin object
+var admin = {
+	standard:   {},
+	conserving: {}
+};
+
+// student collections, A for standard, B for conserving
 var StudentsA = Parse.Collection.extend({
 	model: StudentA
 })
@@ -6,6 +13,7 @@ var StudentsB = Parse.Collection.extend({
 	model: StudentB
 })
 
+// student view to display as a tr in #table
 StudentView = Parse.View.extend({
 
 	tagName: 'tr',
@@ -13,7 +21,8 @@ StudentView = Parse.View.extend({
 	className: 'student',
 
 	events: {
-		'click .name': 'showForm'
+		'click .name': 'showForm',
+		'click .x'   : 'deleteStudent'
 	},
 
 	initialize: function() {
@@ -25,6 +34,7 @@ StudentView = Parse.View.extend({
 	render: function() {
 		var scores = this.model.get('quality').scores.concat(this.model.get('natural').scores);
 
+		this.$el.append('<td class="x">x</td>');
 		this.$el.append('<td class="name">'+ this.model.get('firstName') + ' ' + this.model.get('lastName') +'</td>');
 
 		var that = this;
@@ -32,7 +42,7 @@ StudentView = Parse.View.extend({
 			that.$el.append('<td class="score">'+ score +'</td>');
 		})
 
-		this.$el.append('<td class="score">'+ this.model.get('totalScore') +'</td>');
+		this.$el.append('<td class="score total-student-score">'+ this.model.get('totalScore') +'</td>');
 		this.$el.append('<td class="score">'+ this.model.get('timeTaken') +'</td>');
 	},
 
@@ -43,6 +53,13 @@ StudentView = Parse.View.extend({
 		  '../quality_of_life/index.html',
 		  '_blank'
 		);
+	},
+
+	deleteStudent: function() {
+		if (confirm('Are you sure you want to delete ' + this.model.get('firstName') + ' ' + this.model.get('lastName') + '?')) {
+			this.remove();
+			this.model.destroy();
+		}	
 	}
 })
 
@@ -51,68 +68,76 @@ $(document).ready(function() {
 	logout();
 	// redirect to admin login if admin not logged in
 	if (adminLoggedIn()) {
+		// display column headers
+		createRows();
 		// set click events
-		defaults('standard')
-		defaults('conserving')
-		$('.standard').click()
+		displayGroup('standard');
+		displayGroup('conserving');
+		// fetch collections
+		fetchStudents();
 	}
 })
 
-function checkAdmin() {
-	admin = JSON.parse(sessionStorage.getItem('admin'));
+///////////////////////////
+//  FETCH THEM STUDENTS  //
+///////////////////////////
+// function setup Admin by fetching students
+function fetchStudents() {
+	// retrieve the students
+	admin.standard.students = new StudentsA();
+	admin.conserving.students = new StudentsB();
 
-	if (admin === null) {
-
-		admin = {};
-
-		admin.students = collectionSetup();
-		// admin.students = new Students();
-		admin.students.fetch().then(function(students) {
-			adminSetup(students)
-
-			sessionStorage.setItem('admin', JSON.stringify(admin));
-		})
-
-	} else {
-		var tempCol = collectionSetup();
-		admin.students = tempCol.add(admin.students);
-		adminSetup(admin.students)
-
-		var length = admin.students.length;
-		var tempCol = collectionSetup();
-		admin.studentsCheck = tempCol.add(admin.students.models);
-		// to check for if students have submitted during current session
-		admin.studentsCheck.fetch().then(function(students) {
-			if (students.length !== length) {
-				$('.student').remove();
-				adminSetup(students)
-
-				admin.students = admin.studentsCheck;
-				sessionStorage.setItem('admin', JSON.stringify(admin));			
-			}
-		})
+	// making calculations and groupings
+	function adminSetup(group, students) {
+		admin[group].avgTime = avgTime(admin[group].students)
+		admin[group].explanations = complieExplanations(students);
+		admin[group].avgScores = avgScores(students, 'quality').concat(avgScores(students, 'natural'));
 	}
+
+	// fetch and display the standard students
+	admin.standard.students.fetch().then(function(students) {
+		adminSetup('standard', students)
+		$('.standard').click();
+	})
+
+	// just fetch the conserving students
+	admin.conserving.students.fetch().then(function(students) {
+		adminSetup('conserving', students)
+	});
 }
 
-// determine what is fetched
-function collectionSetup() {
-	return envision.conserving === true ? new StudentsB() : new StudentsA()
+//////////////////////
+//    CHANGE DOM    //
+//////////////////////
+// click for changing admin group that is displayed
+function displayGroup(klass) {
+	$('.' + klass).click(function() {
+		// remove rows from table
+		$('.student, #avgs').remove();
+		// remove selected class
+		$('.options td').removeClass('selected');
+		// add selected class to clicked element
+		$(this).addClass('selected');
+		// set text of the table header
+		$('#group').text(klass);
+		// set envision select options for form viewing
+		setEnvision(klass);
+
+		// set the current admin group
+		admin.group = admin[klass]
+		// display the students
+		adminDisplay(admin.group);
+	})
 }
 
-// setup admin
-function adminSetup(students) {
-	// get explanations
-	complieExplanations(students);
-	// display column headers
-	createRows();
+// display admin
+function adminDisplay(group) {
 	// display students
-	displayStudents(students);
+	displayStudents(group.students);
 	// dispaly final avgs
-	compileScores(students);
+	displayScores(group.avgScores);
 	// display avg time
-	avgTime(students);
-	// header message
-	tableHeader();
+	$('#avgs').append('<td class="score special">'+ group.avgTime +'</td>');
 }
 
 // create student views
@@ -120,6 +145,13 @@ function displayStudents(students) {
 	_.each(students.models, function(student) {
 		new StudentView({model: student});
 	})
+}
+
+// sets select options for accurate viewing of student form. just being nit picky
+function setEnvision(klass) {
+	envision.conserving = klass === 'conserving' ? true : false;
+	// create select drop down data
+	processSelectOptions(envision.quality.questions.concat(envision.natural.questions))
 }
 
 // make a row with a question number in each column
@@ -144,6 +176,9 @@ function createRows() {
 	$('#question-number').append('<td class="time">Time</td>')
 }
 
+//////////////////////
+//   EXPLANATIONS   //
+//////////////////////
 // click event for question number to compile all explanations for that question
 function complieExplanations(students) {
 	// get quality questions explanations
@@ -156,8 +191,8 @@ function complieExplanations(students) {
 		return getExplanation(students, 'natural', index)
 	})
 
-	admin.explanations = quality.concat(natural);
-	sessionStorage.setItem('admin', JSON.stringify(admin));
+	// returning explanations
+	return quality.concat(natural);
 }
 
 function getExplanation(students, type, index) {
@@ -169,19 +204,25 @@ function getExplanation(students, type, index) {
 	})
 }
 
-function compileScores(students) {
-	var scores = getScores(students, 'quality').concat(getScores(students, 'natural'));
-
+//////////////////////
+//      SCORES      //
+//////////////////////
+// displaying the scores for current admin group
+function displayScores(scores) {
 	$('#table').append('<tr id="avgs"></tr>');
+	// extra cell
+	$('#avgs').append('<td></td>')
 	$('#avgs').append('<td class="name special">Average</td>')
 	_.each(scores, function(score) {
 		$('#avgs').append('<td class="score special">'+ score +'</td>');
 	})
 
-	$('#avgs').append('<td class="score special">'+ _.reduce(scores, function(memo, num) {return memo + num}) +'</td>');
+	// save other data here
+	var scoreTotals = _.map($('.total-student-score'), function(num){return +$(num).text()})
+	$('#avgs').append('<td class="score special">'+ (Math.round(_.reduce(scoreTotals, function(memo, num) {return memo + num}) / scoreTotals.length)) +'</td>');
 }
 
-function getScores(students, type) {
+function avgScores(students, type) {
 	var length = envision[type].questions.length;
 	var scores = [];
 
@@ -194,6 +235,9 @@ function getScores(students, type) {
 	return scores;
 }
 
+//////////////////////
+//       TIME       //
+//////////////////////
 function avgTime(students) {
 	var mils = _.map(students.models, function(student) {
 		var time = student.get('timeTaken');
@@ -206,13 +250,7 @@ function avgTime(students) {
 
 	mils = Math.floor(_.reduce(mils, function(memo, num) {return memo + num}) / students.models.length);
 
-	$('#avgs').append('<td class="score special">'+ getTimer(mils) +'</td>');
-}
-
-function tableHeader() {
-	// var headerMsg = envision.conserving === true ? 'Credit Rating for Conserving Default' : 'Credit Rating for Standard Default';
-	var headerMsg = 'Credit Rating for ' + (envision.conserving === true ? 'Conserving' : 'Standard') + ' Default'
-	$('.credit-rating').text(headerMsg);
+	return getTimer(mils)
 }
 
 // logging admin out
@@ -221,29 +259,6 @@ function logout() {
 		Parse.User.logOut();
 		window.open('../admin_login/index.html')
 	})
-}
-
-// click for credit rating
-function defaults(klass) {
-	$('.' + klass).click(function() {
-		// set envision.conserving
-		setEnvision(klass);
-
-		checkAdmin();
-		// set text of the table header
-		tableHeader();
-		// remove selected class
-		$('.options td').removeClass('selected');
-		// add selected class to clicked element
-		$(this).addClass('selected');
-		console.log('conserving is: ', envision.conserving)
-	})
-}
-
-function setEnvision(klass) {
-	envision.conserving = klass === 'conserving' ? true : false;
-	// create select drop down data
-	processSelectOptions(envision.quality.questions.concat(envision.natural.questions))
 }
 
 
