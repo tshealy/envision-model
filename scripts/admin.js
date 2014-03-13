@@ -158,6 +158,11 @@ function setEnvision(klass) {
 
 // make a row with a question number in each column
 function createRows() {
+	// remove previous td's
+	$('.question-number').remove();
+	$('.total-score').remove();
+	$('.time').remove();
+
 	var backgroundClass;
 	_.each(envision.quality.questions.concat(envision.natural.questions), function(question, index) {
 		backgroundClass = questionBackground(question.number);
