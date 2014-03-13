@@ -59,7 +59,7 @@ StudentView = Parse.View.extend({
 		if (confirm('Are you sure you want to delete ' + this.model.get('firstName') + ' ' + this.model.get('lastName') + '?')) {
 			this.remove();
 			this.model.destroy();
-		}	
+		}
 	}
 })
 
@@ -68,8 +68,6 @@ $(document).ready(function() {
 	logout();
 	// redirect to admin login if admin not logged in
 	if (adminLoggedIn()) {
-		// display column headers
-		createRows();
 		// set click events
 		displayGroup('standard');
 		displayGroup('conserving');
@@ -124,9 +122,13 @@ function displayGroup(klass) {
 		setEnvision(klass);
 
 		// set the current admin group
-		admin.group = admin[klass]
+		admin.group = admin[klass];
+		// display column headers
+		createRows(klass);
 		// display the students
 		adminDisplay(admin.group);
+		// set session
+		sessionStorage.setItem('admin', JSON.stringify(admin));
 	})
 }
 
@@ -163,11 +165,8 @@ function createRows() {
 		$('#question-number').append('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>');
 		// set click event for question number
 		$('#question-number').children().last().click(function() {
-			admin.explanationIndex = index;
-			admin.explanations[admin.explanationIndex];
-			sessionStorage.setItem('admin', JSON.stringify(admin));
 			window.open(
-			  	'../responses/index.html?' + question.number,
+			  	'../responses/index.html?question=' + question.number + '&index=' + index,
 			  	'_blank'
 			);
 		})
