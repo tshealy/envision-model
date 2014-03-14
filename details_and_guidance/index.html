@@ -79,7 +79,7 @@
 
 		<div class="section-heading width">Descirption</div>
 
-		<div class="width" id="description"></div>
+		<div class="width" id="description"><%= question.descriptionHTML %></div>
 
 		<div class="section-heading width">Advancing to Higher Achievement Levles</div>
 
@@ -94,17 +94,14 @@
 
 		<div class="section-heading width">Evaluation Criteria and Documentation</div>
 
-		<div class="width">
-
-			<ol class="letter" id="ol"></ol>
-
-		</div>
+		<div class="width" id="ol"><%= question.olHTML %></div>
 
 	</script>
 
 	<script type="text/javascript" src="../scripts/detailsData.js"></script>
 	<script type="text/javascript" src="../scripts/data.js"></script>
-	<script type="text/javascript" src="../scripts/details.js"></script>
+    <script type="text/javascript" src="../scripts/details.js"></script>
+	<script type="text/javascript" src="../scripts/bullify.js"></script>
 	<script type="text/javascript" src="../scripts/main.js"></script>
 
 </body>

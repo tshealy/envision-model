@@ -39,35 +39,27 @@ function details() {
 			benchmark: "The project team may have located and reviewed community plans, looking for possible project fatal flaws. The team complies with local regulations and policies for stakeholder involvement.",
 			perfImprove: "Give increased attention to community needs, goals, plans and their relation to the project. Increase the thoroughness and participatory engagement by which community goals and plans are incorporated into the project. Give additional consideration to existing conditions and look for opportunities to rehabilitate community assets. Achieve strong endorsement by stakeholders and community leaders.",
 			list: [
-				{
-					letter: 'Has the project team identified and taken into account community needs, goals, plans and issues?',
-					nums: [
-						'Lists and examples of documents obtained and reviewed, minutes of meetings with key stakeholders, community leaders and decision-makers, letters and memoranda.',
-					]
-				},
-				{
-					letter: 'Has the project team sought to align the project vision and goals to the needs and goals of the host and affected communities as well as address potential adverse impacts?',
-					nums: [
-						'Comprehensive impact assessments conducted, identifying and evaluating the positive and negative impacts of the project on affected communities. Planned actions for mitigating adverse impacts.',
-						'Minutes of meetings, letters and memoranda with key stakeholders, community leaders and decision-makers for obtaining input and agreement regarding the impact assessment and planned actions.',
-					]
-				},
-				{
-					letter: 'To what extent has the affected communities been meaningfully engaged in the project design process?',
-					nums: [
-						'Reports and documented results of meetings, design charrettes and other activities conducted with representatives of affected communities.',
-						'Evidence of project processes for collecting, evaluating and incorporating community input into the project designs. Demonstration of the thoroughness of the evaluation and incorporation into the designs.',
-						'Evidence showing the extent to which options were identified, and needed and reasonable changes to project were made in accordance with community needs, plans.',
-						'Acknowledgments and endorsements by the community that the design participation process was helpful and that their input was appropriately assessed and incorporated into the project design.'
-					]
-				},
-				{
-					letter: 'Has the project owner and the project team designed the project in a way that improves existing community conditions and rehabilitates infrastructure assets?',
-					nums: [
-						'Plans, designs, meeting minutes with community stakeholders and decision-makers demonstrating an understanding of community conditions and assets, and substantive efforts to rehabilitate.',
-						'Evidence of community satisfaction and endorsement of plans.'
-					]
-				}
+				'Has the project team identified and taken into account community needs, goals, plans and issues?',
+				[
+					'Lists and examples of documents obtained and reviewed, minutes of meetings with key stakeholders, community leaders and decision-makers, letters and memoranda.',
+				],
+				'Has the project team sought to align the project vision and goals to the needs and goals of the host and affected communities as well as address potential adverse impacts?',
+				[
+					'Comprehensive impact assessments conducted, identifying and evaluating the positive and negative impacts of the project on affected communities. Planned actions for mitigating adverse impacts.',
+					'Minutes of meetings, letters and memoranda with key stakeholders, community leaders and decision-makers for obtaining input and agreement regarding the impact assessment and planned actions.',
+				],
+				'To what extent has the affected communities been meaningfully engaged in the project design process?',
+				[
+					'Reports and documented results of meetings, design charrettes and other activities conducted with representatives of affected communities.',
+					'Evidence of project processes for collecting, evaluating and incorporating community input into the project designs. Demonstration of the thoroughness of the evaluation and incorporation into the designs.',
+					'Evidence showing the extent to which options were identified, and needed and reasonable changes to project were made in accordance with community needs, plans.',
+					'Acknowledgments and endorsements by the community that the design participation process was helpful and that their input was appropriately assessed and incorporated into the project design.'
+				],
+				'Has the project owner and the project team designed the project in a way that improves existing community conditions and rehabilitates infrastructure assets?',
+				[
+					'Plans, designs, meeting minutes with community stakeholders and decision-makers demonstrating an understanding of community conditions and assets, and substantive efforts to rehabilitate.',
+					'Evidence of community satisfaction and endorsement of plans.'
+				]
 			]
 		},
 		{
@@ -109,40 +101,30 @@ function details() {
 			benchmark: 'The project is designed as an entity unto itself, simply meeting the planning and regulatory requirements. No overall assessment of its contribution to sustainable community growth and development is made.',
 			perfImprove: 'Expand focus from a project-only look to community-wide considerations. Make growth and development business and people attractive through increased infrastructure efficiency and cultural/recreational resources. Seek to restore, redevelop and repurpose community assets.',
 			list: [
-				{
-					letter: 'Does the project create a significant number of jobs during its design and construction?',
-					nums: [
-						'Analyses showing what jobs are reasonably created during the design and construction of the project.',
-					]
-				},
-				{
-					letter: 'Does the delivered works create new, or increase the quality of existing, operating, recreational or cultural capacity for business, industry, or the public?',
-					nums: [
-						'Report showing how the delivered works expands the capacity or increases the quality of operating, recreational or cultural capacity.',
-						'Verification of the report results by references to official community plans, goals, needs assessments, minutes of meetings, or letters from community leaders, decision-makers.'
-					]
-				},
-				{
-					letter: 'Does the delivered works significantly improve community productivity?',
-					nums: [
-						'Analyses showing the effects of the delivered works on local productivity, e.g., reduced congestion, lower operating costs, increased operating capacity, increased efficiency, and new operating alternatives.'
-					]
-				},
-				{
-					letter: 'Does the project improve community attractiveness for compatible businesses and industries, improves recreational opportunities, and generally improves the economic and social condition of the community?',
-					nums: [
-						'Demonstration of how the project improves community attractiveness for compatible businesses and industries, improves recreational opportunities, and generally improves the economic and social conditions in the community.',
-						'Evidence showing how the project will improve the overall business environment, e.g., increased productivity, improved access to facilities and infrastructure, increased alternative resources, facilities and infrastructure.',
-						'Evidence of new employment opportunities that will be created and the skill base is expanded'
-					]
-				},
-				{
-					letter: 'As part of the delivery of the constructed works, does the project rehabilitate, restore, create or repurpose existing community infrastructure assets in the natural and/or built environment, and in doing so, improves community prospects for sustainable economic growth and development?',
-					nums: [
-						'Reports, minutes of meetings, memoranda documenting efforts by the project team to work with the community to identify community infrastructure assets, needs for improvement, prospects and plans for growth and development.',
-						'Analyses showing how the project will improve community prospects for sustainable economic growth and development.'
-					]
-				},
+				'Does the project create a significant number of jobs during its design and construction?',
+				[
+					'Analyses showing what jobs are reasonably created during the design and construction of the project.',
+				],
+				'Does the delivered works create new, or increase the quality of existing, operating, recreational or cultural capacity for business, industry, or the public?',
+				[
+					'Report showing how the delivered works expands the capacity or increases the quality of operating, recreational or cultural capacity.',
+					'Verification of the report results by references to official community plans, goals, needs assessments, minutes of meetings, or letters from community leaders, decision-makers.'
+				],
+				'Does the delivered works significantly improve community productivity?',
+				[
+					'Analyses showing the effects of the delivered works on local productivity, e.g., reduced congestion, lower operating costs, increased operating capacity, increased efficiency, and new operating alternatives.'
+				],
+				'Does the project improve community attractiveness for compatible businesses and industries, improves recreational opportunities, and generally improves the economic and social condition of the community?',
+				[
+					'Demonstration of how the project improves community attractiveness for compatible businesses and industries, improves recreational opportunities, and generally improves the economic and social conditions in the community.',
+					'Evidence showing how the project will improve the overall business environment, e.g., increased productivity, improved access to facilities and infrastructure, increased alternative resources, facilities and infrastructure.',
+					'Evidence of new employment opportunities that will be created and the skill base is expanded'
+				],
+				'As part of the delivery of the constructed works, does the project rehabilitate, restore, create or repurpose existing community infrastructure assets in the natural and/or built environment, and in doing so, improves community prospects for sustainable economic growth and development?',
+				[
+					'Reports, minutes of meetings, memoranda documenting efforts by the project team to work with the community to identify community infrastructure assets, needs for improvement, prospects and plans for growth and development.',
+					'Analyses showing how the project will improve community prospects for sustainable economic growth and development.'
+				]
 			]
 		},
 		{
@@ -181,23 +163,19 @@ function details() {
 			benchmark: 'Hiring and training of local workers or firms is strictly a cost decision and is predominantly unskilled labor. Training is done as needed, or as required by regulations and standards.',
 			perfImprove: 'Shift from hiring local workers as needed to capacity building. More consideration of local employment and education needs, long-term workforce competitiveness.',
 			list: [
-				{
-					letter: 'What is the expected degree to which the project will contribute to local employment, training and education, with emphasis on the most needy and/or disadvantaged groups through project planning, design and construction?',
-					nums: [
-						'Explanation of how the project team identified community employment, training and worker education needs.',
-						'Documentation of plans and commitments for hiring local workers and disadvantaged groups for the project.',
-						'Documentation of the extent and skill level of work planned for local firms.',
-						'Documentation of the proposed skill mix of local project hires in relation to overall project employment.',
-						'Statement of the ratio of proposed local hires to overall hires, and the skill mix of local hires in relation to overall project hiring and employment.',
-						'New businesses with local employment expected with the project.'
-					]
-				},
-				{
-					letter: 'How will the project contribute to long-term community competitiveness?',
-					nums: [
-						'Documentation of proposed education and training programs to be developed and implemented, and an explanation of the extent to which these programs will address identified community needs and improved community competitiveness, current and future.'
-					]
-				}
+				'What is the expected degree to which the project will contribute to local employment, training and education, with emphasis on the most needy and/or disadvantaged groups through project planning, design and construction?',
+				[
+					'Explanation of how the project team identified community employment, training and worker education needs.',
+					'Documentation of plans and commitments for hiring local workers and disadvantaged groups for the project.',
+					'Documentation of the extent and skill level of work planned for local firms.',
+					'Documentation of the proposed skill mix of local project hires in relation to overall project employment.',
+					'Statement of the ratio of proposed local hires to overall hires, and the skill mix of local hires in relation to overall project hiring and employment.',
+					'New businesses with local employment expected with the project.'
+				],
+				'How will the project contribute to long-term community competitiveness?',
+				[
+					'Documentation of proposed education and training programs to be developed and implemented, and an explanation of the extent to which these programs will address identified community needs and improved community competitiveness, current and future.'
+				]
 			]
 		},
 		{
@@ -239,26 +217,20 @@ function details() {
 			benchmark: 'Project health and safety plans meet the minimum requirements. No additional consideration of new technologies and methodologies unless specified in applicable laws and regulations.',
 			perfImprove: 'Increase the detail and comprehensiveness of the evaluation and risk assessment of all the new and/or non-standard technologies, materials, equipment and methodologies to be employed on the project. Institution of the appropriate changes in project design and construction to reduce the risk to public and worker health and safety to acceptable levels. Institution of the appropriate health and safety methodologies and protocols during construction.',
 			list: [
-				{
-					letter: 'Have the project owner and the project team assessed the exposures and risks created by the application of new and/or non-standard technologies, materials, equipment and methodologies to be employed on the project?',
-					nums: [
-						'Reports documenting the assessment of the exposures and risks to public health and safety',
-					]
-				},
-				{
-					letter: 'Have the project owner and the project team assessed and made the appropriate changes to the project design to reduce the risk to public and worker health and safety to acceptable levels, and received approval and signoff by the appropriate environmental and public health and safety officials?',
-					nums: [
-						'Documentation of where and the degree to which the project owner and the project team changed the design of the project to better protect public health and safety.',
-						'Evidence of approval and signoff by the appropriate environmental and public health and safety officials.'
-					]
-				},
-				{
-					letter: 'Have the project owner and the project team instituted the appropriate health and safety methodologies and protocols during construction?',
-					nums: [
-						'Evidence of approval and signoff by the appropriate environmental and public health and safety officials.',
-						'Evidence that the health and safety methodologies and protocols have been passed onto the constructor.'
-					]
-				}
+				'Have the project owner and the project team assessed the exposures and risks created by the application of new and/or non-standard technologies, materials, equipment and methodologies to be employed on the project?',
+				[
+					'Reports documenting the assessment of the exposures and risks to public health and safety',
+				],
+				'Have the project owner and the project team assessed and made the appropriate changes to the project design to reduce the risk to public and worker health and safety to acceptable levels, and received approval and signoff by the appropriate environmental and public health and safety officials?',
+				[
+					'Documentation of where and the degree to which the project owner and the project team changed the design of the project to better protect public health and safety.',
+					'Evidence of approval and signoff by the appropriate environmental and public health and safety officials.'
+				],
+				'Have the project owner and the project team instituted the appropriate health and safety methodologies and protocols during construction?',
+				[
+					'Evidence of approval and signoff by the appropriate environmental and public health and safety officials.',
+					'Evidence that the health and safety methodologies and protocols have been passed onto the constructor.'
+				]
 			]
 		},
 		{
@@ -300,26 +272,20 @@ function details() {
 			benchmark: 'No baseline studies and predictions of noise and vibration have been conducted, unless required by regulations. Compliance with local laws and regulations regarding construction noise, but no proposed inspection and enforcement programs beyond stipulated requirements.',
 			perfImprove: 'Shift from meeting standards and regulatory requirements to further reductions in ambient noise and vibrations, ultimately creating quieter communities.',
 			list: [
-				{
-					letter: 'Have appropriate studies been carried out to predict the levels of air-borne, ground-borne and structure-borne noise and vibration that will be present during construction and when the completed works is in operation?',
-					nums: [
-						'Noise and vibration studies and field monitoring providing adequate baseline information and predictions of ambient noise and vibration levels during construction and operation.',
-						'Acceptability of the credentials and qualifications of the person(s) conducting the baselines studies and predictions, and developing the mitigation proposals.'
-					]
-				},
-				{
-					letter: 'Have proposals for ambient noise and vibration mitigation and monitoring been made and incorporated into the project design to reduce noise and vibration to accepted standard target levels?',
-					nums: [
-						'Proposals for ambient noise and vibration mitigation and monitoring submitted.',
-						'Comprehensiveness of proposals in terms of coverage, detail and the flowdown of requirements to the construction contractor.'
-					]
-				},
-				{
-					letter: 'Has the project been designed to markedly reduce ambient noise and vibration down to levels that substantially improve community livability?',
-					nums: [
-						'Analyses and documentation of estimates of ambient noise and vibration levels and comparisons to community needs and goals for livability.'
-					]
-				}
+				'Have appropriate studies been carried out to predict the levels of air-borne, ground-borne and structure-borne noise and vibration that will be present during construction and when the completed works is in operation?',
+				[
+					'Noise and vibration studies and field monitoring providing adequate baseline information and predictions of ambient noise and vibration levels during construction and operation.',
+					'Acceptability of the credentials and qualifications of the person(s) conducting the baselines studies and predictions, and developing the mitigation proposals.'
+				],
+				'Have proposals for ambient noise and vibration mitigation and monitoring been made and incorporated into the project design to reduce noise and vibration to accepted standard target levels?',
+				[
+					'Proposals for ambient noise and vibration mitigation and monitoring submitted.',
+					'Comprehensiveness of proposals in terms of coverage, detail and the flowdown of requirements to the construction contractor.'
+				],
+				'Has the project been designed to markedly reduce ambient noise and vibration down to levels that substantially improve community livability?',
+				[
+					'Analyses and documentation of estimates of ambient noise and vibration levels and comparisons to community needs and goals for livability.'
+				]
 			]
 		},
 		{
@@ -361,26 +327,20 @@ function details() {
 			benchmark: 'Compliance with local laws and regulations regarding light pollution, but not beyond what\'s required. Compliance with local laws and regulations regarding construction light pollution.',
 			perfImprove: 'Incorporate non-lighting alternatives and rethink real lighting needs. Eliminate unnecessary lighting. Reduce glare. Increased use of dark-sky friendly lighting devices.',
 			list: [
-				{
-					letter: 'Has the project team conducted an overall assessment of lighting needs for the project?',
-					nums: [
-						'Documentation of lighting assessments conducted for the project.',
-						'Considerations of overall appropriate lighting zone levels.'
-					]
-				},
-				{
-					letter: 'Has the project team designed the lighting components of the project in a way that reduces lighting energy requirements?',
-					nums: [
-						'Plans, drawings, specifications showing the use of energy-efficient lighting, removal of existing but unneeded lighting, use of automatic turnoff systems, application of non-lighting alternatives.'
-					]
-				},
-				{
-					letter: 'Has the project team designed the lighting components of the project in a way that reduces or eliminates light spillage into sensitive environments and preserves the night sky?',
-					nums: [
-						'Plans, drawings, specifications showing reductions in lighting intensity, the use of high barriers and planted trees and shrubs, the use of full cutoff lenses.',
-						'Demonstration that signage for the constructed works will meet the following standards for digital signs, digital billboards, electronic message boards or displays, electronic message centers, marquee signs and electronic display systems: During daylight hours between sunrise and sunset, luminance shall be no greater than 2000 candelas per square meter. At all other times, luminance shall be no greater than 250 candelas per square meter. There shall be no display movement such as twirls, swirls, blinking, video clips or other forms of animation. Sign copy cannot change more than once per hour.'
-					]
-				}
+				'Has the project team conducted an overall assessment of lighting needs for the project?',
+				[
+					'Documentation of lighting assessments conducted for the project.',
+					'Considerations of overall appropriate lighting zone levels.'
+				],
+				'Has the project team designed the lighting components of the project in a way that reduces lighting energy requirements?',
+				[
+					'Plans, drawings, specifications showing the use of energy-efficient lighting, removal of existing but unneeded lighting, use of automatic turnoff systems, application of non-lighting alternatives.'
+				],
+				'Has the project team designed the lighting components of the project in a way that reduces or eliminates light spillage into sensitive environments and preserves the night sky?',
+				[
+					'Plans, drawings, specifications showing reductions in lighting intensity, the use of high barriers and planted trees and shrubs, the use of full cutoff lenses.',
+					'Demonstration that signage for the constructed works will meet the following standards for digital signs, digital billboards, electronic message boards or displays, electronic message centers, marquee signs and electronic display systems: During daylight hours between sunrise and sunset, luminance shall be no greater than 2000 candelas per square meter. At all other times, luminance shall be no greater than 250 candelas per square meter. There shall be no display movement such as twirls, swirls, blinking, video clips or other forms of animation. Sign copy cannot change more than once per hour.'
+				]
 			]
 		},
 		{
@@ -421,47 +381,35 @@ function details() {
 			benchmark: 'Compliance with local laws and regulations regarding construction transport, but no inspection and enforcement programs beyond what\'s required, if anything. Only conducting conventional impact studies as required by local regulations. No particular efforts in the design to improve access or reduce congestion. Only using conventional design standards for access.',
 			perfImprove: 'Broader consideration given to coordination with adjacent facilities, amenities and transportation hubs. Focus on reducing traffic congestion and improving walkability. Net improvement on community livability.',
 			list: [
-				{
-					letter: 'Have the impacts of the project on community access and mobility during construction and operation been properly and comprehensively addressed?',
-					nums: [
-						'Assessment studies and reports addressing the effects of the constructed works on access and mobility.',
-						'Completeness of the assessment studies and reports.'
-					]
-				},
-				{
-					letter: 'Has the project team coordinated with owners and operators of adjacent facilities, amenities and/or transportation hubs to address issues of mobility and access during operation of the constructed works?',
-					nums: [
-						'Reports, memoranda, minutes of meetings with managers and operators covering access to adjacent facilities, amenities and transportation hubs.',
-						'Decisions made and actions taken.'
-					]
-				},
-				{
-					letter: 'Has the project team considered and incorporated when feasible, the use of alternate modes of transport?',
-					nums: [
-						'Assessments of the availability, feasibility and use of rail, water, non-motorized transit, and pipeline access to ease congestion.',
-						'Changes made or not made to transport modes and rationale.'
-					]
-				},
-				{
-					letter: 'Has the project team developed plans to reduce traffic disruption during construction, including monitoring, and corrective action?',
-					nums: [
-						'Specifications of requirements and procedures directed to the constructor.',
-						'Comprehensiveness of those specifications.'
-					]
-				},
-				{
-					letter: 'Has the project team incorporated design strategies to address access and mobility concerns during operation, e.g., congestion, usage rates of existing transit infrastructure, access to public transit and non-motorized transportation?',
-					nums: [
-						'Access and mobility principles, requirements and specifications incorporated into the design, and expected outcomes.'
-					]
-				},
-				{
-					letter: 'Has the project team expanded mobility and access considerations to include improvements to long-term transportation infrastructure efficiency, walkability, and livability?',
-					nums: [
-						'Reports, memoranda and minutes of meetings with community officials covering the long-term mobility and access needs of the community.',
-						'Design components showing the extent to which long-term mobility and access needs and issues were incorporated into the constructed works.'
-					]
-				}
+				'Have the impacts of the project on community access and mobility during construction and operation been properly and comprehensively addressed?',
+				[
+					'Assessment studies and reports addressing the effects of the constructed works on access and mobility.',
+					'Completeness of the assessment studies and reports.'
+				],
+				'Has the project team coordinated with owners and operators of adjacent facilities, amenities and/or transportation hubs to address issues of mobility and access during operation of the constructed works?',
+				[
+					'Reports, memoranda, minutes of meetings with managers and operators covering access to adjacent facilities, amenities and transportation hubs.',
+					'Decisions made and actions taken.'
+				],
+				'Has the project team considered and incorporated when feasible, the use of alternate modes of transport?',
+				[
+					'Assessments of the availability, feasibility and use of rail, water, non-motorized transit, and pipeline access to ease congestion.',
+					'Changes made or not made to transport modes and rationale.'
+				],
+				'Has the project team developed plans to reduce traffic disruption during construction, including monitoring, and corrective action?',
+				[
+					'Specifications of requirements and procedures directed to the constructor.',
+					'Comprehensiveness of those specifications.'
+				],
+				'Has the project team incorporated design strategies to address access and mobility concerns during operation, e.g., congestion, usage rates of existing transit infrastructure, access to public transit and non-motorized transportation?',
+				[
+					'Access and mobility principles, requirements and specifications incorporated into the design, and expected outcomes.'
+				],
+				'Has the project team expanded mobility and access considerations to include improvements to long-term transportation infrastructure efficiency, walkability, and livability?',
+				[
+					'Reports, memoranda and minutes of meetings with community officials covering the long-term mobility and access needs of the community.',
+					'Design components showing the extent to which long-term mobility and access needs and issues were incorporated into the constructed works.'
+				]
 			]
 		},
 		{
@@ -502,49 +450,37 @@ function details() {
 			benchmark: 'Simple access to transit, pathways or bikeways.',
 			perfImprove: 'Improved access and convenience for non-motorized transportation. Design encourages the use of alternate modes of transportation.',
 			list: [
-				{
-					letter: 'Is the constructed works located within walking distance and is it pedestrian accessible to multi-modal transportation facilities?',
-					nums: [
-						'Location and design drawings showing proximity and accessibility to transportation facilities.',
-						'Degree of convenience and accessibility.'
-					]
-				},
-				{
-					letter: 'Does the constructed works and associated infrastructure restrict the parking of motorized vehicles?',
-					nums: [
-						'Location and design drawings showing parking availability in and around the constructed works.',
-						'Parking spaces available relative to expected use of the constructed works and availability of alternative transportation. Comparisons to other parking restricted facilities and infrastructure.'
-					]
-				},
-				{
-					letter: 'Is the constructed works and associated infrastructure designed for convenience in access to multi-modal transportation facilities?',
-					nums: [
-						'Location and design drawings showing bicycle and pedestrian walkways, trails and networks that connect to the site and constructed works.',
-						'Convenience, quality and safety of those walkways, trails and networks.'
-					]
-				},
-				{
-					letter: 'Is the constructed works configured and located so that users are encouraged to use non-motorized transportation?',
-					nums: [
-						'Location and design drawings showing the topography is relatively flat, with a network of pathways and bikeways converge on or near the constructed works.',
-						'Availability of facilities and policies for the users.'
-					]
-				},
-				{
-					letter: 'Has the project owner and the project team, working with the community developed programs to encourage the use of alternative modes of transportation?',
-					nums: [
-						'Provision for sheltered and well-lit bus stops, tram stops, or transit access points',
-						'Effective display of information such as time and route of public transportation [kiosks, protected displays at bus stops, etc.].'
-					]
-				},
-				{
-					letter: 'Has the project owner and the project team identified under-unused pathways, bikeways, rail and/or water modes of transportation that are unused, in disrepair and/or have barriers to safe use? Has the team sought to upgrade these elements and integrate them into the existing transportation infrastructure?',
-					nums: [
-						'Location and design drawings showing pathways, bikeways, rail and/or water modes of transportation that are unused and in disrepair.',
-						'Designs for upgrading and incorporating those elements into the existing transportation infrastructure.',
-						'Extent and effectiveness of rehabilitation and incorporation.'
-					]
-				}
+				'Is the constructed works located within walking distance and is it pedestrian accessible to multi-modal transportation facilities?',
+				[
+					'Location and design drawings showing proximity and accessibility to transportation facilities.',
+					'Degree of convenience and accessibility.'
+				],
+				'Does the constructed works and associated infrastructure restrict the parking of motorized vehicles?',
+				[
+					'Location and design drawings showing parking availability in and around the constructed works.',
+					'Parking spaces available relative to expected use of the constructed works and availability of alternative transportation. Comparisons to other parking restricted facilities and infrastructure.'
+				],
+				'Is the constructed works and associated infrastructure designed for convenience in access to multi-modal transportation facilities?',
+				[
+					'Location and design drawings showing bicycle and pedestrian walkways, trails and networks that connect to the site and constructed works.',
+					'Convenience, quality and safety of those walkways, trails and networks.'
+				],
+				'Is the constructed works configured and located so that users are encouraged to use non-motorized transportation?',
+				[
+					'Location and design drawings showing the topography is relatively flat, with a network of pathways and bikeways converge on or near the constructed works.',
+					'Availability of facilities and policies for the users.'
+				],
+				'Has the project owner and the project team, working with the community developed programs to encourage the use of alternative modes of transportation?',
+				[
+					'Provision for sheltered and well-lit bus stops, tram stops, or transit access points',
+					'Effective display of information such as time and route of public transportation [kiosks, protected displays at bus stops, etc.].'
+				],
+				'Has the project owner and the project team identified under-unused pathways, bikeways, rail and/or water modes of transportation that are unused, in disrepair and/or have barriers to safe use? Has the team sought to upgrade these elements and integrate them into the existing transportation infrastructure?',
+				[
+					'Location and design drawings showing pathways, bikeways, rail and/or water modes of transportation that are unused and in disrepair.',
+					'Designs for upgrading and incorporating those elements into the existing transportation infrastructure.',
+					'Extent and effectiveness of rehabilitation and incorporation.'
+				]
 			]
 		},
 		{
@@ -560,7 +496,7 @@ function details() {
 			enhanced: {
 				points: detailsPoints('quality', 'QL2.6', 'Enhanced'),
 				synopsis: 'Onsite wayfinding.',
-				copy: 'Increase the users\' ability to understand, and safely access and leave the constructed works and the site. Provide signage and other guidance that makes it intuitive for users to orient themselves to navigate from place to place. (A, B)'
+				copy: 'Increase the user\'s ability to understand, and safely access and leave the constructed works and the site. Provide signage and other guidance that makes it intuitive for users to orient themselves to navigate from place to place. (A, B)'
 			},
 			superior: {
 				points: detailsPoints('quality', 'QL2.6', 'Superior'),
@@ -599,44 +535,32 @@ function details() {
 			benchmark: 'Only use conventional design standards for signage and wayfinding. Meet health and safety regulations applicable to cite safety in way-finding. Signage meets MUTCD and ADA requirements and other applicable standards.',
 			perfImprove: 'Increasingly clear, identifiable and intuitive signage for safe access and egress.',
 			list: [
-				{
-					letter: 'Have the project owner and the project team developed the appropriate signage for safety and wayfinding in and around the constructed works?',
-					nums: [
-						'Design documents showing plans for access and egress and plans for signage showing how the design and signage is clear and intuitive for users.'
-					]
-				},
-				{
-					letter: 'Have the project owner and the project team addressed appropriately, safety and accessibility in and around the constructed works for emergency personnel?',
-					nums: [
-						'Design documents showing plans for access and egress routes for emergency personnel, users and occupants.',
-						'Effectiveness of the design for emergency situations.'
-					]
-				},
-				{
-					letter: 'Have the project owner and the project team extended accessibility and signage to protect nearby sensitive sites (wetland, cultural sites, etc.) or, in populated areas, neighborhood safety and security?',
-					nums: [
-						'Design documents showing plans for accessibility to and protection of nearby sensitive and/or cultural sites.',
-						'Effectiveness of accessibility and protection'
-					]
-				},
-				{
-					letter: 'Have the project owner and the project team designed the project so as to have a net positive impact on public safety?',
-					nums: [
-						'Design documents and plans showing how the project will impact public safety.'
-					]
-				},
-				{
-					letter: 'Does the constructed works integrate well with the local community and its surroundings?',
-					nums: [
-						'Design documents and plans showing how the project will integrate with the local community and its environmental and cultural resources.'
-					]
-				},
-				{
-					letter: 'Have the owner and the project team incorporated features into the project design that restore and improve overall access and safety in adjacent neighborhoods?',
-					nums: [
-						'Design documents and plans showing how the project has restored safety and access in the adjacent neighborhoods.'
-					]
-				}
+				'Have the project owner and the project team developed the appropriate signage for safety and wayfinding in and around the constructed works?',
+				[
+					'Design documents showing plans for access and egress and plans for signage showing how the design and signage is clear and intuitive for users.'
+				],
+				'Have the project owner and the project team addressed appropriately, safety and accessibility in and around the constructed works for emergency personnel?',
+				[
+					'Design documents showing plans for access and egress routes for emergency personnel, users and occupants.',
+					'Effectiveness of the design for emergency situations.'
+				],
+				'Have the project owner and the project team extended accessibility and signage to protect nearby sensitive sites (wetland, cultural sites, etc.) or, in populated areas, neighborhood safety and security?',
+				[
+					'Design documents showing plans for accessibility to and protection of nearby sensitive and/or cultural sites.',
+					'Effectiveness of accessibility and protection'
+				],
+				'Have the project owner and the project team designed the project so as to have a net positive impact on public safety?',
+				[
+					'Design documents and plans showing how the project will impact public safety.'
+				],
+				'Does the constructed works integrate well with the local community and its surroundings?',
+				[
+					'Design documents and plans showing how the project will integrate with the local community and its environmental and cultural resources.'
+				],
+				'Have the owner and the project team incorporated features into the project design that restore and improve overall access and safety in adjacent neighborhoods?',
+				[
+					'Design documents and plans showing how the project has restored safety and access in the adjacent neighborhoods.'
+				]
 			]
 		},
 		{
@@ -677,33 +601,25 @@ function details() {
 			benchmark: 'Action does not result in either preservation of or a net benefit to historic and/or cultural resources.',
 			perfImprove: 'To advance to higher levels of achievement project teams should increase efforts to understand community needs, opportunities for preservation, protection and enhancement. Owners should increase flexibility in incorporating protection and preservation elements into the project. Shift from preservation and conservation to restoration and enhancement of cultural and heritage sites.',
 			list: [
-				{
-					letter: 'To what extent has the project team worked with the community and required regulatory and resources agencies to identify cultural resources?',
-					nums: [
-						'Reports, memoranda, minutes of meetings with the community and required regulatory and resource agencies to identify cultural resources.'
-					]
-				},
-				{
-					letter: 'Has the project team conducted a feasibility analysis to understand the possibilities of incorporating preservation, or enhancement, into the project',
-					nums: [
-						'Evidence of a feasibility study.'
-					]
-				},
-				{
-					letter: 'To what extent has the project team worked with cultural stakeholders to develop a sensitive design and approach, with the ultimate goal of avoiding all cultural resources or fully preserving the character defining features of that resource?',
-					nums: [
-						'Location and design drawings demonstrating that the site avoids impacting any cultural resource, or of efforts to mitigate impacts.',
-						'Design documents of all mitigation efforts in the design.'
-					]
-				},
-				{
-					letter: 'Has the project team given special consideration to enhancing or restoring existing cultural resources?',
-					nums: [
-						'Documentation of efforts to enhance or restore existing cultural resources.',
-						'Documentation that works was done in collaboration with preservationists to ensure restoration does not damage the quality of the existing cultural resource.',
-						'Qualifications of preservationists.'
-					]
-				}
+				'To what extent has the project team worked with the community and required regulatory and resources agencies to identify cultural resources?',
+				[
+					'Reports, memoranda, minutes of meetings with the community and required regulatory and resource agencies to identify cultural resources.'
+				],
+				'Has the project team conducted a feasibility analysis to understand the possibilities of incorporating preservation, or enhancement, into the project',
+				[
+					'Evidence of a feasibility study.'
+				],
+				'To what extent has the project team worked with cultural stakeholders to develop a sensitive design and approach, with the ultimate goal of avoiding all cultural resources or fully preserving the character defining features of that resource?',
+				[
+					'Location and design drawings demonstrating that the site avoids impacting any cultural resource, or of efforts to mitigate impacts.',
+					'Design documents of all mitigation efforts in the design.'
+				],
+				'Has the project team given special consideration to enhancing or restoring existing cultural resources?',
+				[
+					'Documentation of efforts to enhance or restore existing cultural resources.',
+					'Documentation that works was done in collaboration with preservationists to ensure restoration does not damage the quality of the existing cultural resource.',
+					'Qualifications of preservationists.'
+				]
 			]
 		},
 		{
@@ -743,50 +659,38 @@ function details() {
 			benchmark: 'The project team has some limited consideration of local landscape or urban character, but only to ensure that the project will not be a disharmonious imposition on the local landscape. No consideration is given to of views or view corridors, unless required. The project team achieves minimum compliance with laws and regulations for adverse impact on landscape features, and for any protected features, trees etc.',
 			perfImprove: 'Shift from minimizing impacts to preservation and restoration. Expand planning to be more comprehensive, taking stakeholder input into account.',
 			list: [
-				{
-					letter: 'To what extent has the project team demonstrated an understanding of local character of the project setting, in terms of landform or levels, views, natural landscape features, materials, planting, style/detailing, scale, and landscape/townscape pattern?',
-					nums: [
-						'Plans, drawings, and reports identifying important elements of the site character including landform or levels, views, natural landscape features, materials, planting, style/detailing, scale, and landscape/townscape pattern.',
-						'Existing policies and regulations regarding public views and design guidelines relevant to the project.'
-					]
-				},
-				{
-					letter: 'Has the project team developed or adopted existing public view plans and design guidelines to preserve important view sheds and local character',
-					nums: [
-						'An inventory of all natural landscape features to be protected.',
-						'An inventory of all view resources to be protected.',
-						'A plan for addressing public views in the project design. Plans should include: identification and location of the areas to be protected, identifying compatible land use, setting development standards, and establishing policies for inappropriate development and land use.',
-						'Design guidelines written for the project to preserve public views, important natural landscape features, and generally fit with the local character and context of its surroundings whether urban or rural.'
-					]
-				},
-				{
-					letter: 'To what extent does the final design address views and local character?',
-					nums: [
-						'Reports, drawings, plans, or images demonstrating how the final project design addresses each of the identified views, natural landscape features, and elements of local character.'
-					]
-				},
-				{
-					letter: 'To what extent has the project team worked with local official, communities, and decision makers?',
-					nums: [
-						'Reports, memoranda, minutes of meetings with local officials and decision-makers regarding local policies and regulations.',
-						'Reports, memoranda, minutes of meetings with local officials and decision-makers to identify views, natural landscape features, and important local character traits.',
-						'Reports, memoranda, minutes of meetings with local officials and decision-makers demonstrating their involvement in developing design guidelines or their approval of the final design guidelines for views and fit with local character.'
-					]
-				},
-				{
-					letter: 'Does the contract include clauses on the preservation of high value landscapes and landscape features, including stated penalties for non-compliance and programs to inspect outcomes and enforce?',
-					nums: [
-						'Contract clauses regarding the preservation of high value landscapes and landscape features.',
-						'Penalties for non-compliance.',
-						'Programs for monitoring and enforcement'
-					]
-				},
-				{
-					letter: 'Has the project team aided local communities in developing or improving local policies and regulations regarding views and fit with local character for future projects',
-					nums: [
-						'Report documenting any efforts to aid local communities in developing more comprehensive policies and regulations regarding views and fit with local character.A'
-					]
-				}
+				'To what extent has the project team demonstrated an understanding of local character of the project setting, in terms of landform or levels, views, natural landscape features, materials, planting, style/detailing, scale, and landscape/townscape pattern?',
+				[
+					'Plans, drawings, and reports identifying important elements of the site character including landform or levels, views, natural landscape features, materials, planting, style/detailing, scale, and landscape/townscape pattern.',
+					'Existing policies and regulations regarding public views and design guidelines relevant to the project.'
+				],
+				'Has the project team developed or adopted existing public view plans and design guidelines to preserve important view sheds and local character',
+				[
+					'An inventory of all natural landscape features to be protected.',
+					'An inventory of all view resources to be protected.',
+					'A plan for addressing public views in the project design. Plans should include: identification and location of the areas to be protected, identifying compatible land use, setting development standards, and establishing policies for inappropriate development and land use.',
+					'Design guidelines written for the project to preserve public views, important natural landscape features, and generally fit with the local character and context of its surroundings whether urban or rural.'
+				],
+				'To what extent does the final design address views and local character?',
+				[
+					'Reports, drawings, plans, or images demonstrating how the final project design addresses each of the identified views, natural landscape features, and elements of local character.'
+				],
+				'To what extent has the project team worked with local official, communities, and decision makers?',
+				[
+					'Reports, memoranda, minutes of meetings with local officials and decision-makers regarding local policies and regulations.',
+					'Reports, memoranda, minutes of meetings with local officials and decision-makers to identify views, natural landscape features, and important local character traits.',
+					'Reports, memoranda, minutes of meetings with local officials and decision-makers demonstrating their involvement in developing design guidelines or their approval of the final design guidelines for views and fit with local character.'
+				],
+				'Does the contract include clauses on the preservation of high value landscapes and landscape features, including stated penalties for non-compliance and programs to inspect outcomes and enforce?',
+				[
+					'Contract clauses regarding the preservation of high value landscapes and landscape features.',
+					'Penalties for non-compliance.',
+					'Programs for monitoring and enforcement'
+				],
+				'Has the project team aided local communities in developing or improving local policies and regulations regarding views and fit with local character for future projects',
+				[
+					'Report documenting any efforts to aid local communities in developing more comprehensive policies and regulations regarding views and fit with local character.A'
+				]
 			]
 		},
 		{
@@ -828,28 +732,22 @@ function details() {
 			benchmark: 'The action has no particular effect, positive or negative, regarding the preservation or improvement of public space. No efforts to identify, preserve, or enhance other than what is required by local laws or regulations.',
 			perfImprove: 'Shift from maintenance and preservation to enhancement and restoration.',
 			list: [
-				{
-					letter: 'What effect will the project have on public space (e.g., parks, plazas, recreational facilities, or accessible space in wildlife refuges) that enhances community livability?',
-					nums: [
-						'Studies, assessments of the impact of the project on existing public space.',
-						'Design documents describing any new public space developed as part of the project.',
-						'Determination of benefits, improvements, negative impacts.',
-						'Determination of risks to public health and safety.'
-					]
-				},
-				{
-					letter: 'Are the public agencies and other stakeholders satisfied with the project plans involving public space?',
-					nums: [
-						'Acceptance by the appropriate public agencies.',
-						'Letters, memoranda, minutes of meetings with stakeholders showing stakeholder satisfaction.'
-					]
-				},
-				{
-					letter: 'Will meaningful and beneficial restoration efforts be undertaken?',
-					nums: [
-						'Plans, drawings showing the scope and extent of any restoration efforts to be made on public space.'
-					]
-				}
+				'What effect will the project have on public space (e.g., parks, plazas, recreational facilities, or accessible space in wildlife refuges) that enhances community livability?',
+				[
+					'Studies, assessments of the impact of the project on existing public space.',
+					'Design documents describing any new public space developed as part of the project.',
+					'Determination of benefits, improvements, negative impacts.',
+					'Determination of risks to public health and safety.'
+				],
+				'Are the public agencies and other stakeholders satisfied with the project plans involving public space?',
+				[
+					'Acceptance by the appropriate public agencies.',
+					'Letters, memoranda, minutes of meetings with stakeholders showing stakeholder satisfaction.'
+				],
+				'Will meaningful and beneficial restoration efforts be undertaken?',
+				[
+					'Plans, drawings showing the scope and extent of any restoration efforts to be made on public space.'
+				]
 			]
 		},
 		{
@@ -892,25 +790,19 @@ function details() {
 			benchmark: 'Awareness of the issue of preserving high ecological value lands, high conservation value forests and land supporting high-value species. Checks made with state or local agencies regarding classifications or regulations regarding high ecological value land or lands supporting high-value species. Compliance with applicable regulations.',
 			perfImprove: 'Shift from avoidance to maintenance to restoration.',
 			list: [
-				{
-					letter: 'Does the project avoid development on land that is judged to be "prime habitat" by a third party (including SFI, FSC, or CSA)?',
-					nums: [
-						'Narrative describing efforts by an interdisciplinary team to research and document all areas of "prime habitat" near or on the site using local, state, or national prime habitat information.',
-						'Documentation demonstrating no areas of prime habitat are located on-site or within the specified distance of developed areas.'
-					]
-				},
-				{
-					letter: 'Does the project preserve, at minimum, an appropriately sized buffer zone of undeveloped land or other habitat protection and connectivity according to the specified width around all prime habitat areas?',
-					nums: [
-						'A site map illustrating a buffer of undeveloped land, fulfilling the requirements above, is preserved (or created if the site is currently developed) around all areas of prime habitat. Provide documentation to demonstrate appropriate size of buffer or other protection.'
-					]
-				},
-				{
-					letter: 'Does the project significantly increase the area of prime habitat through the restoration of vegetation and habitat connectivity to a degree suitable as habitat (as determined by a qualified habitat restoration professional), either as part of the protective buffer zone or adjacent to the site?',
-					nums: [
-						'A restoration plan outlining any efforts to restore prime habitat either on the project site or adjacent to the site, including, at a minimum a site map outlining locations of restoration, and a species list of plants used. This documentation must be signed by a qualified natural resource professional who assisted with the restoration and monitoring plan.'
-					]
-				}
+				'Does the project avoid development on land that is judged to be "prime habitat" by a third party (including SFI, FSC, or CSA)?',
+				[
+					'Narrative describing efforts by an interdisciplinary team to research and document all areas of "prime habitat" near or on the site using local, state, or national prime habitat information.',
+					'Documentation demonstrating no areas of prime habitat are located on-site or within the specified distance of developed areas.'
+				],
+				'Does the project preserve, at minimum, an appropriately sized buffer zone of undeveloped land or other habitat protection and connectivity according to the specified width around all prime habitat areas?',
+				[
+					'A site map illustrating a buffer of undeveloped land, fulfilling the requirements above, is preserved (or created if the site is currently developed) around all areas of prime habitat. Provide documentation to demonstrate appropriate size of buffer or other protection.'
+				],
+				'Does the project significantly increase the area of prime habitat through the restoration of vegetation and habitat connectivity to a degree suitable as habitat (as determined by a qualified habitat restoration professional), either as part of the protective buffer zone or adjacent to the site?',
+				[
+					'A restoration plan outlining any efforts to restore prime habitat either on the project site or adjacent to the site, including, at a minimum a site map outlining locations of restoration, and a species list of plants used. This documentation must be signed by a qualified natural resource professional who assisted with the restoration and monitoring plan.'
+				]
 			]
 		},
 		{
@@ -956,24 +848,18 @@ function details() {
 			benchmark: 'Determine the full extent, if any, of wetlands on the site No special protection of buffers to wetlands, rivers or shores other than what is required by regulations.',
 			perfImprove: 'Improve and extend vegetation and soil protection zones (VSPZ) while shifting from protection to restoration. Delineate and protect wetlands and other aquatic habitats regardless of size or connectivity.',
 			list: [
-				{
-					letter: 'Is the project located on a site that neither contains nor is located within the specified distance of vernal pools, wetlands, shorelines, or water bodies unless located on a previously developed site?',
-					nums: [
-						'Documentation that the proposed site neither contains nor is within the specified distance of a wetland, vernal pool, shoreline or water body or other aquatic resource'
-					]
-				},
-				{
-					letter: 'If the site contains wetlands or water bodies, has the project team established a vegetation and soil protection zone (VSPZ) to provide a natural zone unaffected by development that maintains a buffer equal to the specified distance?',
-					nums: [
-						'A site plan showing the final site design, the boundaries of the VSPZ, and the minimal VSPZ depth calculated as the shortest point between the VSPZ boundary and the identified wetland, water body, or shoreline.'
-					]
-				},
-				{
-					letter: 'Has the project team restored previously degraded buffer zones to a natural state on a previously developed site?',
-					nums: [
-						'A restoration plan outlining any efforts to restore wetlands or waterbodies including, at a minimum a site map outlining locations of restoration, and proof that both required action types were taken.'
-					]
-				}
+				'Is the project located on a site that neither contains nor is located within the specified distance of vernal pools, wetlands, shorelines, or water bodies unless located on a previously developed site?',
+				[
+					'Documentation that the proposed site neither contains nor is within the specified distance of a wetland, vernal pool, shoreline or water body or other aquatic resource'
+				],
+				'If the site contains wetlands or water bodies, has the project team established a vegetation and soil protection zone (VSPZ) to provide a natural zone unaffected by development that maintains a buffer equal to the specified distance?',
+				[
+					'A site plan showing the final site design, the boundaries of the VSPZ, and the minimal VSPZ depth calculated as the shortest point between the VSPZ boundary and the identified wetland, water body, or shoreline.'
+				],
+				'Has the project team restored previously degraded buffer zones to a natural state on a previously developed site?',
+				[
+					'A restoration plan outlining any efforts to restore wetlands or waterbodies including, at a minimum a site map outlining locations of restoration, and proof that both required action types were taken.'
+				]
 			]
 		},
 		{
@@ -1016,25 +902,19 @@ function details() {
 			benchmark: 'The project team checks to see if any of the soils on site have been designated by the NRCS as prime farmland, unique farmland, or farmland of statewide importance.',
 			perfImprove: 'Shift from protection to preservation, e.g., no development on prime farmland. Note that restoration of land to prime farmland is very difficult.',
 			list: [
-				{
-					letter: 'Have the project owner and the project team assessed the project site and determined whether or not the on-site soils have been identified as prime farmland, unique farmland, or farmland of statewide importance to conserve for future generations?',
-					nums: [
-						'Results of government studies and soil surveys'
-					]
-				},
-				{
-					letter: 'To what extent is prime farmland, unique farmland, or farmland of statewide importance to conserve for future generations protected or preserved by this project?',
-					nums: [
-						'Documentation showing how prime farmland is protected or development prevented.',
-						'Documentation showing that no soils have been stripped from areas on the site defined as prime farmland.'
-					]
-				},
-				{
-					letter: 'To what extent has farmland, unique farmland, or farmland of statewide importance to conserve for future generations been restored by this project?',
-					nums: [
-						'Demonstration that restoration of prime farmland was accomplished.'
-					]
-				}
+				'Have the project owner and the project team assessed the project site and determined whether or not the on-site soils have been identified as prime farmland, unique farmland, or farmland of statewide importance to conserve for future generations?',
+				[
+					'Results of government studies and soil surveys'
+				],
+				'To what extent is prime farmland, unique farmland, or farmland of statewide importance to conserve for future generations protected or preserved by this project?',
+				[
+					'Documentation showing how prime farmland is protected or development prevented.',
+					'Documentation showing that no soils have been stripped from areas on the site defined as prime farmland.'
+				],
+				'To what extent has farmland, unique farmland, or farmland of statewide importance to conserve for future generations been restored by this project?',
+				[
+				    'Demonstration that restoration of prime farmland was accomplished.'
+				]
 			]
 		},
 		{
@@ -1074,30 +954,22 @@ function details() {
 			benchmark: 'Follow local regulations regarding building in identified earthquake prone areas and over karst formations.',
 			perfImprove: 'Shift from delineation to management of risk. Then shift from management controls to multiple levels of protection and public education. Ultimately, avoid earthquake and tsunami susceptible areas and karst geology altogether.',
 			list: [
-				{
-					letter: 'Has the project team identified and delineated earthquake faults, low lying coastal areas and karst formations and aquifers?',
-					nums: [
-						'Documentation of site investigations to identify and delineate earthquake faults, tsunami susceptible coastlines and karst areas and aquifers, including location of the project site relative to these features.',
-					]
-				},
-				{
-					letter: 'Has the project team developed plans and designs to reduce the risk of damage, establish operating procedures, and establish a monitoring program for adverse geologic settings?',
-					nums: [
-						'Documentation of design of the project that illustrates strategies used to avoid damage to or damage, operating plans, and monitoring plans.'
-					]
-				},
-				{
-					letter: 'Has the project team established hazard areas, developed buffers around adverse geologic areas, and created runoff controls and spill prevention and cleanup plans?',
-					nums: [
-						'Documentation showing hazardous areas and plans illustrating buffers and runoff controls, and spill prevention and cleanup plans.'
-					]
-				},
-				{
-					letter: 'Has the project team chosen a site that avoids earthquake and karst-related damage and does not affect underlying aquifers?',
-					nums: [
-						'Documentation that no faults and karst features exist on site, nor do any site activities affect underlying aquifers.'
-					]
-				}
+				'Has the project team identified and delineated earthquake faults, low lying coastal areas and karst formations and aquifers?',
+				[
+					'Documentation of site investigations to identify and delineate earthquake faults, tsunami susceptible coastlines and karst areas and aquifers, including location of the project site relative to these features.',
+				],
+				'Has the project team developed plans and designs to reduce the risk of damage, establish operating procedures, and establish a monitoring program for adverse geologic settings?',
+				[
+					'Documentation of design of the project that illustrates strategies used to avoid damage to or damage, operating plans, and monitoring plans.'
+				],
+				'Has the project team established hazard areas, developed buffers around adverse geologic areas, and created runoff controls and spill prevention and cleanup plans?',
+				[
+					'Documentation showing hazardous areas and plans illustrating buffers and runoff controls, and spill prevention and cleanup plans.'
+				],
+				'Has the project team chosen a site that avoids earthquake and karst-related damage and does not affect underlying aquifers?',
+				[
+					'Documentation that no faults and karst features exist on site, nor do any site activities affect underlying aquifers.'
+				]
 			]
 		},
 		{
@@ -1136,35 +1008,27 @@ function details() {
 			benchmark: 'Floodplain functions are not considered beyond local laws and requirements.',
 			perfImprove: 'Shift from avoiding floodplain development to maintaining floodplain functions. Extend to enhancement of riparian and aquatic habitat. Move to considering aquatic habitat connectivity and sediment transport. Shift to consideration of extreme flood events due to climate change and to restore connectivity to fragmented aquatic and riparian habitat and sediment transport.',
 			list: [
-				{
-					letter: 'Does the project avoid or limit new development within the design frequency floodplain for waterways of all sizes, unless water dependent infrastructure that must cross a waterway, or is the water dependent infrastructure designed to minimize floodplain impacts or waterway crossings?',
-					nums: [
-						'Documentation showing the location of the project relative to the 100-year or design floodplain.',
-						'Documentation showing siting choices relative to floodplains and how impacts to the floodplain have been reduced.',
-						'Document that pre- and post-floodplain storage and floodplain elevations and show that the project does not increase flood elevations outside of project easements and maintain floodplain storage.'
-					]
-				},
-				{
-					letter: 'Does the project maintain pre-development floodplain infiltration and water natural?',
-					nums: [
-						'Documentation of strategies used to maintain pre-development floodplain infiltration, such as amount of impervious surfaces, established vegetation and soil protection zones, and other strategies that allow for natural floodwater infiltration and filtration of pollutants.',
-						'Estimates of pre-development floodplain infiltration capacity and estimates of post-development floodplain infiltration capacity using above-described strategies.'
-					]
-				},
-				{
-					letter: 'Does the project maintain or enhance riparian and aquatic habitat and the maintenance or enhancement of the riparian and in-channel physical and vegetative habitat to support threatened and endangered or otherwise desirable species? Has a flood emergency plan been prepared for all infrastructure in the floodplain accounting for emergency operations and/or evacuation?',
-					nums: [
-						'Documentation of strategies to maintain or enhance habitat, within and along the waterway in the floodplain.',
-						'Provide documentation of a flood emergency management plan to address the operation and/or evacuation plan for all infrastructure in the floodplain.'
-					]
-				},
-				{
-					letter: 'Does the project maintain or enhance aquatic habitat connectivity and sediment transport? Is infrastructure subject to frequent damage by floods being modified or removed?',
-					nums: [
-						'Documentation of strategies used to maintain or enhance aquatic habitat connectivity, fish and sediment transport, including removal of barriers and traps.',
-						'Inventory of flood damaged infrastructure and plan/design to modify or remove flood-damaged infrastructure'
-					]
-				}
+				'Does the project avoid or limit new development within the design frequency floodplain for waterways of all sizes, unless water dependent infrastructure that must cross a waterway, or is the water dependent infrastructure designed to minimize floodplain impacts or waterway crossings?',
+				[
+					'Documentation showing the location of the project relative to the 100-year or design floodplain.',
+					'Documentation showing siting choices relative to floodplains and how impacts to the floodplain have been reduced.',
+					'Document that pre- and post-floodplain storage and floodplain elevations and show that the project does not increase flood elevations outside of project easements and maintain floodplain storage.'
+				],
+				'Does the project maintain pre-development floodplain infiltration and water natural?',
+				[
+					'Documentation of strategies used to maintain pre-development floodplain infiltration, such as amount of impervious surfaces, established vegetation and soil protection zones, and other strategies that allow for natural floodwater infiltration and filtration of pollutants.',
+					'Estimates of pre-development floodplain infiltration capacity and estimates of post-development floodplain infiltration capacity using above-described strategies.'
+				],
+				'Does the project maintain or enhance riparian and aquatic habitat and the maintenance or enhancement of the riparian and in-channel physical and vegetative habitat to support threatened and endangered or otherwise desirable species? Has a flood emergency plan been prepared for all infrastructure in the floodplain accounting for emergency operations and/or evacuation?',
+				[
+					'Documentation of strategies to maintain or enhance habitat, within and along the waterway in the floodplain.',
+					'Provide documentation of a flood emergency management plan to address the operation and/or evacuation plan for all infrastructure in the floodplain.'
+				],
+				'Does the project maintain or enhance aquatic habitat connectivity and sediment transport? Is infrastructure subject to frequent damage by floods being modified or removed?',
+				[
+					'Documentation of strategies used to maintain or enhance aquatic habitat connectivity, fish and sediment transport, including removal of barriers and traps.',
+					'Inventory of flood damaged infrastructure and plan/design to modify or remove flood-damaged infrastructure'
+				]
 			]
 		},
 		{
@@ -1204,24 +1068,18 @@ function details() {
 			benchmark: 'Follow local regulations and standards and ordinances regarding development on hillsides and steep slopes, if any.',
 			perfImprove: 'Shift from optimal siting and erosion control to avoiding development on high risk or steep slopes altogether, if possible.',
 			list: [
-				{
-					letter: 'Does the project follow best management practices to manage erosion and prevent landslides?',
-					nums: [
-						'Documentation of best management and design practices used, including protection of downslope buildings, facilities, and infrastructure.'
-					]
-				},
-				{
-					letter: 'Is the project sited optimally and managed to avoid excessive erosion?',
-					nums: [
-						'Documentation of process used to identify and choose site, including meetings with officials and other stakeholders, site options with benefits and shortfalls of each, and reasoning used for final selection of site.'
-					]
-				},
-				{
-					letter: 'Does the project avoid high risk hillsides or steep slopes?',
-					nums: [
-						'Documentation of process used to identify high-risk hillsides or steep slopes and their location relative to final site selected.'
-					]
-				}
+				'Does the project follow best management practices to manage erosion and prevent landslides?',
+				[
+					'Documentation of best management and design practices used, including protection of downslope buildings, facilities, and infrastructure.'
+				],
+				'Is the project sited optimally and managed to avoid excessive erosion?',
+				[
+					'Documentation of process used to identify and choose site, including meetings with officials and other stakeholders, site options with benefits and shortfalls of each, and reasoning used for final selection of site.'
+				],
+				'Does the project avoid high risk hillsides or steep slopes?',
+				[
+					'Documentation of process used to identify high-risk hillsides or steep slopes and their location relative to final site selected.'
+				]
 			]
 		},
 		{
@@ -1270,24 +1128,18 @@ function details() {
 			benchmark: 'The project site selected is a Greenfield site, i.e., a site where no previous development is taking place. Little or no efforts were made to location the project on a greyfield or brownfield site.',
 			perfImprove: 'Site the project to include increasing amounts of previously developed site or select a brownfield site and conduct the necessary cleanup or mitigation measures.',
 			list: [
-				{
-					letter: 'Is the project located on a site that was previously developed, and what percentage of the project site was previously developed?',
-					nums: [
-						'Documentation showing the percentage of the developed area of the site that was formerly developed and may be classified as a "greyfield".'
-					]
-				},
-				{
-					letter: 'Is the project located on a site where all or part of it is documented as contaminated according to a ASTM E1903-11 Phase II Environmental Assessment or on a site deemed a brownfield by local, state, or federal government agencies?',
-					nums: [
-						'Documentation of brownfield status of site. Either documentation of the local, state, or federal agency designation or results from an ASTM E1903-11 Phase II Environmental Assessment of the site confirming contamination will suffice.'
-					]
-				},
-				{
-					letter: 'Has a brownfield remediation plan been prepared according to the ASTM report?',
-					nums: [
-						'Documentation that the controlling public authority has approved proposed remediation measures for the site.'
-					]
-				}
+				'Is the project located on a site that was previously developed, and what percentage of the project site was previously developed?',
+				[
+					'Documentation showing the percentage of the developed area of the site that was formerly developed and may be classified as a "greyfield".'
+				],
+				'Is the project located on a site where all or part of it is documented as contaminated according to a ASTM E1903-11 Phase II Environmental Assessment or on a site deemed a brownfield by local, state, or federal government agencies?',
+				[
+					'Documentation of brownfield status of site. Either documentation of the local, state, or federal agency designation or results from an ASTM E1903-11 Phase II Environmental Assessment of the site confirming contamination will suffice.'
+				],
+				'Has a brownfield remediation plan been prepared according to the ASTM report?',
+				[
+					'Documentation that the controlling public authority has approved proposed remediation measures for the site.'
+				]
 			]
 		},
 		{
@@ -1343,18 +1195,14 @@ function details() {
 			benchmark: 'Development meets minimum regulatory requirements for stormwater management. Create and implement an erosion, sedimentation, and pollutant control plan—commonly referred to as SWPPP (Stormwater Pollution Prevention Plan) or ESC (Erosion and Sedimentation Control Plan)—for all construction activities associated with the project. The plan (SWPPP or ESC) shall conform to erosion and sedimentation requirements of the 2003 (or most current version) EPA Construction General Permit OR local erosion and sedimentation control standards and codes, whichever is more stringent.',
 			perfImprove: 'Improvements in water storage/infiltration capacity, extending to capacities larger than established for pre-development conditions.',
 			list: [
-				{
-					letter: 'What percentage improvement for a greyfield or brownfield site does the site\'s proposed water storage, infiltration, evapotranspiration, and/or water harvesting capacity achieve, or does the site maintain a Greenfield site water storage capacity?',
-					nums: [
-						'Documentation of the initial, final post-development, and target water storage, infiltration, evaporation, water harvesting and/or cistern storage capacities using TR-55 CNs or other continuous simulation modeling methods to describe site conditions.'
-					]
-				},
-				{
-					letter: 'Is 100% of the target water storage capacity is achieved for greyfield and brownfield sites, or does the greenfield site exceed 100% target water capacity so as to mitigate the impact of adjacent developed sites?',
-					nums: [
-						'Documentation of the initial, final post-development, and target water storage, infiltration, evaporation, water harvesting and/or cistern storage capacities using TR-55 CNs or other continuous simulation modeling methods to describe site conditions.'
-					]
-				}
+				'What percentage improvement for a greyfield or brownfield site does the site\'s proposed water storage, infiltration, evapotranspiration, and/or water harvesting capacity achieve, or does the site maintain a Greenfield site water storage capacity?',
+				[
+					'Documentation of the initial, final post-development, and target water storage, infiltration, evaporation, water harvesting and/or cistern storage capacities using TR-55 CNs or other continuous simulation modeling methods to describe site conditions.'
+				],
+				'Is 100% of the target water storage capacity is achieved for greyfield and brownfield sites, or does the greenfield site exceed 100% target water capacity so as to mitigate the impact of adjacent developed sites?',
+				[
+					'Documentation of the initial, final post-development, and target water storage, infiltration, evaporation, water harvesting and/or cistern storage capacities using TR-55 CNs or other continuous simulation modeling methods to describe site conditions.'
+				]
 			]
 		},
 		{
@@ -1393,30 +1241,22 @@ function details() {
 			benchmark: 'Some efforts are made to control the types and usage of pesticides and fertilizers, primarily based on cost savings. Some procurement criteria are used covering toxicity, persistence and bioavailability.',
 			perfImprove: 'Shift from managed use to better selection, selecting products with decreased toxicity, persistence, and bioavailability. Shift from minimal use of pesticides and fertilizers to no use.',
 			list: [
-				{
-					letter: 'What operational policies will be put in place to control the application fertilizers and pesticides',
-					nums: [
-						'Operational policies for applying fertilizers and pesticides.'
-					]
-				},
-				{
-					letter: 'What runoff controls will be installed to minimize groundwater and surface water contamination?',
-					nums: [
-						'Plans and drawings showing how runoff controls will be designed and installed.'
-					]
-				},
-				{
-					letter: 'Has the project team selected pesticides and fertilizers that have low toxicity, persistence and bioavailability?',
-					nums: [
-						'Documentation showing the mix of pesticides and fertilizers to be used on the finished project, along with measured of their toxicity, persistence and bioavailability.'
-					]
-				},
-				{
-					letter: 'Has the project team designed the landscaping to incorporate plant species that require no pesticides, herbicides and fertilizers, or use integrated pest management approaches?',
-					nums: [
-						'Documentation of plans for landscaping showing the mix of plant species.'
-					]
-				}
+				'What operational policies will be put in place to control the application fertilizers and pesticides',
+				[
+					'Operational policies for applying fertilizers and pesticides.'
+				],
+				'What runoff controls will be installed to minimize groundwater and surface water contamination?',
+				[
+					'Plans and drawings showing how runoff controls will be designed and installed.'
+				],
+				'Has the project team selected pesticides and fertilizers that have low toxicity, persistence and bioavailability?',
+				[
+					'Documentation showing the mix of pesticides and fertilizers to be used on the finished project, along with measured of their toxicity, persistence and bioavailability.'
+				],
+				'Has the project team designed the landscaping to incorporate plant species that require no pesticides, herbicides and fertilizers, or use integrated pest management approaches?',
+				[
+					'Documentation of plans for landscaping showing the mix of plant species.'
+				]
 			]
 		},
 		{
@@ -1458,56 +1298,42 @@ function details() {
 			benchmark: 'Meet basic regulatory requirements for water quality and spill prevention planning, e.g., SPCC plans. Compliance with existing zoning and groundwater protection regulations.',
 			perfImprove: 'Shift from response to prevention to source reduction and elimination. Special considerations are given to the protection and restoration of water supply wellhead areas.',
 			list: [
-				{
-					letter: 'Have adequate and responsive surface and groundwater quantity and quality monitoring systems been incorporated into the project design?',
-					nums: [
-						'Documentation of hydrogeologic delineation studies, taking into consideration the complexity of the aquifers. Note that delineation may have already been done by local authorities.',
-						'For projects situated in areas where the groundwater is used as a source or drinking water, documentation of wellhead protection plans and other requirements including establishing wellhead protection areas.',
-						'Documentation of long-term surface and groundwater quality monitoring programs. Appropriate data will be submitted to the International Stormwater Best Management Practices (BMP) Database. The database web site also provides guidance on BMP monitoring.',
-						'Documentation that the constructed works cannot reasonably have any impact on receiving waters. Show that there is no direct connection to receiving waters from the site of the construct works, or pollutant BMP are implemented and both the discharges to receiving waters and the receiving waters are monitored to verify pollutant loading, biological impact and impact on receiving water flow.'
-					]
-				},
-				{
-					letter: 'Have spill and leak prevention and response plans and design been incorporated into the design?',
-					nums: [
-						'Spill and leak prevention and response plans.',
-						'Plans and drawings showing the placement of materials storage piles and handling of potentially polluting runoff.'
-					]
-				},
-				{
-					letter: 'Has the project team reduced or eliminated potentially polluting substances from the construction and operation of the completed works?',
-					nums: [
-						'Efforts to reduce the use of, or replacement of hazardous and/or potentially polluting materials with non-hazardous or non-polluting materials.'
-					]
-				},
-				{
-					letter: 'Has the project team sought to reduce future contamination by cleaning up areas of contamination and instituting land use controls to limit the introduction of future contamination sources?',
-					nums: [
-						'Plans to clean up contaminated areas.',
-						'Proposed land use controls.',
-						'Plans to prevent contamination from entering receiving waters or alter receiving water flow.'
-					]
-				},
-				{
-					letter: 'Have spill and leak prevention and response plans and design been incorporated into the design?',
-					nums: [
-						'Spill and leak prevention and response plans.',
-						'Plans and drawings showing the placement of materials storage piles and handling of potentially polluting runoff.'
-					]
-				},
-				{
-					letter: 'Has the project team reduced or eliminated potentially polluting substances from the construction and operation of the completed works?',
-					nums: [
-						'Efforts to reduce the use of, or replacement of hazardous and/or potentially polluting materials with non-hazardous or non-polluting materials.'
-					]
-				},
-				{
-					letter: 'Has the project team sought to reduce future contamination by cleaning up areas of contamination and instituting land use controls to limit the introduction of future contamination sources?',
-					nums: [
-						'Plans to clean up contaminated areas.',
-						'Proposed land use controls.'
-					]
-				}
+				'Have adequate and responsive surface and groundwater quantity and quality monitoring systems been incorporated into the project design?',
+				[
+					'Documentation of hydrogeologic delineation studies, taking into consideration the complexity of the aquifers. Note that delineation may have already been done by local authorities.',
+					'For projects situated in areas where the groundwater is used as a source or drinking water, documentation of wellhead protection plans and other requirements including establishing wellhead protection areas.',
+					'Documentation of long-term surface and groundwater quality monitoring programs. Appropriate data will be submitted to the International Stormwater Best Management Practices (BMP) Database. The database web site also provides guidance on BMP monitoring.',
+					'Documentation that the constructed works cannot reasonably have any impact on receiving waters. Show that there is no direct connection to receiving waters from the site of the construct works, or pollutant BMP are implemented and both the discharges to receiving waters and the receiving waters are monitored to verify pollutant loading, biological impact and impact on receiving water flow.'
+				],
+				'Have spill and leak prevention and response plans and design been incorporated into the design?',
+				[
+					'Spill and leak prevention and response plans.',
+					'Plans and drawings showing the placement of materials storage piles and handling of potentially polluting runoff.'
+				],
+				'Has the project team reduced or eliminated potentially polluting substances from the construction and operation of the completed works?',
+				[
+					'Efforts to reduce the use of, or replacement of hazardous and/or potentially polluting materials with non-hazardous or non-polluting materials.'
+				],
+				'Has the project team sought to reduce future contamination by cleaning up areas of contamination and instituting land use controls to limit the introduction of future contamination sources?',
+				[
+					'Plans to clean up contaminated areas.',
+					'Proposed land use controls.',
+					'Plans to prevent contamination from entering receiving waters or alter receiving water flow.'
+				],
+				'Have spill and leak prevention and response plans and design been incorporated into the design?',
+				[
+					'Spill and leak prevention and response plans.',
+					'Plans and drawings showing the placement of materials storage piles and handling of potentially polluting runoff.'
+				],
+				'Has the project team reduced or eliminated potentially polluting substances from the construction and operation of the completed works?',
+				[
+					'Efforts to reduce the use of, or replacement of hazardous and/or potentially polluting materials with non-hazardous or non-polluting materials.'
+				],
+				'Has the project team sought to reduce future contamination by cleaning up areas of contamination and instituting land use controls to limit the introduction of future contamination sources?',
+				[
+					'Plans to clean up contaminated areas.',
+					'Proposed land use controls.'
+				]
 			]
 		},
 		{
@@ -1560,27 +1386,21 @@ function details() {
 			benchmark: 'No willful destruction of valuable habitat but no active program to protect it either.',
 			perfImprove: 'Shift from protection and enhancement to restoration and creating new habitats.',
 			list: [
-				{
-					letter: 'Does the project demonstrate that it does not impact natural habitat and movement corridors or will mitigate adverse impacts of development?',
-					nums: [
-						'Documentation of analysis process that identifies existing habitats and outlines strategies to ensure that these habitats are not disturbed, or, if this is not possible, outlines strategies for mitigation of disturbed habitats.',
-						'For each species, a map or equivalent documentation showing areas of important habitat in the surrounding region (GIS analysis and surveys can inform this step). Identify potential and/or likely movement corridors between habitat areas and potential barriers to these corridors on-site. These should include existing barriers as well as those that will result from development.',
-						'A site plan and narrative illustrating the measurers taken to provide new habitat, improve connectivity or mitigate adverse impacts of the project.',
-						'A monitoring plan to ensure mitigation measurers are effective for preserving animal access. Document collaboration with local and state agencies.'
-					]
-				},
-				{
-					letter: 'Does the project facilitate movement between habitats, provide new connections, or otherwise improve existing habitat?',
-					nums: [
-						'Documentation of habitat improvement strategies, including all elements listed above.'
-					]
-				},
-				{
-					letter: 'Does the project increase available habitat, increase connectivity between habitat areas by providing new connections that were not available before, or by removing existing barriers to movement and habitat?',
-					nums: [
-						'Documentation of habitat expansion strategies, including all elements listed above.'
-					]
-				}
+				'Does the project demonstrate that it does not impact natural habitat and movement corridors or will mitigate adverse impacts of development?',
+				[
+					'Documentation of analysis process that identifies existing habitats and outlines strategies to ensure that these habitats are not disturbed, or, if this is not possible, outlines strategies for mitigation of disturbed habitats.',
+					'For each species, a map or equivalent documentation showing areas of important habitat in the surrounding region (GIS analysis and surveys can inform this step). Identify potential and/or likely movement corridors between habitat areas and potential barriers to these corridors on-site. These should include existing barriers as well as those that will result from development.',
+					'A site plan and narrative illustrating the measurers taken to provide new habitat, improve connectivity or mitigate adverse impacts of the project.',
+					'A monitoring plan to ensure mitigation measurers are effective for preserving animal access. Document collaboration with local and state agencies.'
+				],
+				'Does the project facilitate movement between habitats, provide new connections, or otherwise improve existing habitat?',
+				[
+					'Documentation of habitat improvement strategies, including all elements listed above.'
+				],
+				'Does the project increase available habitat, increase connectivity between habitat areas by providing new connections that were not available before, or by removing existing barriers to movement and habitat?',
+				[
+					'Documentation of habitat expansion strategies, including all elements listed above.'
+				]
 			]
 		},
 		{
@@ -1622,34 +1442,28 @@ function details() {
 			benchmark: 'No willful spreading of invasive species but no active management plans either. Invasive species avoided but no active consideration of choice of non-invasive plants to use.',
 			perfImprove: 'Active management plans designed to control or eliminate invasive species.',
 			list: [
-				{
-					letter: 'Does the project use only locally appropriate and non-invasive plants on the site?',
-					nums: [
-						'A list of invasive species in the region, and map all invasive species found on or within 2/3 mile (1000 m) of the site.',
-						'Documentation that all species introduced to the site are non-invasive; include a site plan of the landscaping strategy including all vegetation species',
-						'Documentation of collaboration with state or local agencies or the qualifications of the biologist, ecologist, or environmental professional.'
-					]
-				},
-				{
-					letter: 'Does the project control invasive species already on the site?',
-					nums: [
-						'A management/maintenance plan that addresses',
+				'Does the project use only locally appropriate and non-invasive plants on the site?',
+				[
+					'A list of invasive species in the region, and map all invasive species found on or within 2/3 mile (1000 m) of the site.',
+					'Documentation that all species introduced to the site are non-invasive; include a site plan of the landscaping strategy including all vegetation species',
+					'Documentation of collaboration with state or local agencies or the qualifications of the biologist, ecologist, or environmental professional.'
+				],
+				'Does the project control invasive species already on the site?',
+				[
+					'A management/maintenance plan that addresses',
 						[
-							'Prediction and Prevention: Strategies for minimizing potential for invasive species, both plants and animals, to re-appear after initial removal and/or enter the site from nearby areas.',
-							'Detection and Management: Strategies for monitoring for and removing invasive species that emerge on-site in the future.'
+						    'Prediction and Prevention: Strategies for minimizing potential for invasive species, both plants and animals, to re-appear after initial removal and/or enter the site from nearby areas.',
+						    'Detection and Management: Strategies for monitoring for and removing invasive species that emerge on-site in the future.'
 						]
-					]
-				},
-				{
-					letter: 'Does the project actively eliminate existing invasive species and ensure that invasive species stay off the site?',
-					nums: [
-						'In addition to documentation above, a management plan that includes:',
+				],
+				'Does the project actively eliminate existing invasive species and ensure that invasive species stay off the site?',
+				[
+					'In addition to documentation above, a management plan that includes:',
 						[
-							'Removal: Elimination of any invasive species on-site',
-							'Rehabilitation and Restoration: Methods to restore habitats to pre-invasive state'
+						    'Removal: Elimination of any invasive species on-site',
+						  'Rehabilitation and Restoration: Methods to restore habitats to pre-invasive state'
 						]
-					]
-				}
+				]
 			]
 		},
 		{
@@ -1688,22 +1502,18 @@ function details() {
 			benchmark: 'Soil restoration only to the extent required by regulations and construction permits.',
 			perfImprove: 'Restoration of soils disturbed during the construction of the project, extended to restoration of soils disturbed during previous development.',
 			list: [
-				{
-					letter: 'Have 100% of soils disturbed during construction been restored and reused properly?',
-					nums: [
-						'Documentation of soil restoration activities, areas of disturbance, and areas restored.',
-						'Calculations showing that 100% of disturbed soils have been restored.',
-						'Documentation of soil reuse.'
-					]
-				},
-				{
-					letter: 'Have 100% of soils disturbed by previous development, been restored and reused properly?',
-					nums: [
-						'Documentation of soil restoration activities, areas of disturbance, and areas restored.',
-						'Calculations showing that 100% of disturbed soils have been restored.',
-						'Documentation of soil reuse.'
-					]
-				}
+				'Have 100% of soils disturbed during construction been restored and reused properly?',
+				[
+					'Documentation of soil restoration activities, areas of disturbance, and areas restored.',
+					'Calculations showing that 100% of disturbed soils have been restored.',
+					'Documentation of soil reuse.'
+				],
+				'Have 100% of soils disturbed by previous development, been restored and reused properly?',
+				[
+					'Documentation of soil restoration activities, areas of disturbance, and areas restored.',
+					'Calculations showing that 100% of disturbed soils have been restored.',
+					'Documentation of soil reuse.'
+				]
 			]
 		},
 		{
@@ -1744,37 +1554,27 @@ function details() {
 			benchmark: 'No meaningful action taken to maintain and restore ecosystem functions of waterways and wetlands on or adjacent to the project.',
 			perfImprove: 'Choose systems to maintain or enhance, based upon individual characteristics, challenges, and available resources for each individual project. Restore any disturbed functions.',
 			list: [
-				{
-					letter: 'Does the project maintain or enhance hydrologic connection?',
-					nums: [
-						'For streams, rivers and lakes documentation showing how the waterway is connected or proposed to be connected to its riparian floodplain at a six-month to two-year frequency flow event.',
-						'For wetlands, documentation showing that structures that drain wetlands will be removed and/or appropriate sources of groundwater or surface waters are reconnected or diverted or maintained.'
-					]
-				},
-				{
-					letter: 'Does the project maintain or enhance water quality?',
-					nums: [
-						'Documentation showing the current source of the waterways\' normal flow, the water quality of its source water, and how the water quality will be maintained or enhanced.'
-					]
-				},
-				{
-					letter: 'Does the project maintain or enhance habitat?',
-					nums: [
-						'A habitat survey of the waterbody and reference areas, by a recognized professional, and a plan to maintain or enhance the habitat for aquatic and riparian species by plantings and appropriate physical modifications. This survey may include the location and proposed mitigation of existing obstructions to habitat connectivity, such as dams, roadway structures and other infrastructure that may block aquatic or shoreline species migration.'
-					]
-				},
-				{
-					letter: 'Does the project maintain or restore sediment transport?',
-					nums: [
-						'Documentation demonstrating that sediment transport will not be disrupted by the proposed project and existing sources of sediment obstruction are removed or mitigated and, if appropriate, sediment is removed. Reports from qualified resource professionals are required as part of the documentation.'
-					]
-				},
-				{
-					letter: 'Does the project maintain all four ecosystem functions and any fully restore any disturbed functions?',
-					nums: [
-						'Documentation provided by a resource professional team outlining strategies for ecosystem functions and description of, and restoration plan for, any disturbed ecosystem functions.'
-					]
-				}
+				'Does the project maintain or enhance hydrologic connection?',
+				[
+					'For streams, rivers and lakes documentation showing how the waterway is connected or proposed to be connected to its riparian floodplain at a six-month to two-year frequency flow event.',
+					'For wetlands, documentation showing that structures that drain wetlands will be removed and/or appropriate sources of groundwater or surface waters are reconnected or diverted or maintained.'
+				],
+				'Does the project maintain or enhance water quality?',
+				[
+					'Documentation showing the current source of the waterways\' normal flow, the water quality of its source water, and how the water quality will be maintained or enhanced.'
+				],
+				'Does the project maintain or enhance habitat?',
+				[
+					'A habitat survey of the waterbody and reference areas, by a recognized professional, and a plan to maintain or enhance the habitat for aquatic and riparian species by plantings and appropriate physical modifications. This survey may include the location and proposed mitigation of existing obstructions to habitat connectivity, such as dams, roadway structures and other infrastructure that may block aquatic or shoreline species migration.'
+				],
+				'Does the project maintain or restore sediment transport?',
+				[
+					'Documentation demonstrating that sediment transport will not be disrupted by the proposed project and existing sources of sediment obstruction are removed or mitigated and, if appropriate, sediment is removed. Reports from qualified resource professionals are required as part of the documentation.'
+				],
+				'Does the project maintain all four ecosystem functions and any fully restore any disturbed functions?',
+				[
+					'Documentation provided by a resource professional team outlining strategies for ecosystem functions and description of, and restoration plan for, any disturbed ecosystem functions.'
+				]
 			]
 		}
 	]

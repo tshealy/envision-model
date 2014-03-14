@@ -29,6 +29,20 @@ function adminLoggedIn() {
 	return true;
 }
 
+// get params from url and make an array of objects
+function getParams() {
+    var str = window.location.search
+    var obj = {};
+    var array = [];
+
+    // using a look ahead regex to split the params
+    _.each(str.split(/(?=[&])/), function(str){
+        array = str.slice(1).split('=');
+        obj[array[0]] = array[1]
+    })
+    return obj
+}
+
 function questionBackground(question) {
 	return question.slice(0,1) === 'Q' ? 'quality' : 'natural';
 }
