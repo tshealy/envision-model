@@ -129,19 +129,20 @@ function updateExplanation(question, DOM) {
 	
 	return function() {
 
-		var words = _.without($(this).val().split(' '), '').length;
+        // words stands for characters now. Checking for charactar count
+		var words = _.without($(this).val().split(''), ' ').length;
 		// recording the explanation
 		envision.explanations[DOM.indexVal] = $(this).val();
 
 		// if word minimum requirement not met
 		if (words < question.wordCount) {
 			DOM.wordCount.css('color', 'rgb(255, 0, 0)');
-			DOM.wordMet.text(' word minimum required for this level.');
+			DOM.wordMet.text(' character minimum required for this level.');
 			DOM.currentWord.text(words + '/' + question.wordCount + '.');
 			question.enoughWords = false;
 		} else {
 			DOM.wordCount.css('color', 'rgb(0, 187, 0)');
-			DOM.wordMet.text(' word minimum requirement met.');
+			DOM.wordMet.text(' character minimum requirement met.');
 			DOM.currentWord.text('');
 			question.enoughWords = true;
 		}
@@ -183,15 +184,16 @@ function updateTextarea() {
 	$('textarea').keyup();
 }
 
+// character count
 function determineWordCount(level) {
 	console.log('hey switch case: ', level)
 	switch (level) {
-		case 'not'        : return  20;
-		case 'Improved'   : return  20;
-		case 'Enhanced'   : return  40;
-		case 'Superior'   : return  60;
-		case 'Conserving' : return  80;
-		case 'Restorative': return 100;
+		case 'not'        : return  70;
+		case 'Improved'   : return 140;
+		case 'Enhanced'   : return 210;
+		case 'Superior'   : return 280;
+		case 'Conserving' : return 350;
+		case 'Restorative': return 420;
 		default           : return   0;
 	}
 }

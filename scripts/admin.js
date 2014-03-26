@@ -32,18 +32,20 @@ StudentView = Parse.View.extend({
 	},
 
 	render: function() {
-		var scores = this.model.get('quality').scores.concat(this.model.get('natural').scores);
+        var studentRow = '';
+        var scores = this.model.get('quality').scores.concat(this.model.get('natural').scores);
 
-		this.$el.append('<td class="x">x</td>');
-		this.$el.append('<td class="name">'+ this.model.get('firstName') + ' ' + this.model.get('lastName') +'</td>');
+		studentRow += '<td class="x">x</td>';
+		studentRow += '<td class="name">'+ this.model.get('firstName') + ' ' + this.model.get('lastName') +'</td>';
 
-		var that = this;
 		_.each(scores, function(score) {
-			that.$el.append('<td class="score">'+ score +'</td>');
+			studentRow += '<td class="score">'+ score +'</td>';
 		})
 
-		this.$el.append('<td class="score total-student-score">'+ this.model.get('totalScore') +'</td>');
-		this.$el.append('<td class="score">'+ this.model.get('timeTaken') +'</td>');
+        studentRow += '<td class="score total-student-score">'+ this.model.get('totalScore') +'</td>';
+		studentRow += '<td class="score max-student-score">'+ this.model.get('maxScore') +'</td>';
+		studentRow += '<td class="score">'+ this.model.get('timeTaken') +'</td>';
+        this.$el.append(studentRow);
 	},
 
 	showForm: function() {
@@ -123,8 +125,8 @@ function displayGroup(klass) {
 
 		// set the current admin group
 		admin.group = admin[klass];
-		// display column headers
-		createRows(klass);
+		// display column headers. Add column header to arg string -> .new-column-header
+		createColumns('total-score.max-score.time');
 		// display the students
 		adminDisplay(admin.group);
 		// set session
@@ -137,7 +139,7 @@ function adminDisplay(group) {
 	// display students
 	displayStudents(group.students);
 	// dispaly final avgs
-	displayScores(group.avgScores);
+	displayScores(group);
 	// display avg time
 	$('#avgs').append('<td class="score special">'+ group.avgTime +'</td>');
 }
@@ -157,27 +159,35 @@ function setEnvision(klass) {
 }
 
 // make a row with a question number in each column
-function createRows() {
-	// remove previous td's
-	$('.question-number').remove();
-	$('.total-score').remove();
-	$('.time').remove();
+function createColumns(columns) {
+    var columnHeaders = '';
+    // make array out of columns string
+    columns = columns.split('.')
+    // remove previous td's
+    $('.question-number, .' + columns.join(', .')).remove();
 
-	var backgroundClass;
-	_.each(envision.quality.questions.concat(envision.natural.questions), function(question, index) {
-		backgroundClass = questionBackground(question.number);
-		// insert question num into the table as a <td>
-		$('#question-number').append('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>');
-		// set click event for question number
-		$('#question-number').children().last().click(function() {
-			window.open(
-			  	'../responses/index.html?question=' + question.number + '&index=' + index,
-			  	'_blank'
-			);
-		})
-	})
-	$('#question-number').append('<td class="total-score">Total Score</td>')
-	$('#question-number').append('<td class="time">Time</td>')
+    _.each(envision.quality.questions.concat(envision.natural.questions), function(question, index) {
+        var backgroundClass = questionBackground(question.number);
+        // insert question num into the table as a <td>
+        var questionHeader = $('<td class="question-number ' + backgroundClass + '">'+ question.number +'</td>');
+        $('#question-number').append(questionHeader);
+        // set click event for question number
+        $(questionHeader).click(function() {
+            window.open(
+                '../responses/index.html?question=' + question.number + '&index=' + index,
+                '_blank'
+            );
+        })
+    })
+    // each through the columns argument and creat column headers
+    _.each(columns, function(column) {
+        // split dashed class and capitalize
+        var text = _.map(column.split('-'), function(word) { return (word[0].toUpperCase() + word.slice(1)) }).join(' ');
+        // create column header
+        columnHeaders += '<td class=column-header "' + column + '">' + text + '</td>';
+    })
+    // append column headers
+    $('#question-number').append(columnHeaders);
 }
 
 //////////////////////
@@ -212,20 +222,35 @@ function getExplanation(students, type, index) {
 //      SCORES      //
 //////////////////////
 // displaying the scores for current admin group
-function displayScores(scores) {
-	$('#table').append('<tr id="avgs"></tr>');
-	// extra cell
-	$('#avgs').append('<td></td>')
-	$('#avgs').append('<td class="name special">Average</td>')
-	_.each(scores, function(score) {
-		$('#avgs').append('<td class="score special">'+ score +'</td>');
-	})
-
-	// save other data here
-	var scoreTotals = _.map($('.total-student-score'), function(num){return +$(num).text()})
-	$('#avgs').append('<td class="score special">'+ (Math.round(_.reduce(scoreTotals, function(memo, num) {return memo + num}) / scoreTotals.length)) +'</td>');
+function displayScores(group) {
+    // avgs row for the table
+    var avgs = '<tr id="avgs">';
+    // extra cell
+    avgs += '<td></td>';
+    avgs += '<td class="name special">Average</td>';
+    // add cell for each avgs score
+    _.each(group.avgScores, function(score) {
+        avgs += '<td class="score special">'+ score +'</td>';
+    })
+    // averaging the score totals
+    avgs += '<td class="score special">' + avgTotals(group, 'totalScore') + '</td>';
+    // averaging the max totals
+    avgs += '<td class="score special">' + avgTotals(group, 'maxScore') + '</td>';
+    // close out the table row
+    avgs += '</tr>';
+    // append avgs row to table
+    $('#table').append(avgs);
 }
 
+// averages the total scores for each student
+function avgTotals(group, type) {
+    // getting score totals from each student
+    var scoreTotals = _.map(group.students.models, function(student){return student.get(type)})
+    // averaging the totals
+    return Math.round(_.reduce(scoreTotals, function(memo, num) {return memo + num}) / scoreTotals.length);
+}
+
+// averages the scores for each question
 function avgScores(students, type) {
 	var length = envision[type].questions.length;
 	var scores = [];
@@ -264,6 +289,4 @@ function logout() {
 		window.open('../admin_login/index.html')
 	})
 }
-
-
 

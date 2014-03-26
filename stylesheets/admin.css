@@ -43,7 +43,7 @@ table .credit-rating {
   text-align: center;
 }
 /* line 46, ../sass/admin.scss */
-table .question-number, table .total-score, table .time, table .student-name {
+table .question-number, table .column-header {
   font-weight: bold;
   padding: 10px 10px 0 10px;
 }
