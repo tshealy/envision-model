@@ -184,7 +184,7 @@ function createColumns(columns) {
         // split dashed class and capitalize
         var text = _.map(column.split('-'), function(word) { return (word[0].toUpperCase() + word.slice(1)) }).join(' ');
         // create column header
-        columnHeaders += '<td class=column-header "' + column + '">' + text + '</td>';
+        columnHeaders += '<td class="column-header ' + column + '">' + text + '</td>';
     })
     // append column headers
     $('#question-number').append(columnHeaders);
