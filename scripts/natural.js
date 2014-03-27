@@ -16,7 +16,7 @@ function submitForm() {
 
 			save();
 		} else {
-			alert('You must meet the minimum word requirement for the following questions:\n\n' + questionsWordCount.join('\n'))
+			alert('You must meet the minimum character requirement for the following questions:\n\n' + questionsWordCount.join('\n'))
 		}
 	})
 }

@@ -624,34 +624,37 @@ function getCache() {
 		// true for Conserving default
 		envision.conserving = randomForm() ? true : false;
 
-		envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions.concat(envision.natural.questions)) : 0;
+        // concatenating questions for easy reference
+        envision.questions = envision.quality.questions.concat(envision.natural.questions);
 
-		envision.quality.DOM = {
-			applicable: makeArray(envision.quality.questions.length, 0),
-			valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeArray(envision.quality.questions.length, 0)
-		}
+        envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.questions) : 0;
 
-		envision.natural.DOM = {
-			applicable: makeArray(envision.natural.questions.length, 0),
-			valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
-		}
+        envision.quality.DOM = {
+            applicable: makeArray(envision.quality.questions.length, 0),
+            valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeArray(envision.quality.questions.length, 0)
+        }
+
+        envision.natural.DOM = {
+            applicable: makeArray(envision.natural.questions.length, 0),
+            valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
+        }
 
 		// set explanation
 		envision.quality.explanations = makeArray(envision.quality.questions.length, '');
 		envision.natural.explanations = makeArray(envision.natural.questions.length, '');
 
-		// set score
-		envision.quality.scores = makeArray(envision.quality.questions.length, 0);
-		envision.natural.scores = makeArray(envision.natural.questions.length, 0);
+		// set scores
+        envision.quality.scores = scores(envision.quality.questions);
+        envision.natural.scores = scores(envision.natural.questions);
 
 		// set question max points
-		determineMaxPoints(envision.quality.questions.concat(envision.natural.questions))
+		determineMaxPoints(envision.questions)
 
 		// create select drop down data
-		processSelectOptions(envision.quality.questions.concat(envision.natural.questions))
+		processSelectOptions(envision.questions)
 
 		// envision total posible points
-		envision.maxScore = maxScore(envision.quality.questions.concat(envision.natural.questions))
+		envision.maxScore = maxScore(envision.questions)
 
 		// get details for links
 		envision.details = details();
@@ -660,6 +663,16 @@ function getCache() {
 		sessionStorage.setItem('envision', JSON.stringify(envision));
 		
 	}
+}
+
+// set scores array
+function scores(questions) {
+    if (envision.conserving) {
+        return _.map(questions, function(question) {
+            return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
+        })
+    }
+    return makeArray(questions.length, 0);
 }
 
 // randomize form given
@@ -675,54 +688,44 @@ function makeArray(length, item) {
 	return array.slice()
 }
 
-// sets maxPoints each question based on return value of maxPoints function. also side-effectively sets envisions maxScore.
+// sets maxPoints for each question
 function determineMaxPoints(questions) {
 	_.each(questions, function(question, index) {
-		question.maxPoints = _.first(maxPoints(question.valueAdded)).val
+		question.maxPoints = _.max(_.map(question.valueAdded, function(category) { return category.val }));
 	})
 }
 
-// sorts vals to find greatest
-function maxPoints(valueAdded) {
-	return valueAdded.sort(function(a, b) {
-		return b.val - a.val;
-	})
-}
-
+// calculate envision's max score
 function maxScore(questions) {
-	var maxScore = 0;
-
-	_.each(questions, function(question, index) {
-		maxScore += question.maxPoints;
-	})
-
-	$('#max-score').text(maxScore)
-
-	return maxScore;
+    // map the maxScore of each question and reduce
+    return _.reduce(_.map(questions, function(question) { return question.maxPoints;}), function(memo, num) { return memo + num })
 }
 
 // takes valueAdded array of each question and generates option tags with correct values
 function processSelectOptions(questions) {
 	_.each(questions, function(question) {
 		question.selectOptions = _.map(question.valueAdded, function(val) {
-			var option = envision.conserving === true ? "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>" : "<option value='" + val.val + "'>" + val.level + " (+" + val.val + ")</option>";
-			return option;
-		}).reverse().join('')
-		question.selectOptions = envision.conserving === true ? "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions : "<option class='no-value' value='0'>No Value Added (0)</option>" + question.selectOptions;
+			return "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>";
+		}).join('');
+        // no value added option
+		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
 	})
 }
 
 // relate vals for default Conservative
 function relate(question, val) {
-	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
+    if (envision.conserving) {
+    	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
 
-	if (val === conservativeVal) {
-		return val;
-	}
-	if (val < conservativeVal) {
-		return '-' + (conservativeVal - val).toString();
-	}
-	return '+' + (question.maxPoints - conservativeVal).toString();
+    	if (val === conservativeVal) {
+    		return val;
+    	}
+    	if (val < conservativeVal) {
+    		return '-' + (conservativeVal - val).toString();
+    	}
+    	return '+' + (question.maxPoints - conservativeVal).toString();
+    }
+    return val;
 }
 
 function conservingTotalScore(questions) {
@@ -743,14 +746,9 @@ function findValue(question, level) {
 function detailsPoints(type, number, level) {
 	var question = findQuestion(envision[type].questions, number);
 	var val = findValue(question, level);
-	return envision.conserving === true ? relate(question, val) : val
+	return relate(question, val);
 }
 
-// checks the url for envision or envisionit to determine default settings
-// function determineTest() {
-// 	var index = location.pathname.split('/').indexOf('envision');
-// 	return index > -1 ? false : true;
-// }
 
 
 

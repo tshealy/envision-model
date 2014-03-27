@@ -6,15 +6,22 @@
 function display(questions) {
 	// throw the questions into the DOM
 	displayQuestions(questions);
-	// display explanation text
-	retrieveExplanations();
-	// change selected and corresponding scores based on current session for value added
-	updateSelect('va', 'valueAdded');
-	// change selected based on current session for applicability
-	updateSelect('ap', 'applicable');
+    // display scores
+    displayScores()
+    // display explanation text
+    retrieveExplanations();
+    // change selected and corresponding scores based on current session for value added
+    updateSelect('va', 'valueAdded');
+    // change selected based on current session for applicability
+    updateSelect('ap', 'applicable');
 	// need to re-update data ater updateSelect functions run
-	console.log(questions)
 	setSession();
+}
+
+// display the values for total and max scores
+function displayScores() {
+    $('#actual-score').text(envision.totalScore)
+    $('#max-score').text(envision.maxScore)
 }
 
 // appends each question to the tbody tag
@@ -23,6 +30,7 @@ function displayQuestions(questions) {
 
 	_.each(questions, function(question, index) {
 		// append question
+        question.score = envision.scores[index];
 		$('tbody').append(template({question: question}))
 
 		// set DOM values for question to be reference in change callbacks
@@ -39,10 +47,9 @@ function displayQuestions(questions) {
 		}
 
 		// set change callbacks
-		DOM.applicable.change(applicable(question, DOM));
+        DOM.applicable.change(applicable(question, DOM));
 		DOM.valueAdded.change(updateValues(question, DOM));
-		DOM.textArea.change(setSession);
-		DOM.textArea.keyup(updateExplanation(question, DOM));
+		DOM.textArea.change(setSession).keyup(updateExplanation(question, DOM));
 	})
 
 	$('.question-separator').last().remove()
@@ -54,31 +61,30 @@ function applicable(question, DOM) {
 	return function() {
 		// this is the select who's change callback was triggered
 		var val = $(this).val();
-		var maxScore = $('#max-score')
 
-		envision.DOM.applicable[DOM.indexVal] = $(this).prop('selectedIndex')
+		envision.DOM.applicable[DOM.indexVal] = $(this).prop('selectedIndex');
 		envision.scores[DOM.indexVal] = 0;
 
 		// if select has been changed to not applicable . .
 		if (val === 'not applicable') {
-			DOM.valueAdded.children('.no-value').attr('selected', true)
-			DOM.valueAdded.change();
-			DOM.valueAdded.attr('disabled', 'disabled');
-			
-			maxScore.text(envision.maxScore -= question.maxPoints)
-			DOM.score.text('- -')
-			DOM.maxPoints.text('- -')
+            // run the change callback of the sibling valueAdded select. This will update the score appropriately.
+            DOM.valueAdded.prop('selectedIndex', 0).change().attr('disabled', 'disabled');
+			// update max
+			envision.maxScore -= question.maxPoints;
+			DOM.score.text('- -');
+			DOM.maxPoints.text('- -');
 
 		} else {
 			DOM.valueAdded.attr('disabled', false);
-			maxScore.text(envision.maxScore += question.maxPoints)
-			DOM.score.text(0)
-			DOM.maxPoints.text(question.maxPoints)
+			envision.maxScore += question.maxPoints;
+			DOM.score.text(0);
+			DOM.maxPoints.text(question.maxPoints);
 		}
-
+        // display scores
+        displayScores();
 		// plans changed. Needed 20 word limit for if user chose not applicable.
 		updateWordCount(question, DOM, val)
-		// // set session
+		// set session
 		setSession()
 	}
 }
@@ -98,12 +104,12 @@ function updateValues(question, DOM) {
 		// update word count
 		updateWordCount(question, DOM, text)
 		// takes totalScore and subtracts the previous value and adds the new value resulting in the correct change in score
-		envision.totalScore += parseInt(val) - parseInt(DOM.score.text());
+		envision.totalScore += +val - +DOM.score.text();
 		// setting score based on order of question
 		envision.scores[DOM.indexVal] = parseInt(val);
 
 		// set new score in DOM
-		$('#actual-score').text(envision.totalScore);
+		displayScores();
 		// set question's score to the value of the selected option
 		DOM.score.text(val);
 
@@ -116,8 +122,10 @@ function updateValues(question, DOM) {
 
 // update word count
 function updateWordCount(question, DOM, text) {
+    // get the first word in text
+    var firstWord = text.slice(0, text.indexOf(' '));
 	// get the word count
-	question.wordCount = determineWordCount(getText(text));
+	question.wordCount = determineWordCount(firstWord);
 	// update DOM
 	DOM.wordCount.text(question.wordCount);
 	// call keyup in textarea
@@ -159,34 +167,25 @@ function retrieveExplanations() {
 
 // update selects with selected option selected
 function updateSelect(klass, propName) {
-	// must catch the values here because activating each selects change method will alter the varacity of these values
-	var totalScore = envision.totalScore;
-	var maxScore = envision.maxScore;
-	var textareas = $('textarea');
-
 	$('.' + klass).each(function(index) {
 		var selectedIndex = envision.DOM[propName][index]
 		// check for 0 to avoid unecessary processing
 		if (selectedIndex) {
-			$(this).prop('selectedIndex', selectedIndex).change()
-		} 
+			$(this).prop('selectedIndex', selectedIndex);
+            // runs if applicable select is set to 'not applicable' so that its sibling valueAdded select will be disabled. Avoiding .change() because it affects too many other variables.
+            if (klass === 'ap') {
+                var nextEl = $(this).parent().next();
+                // disable valueAdded select
+                nextEl.children().attr('disabled', 'disabled');
+                // replace score and possible points with '- -'
+                nextEl.next().text('- -').next().text('- -');
+            }
+		}
 	})
-
-	// reset values to what they should be here
-	envision.totalScore = totalScore;
-	envision.maxScore = maxScore;
-	$('#actual-score').text(envision.totalScore)
-	$('#max-score').text(envision.maxScore)
-}
-
-// update textareas
-function updateTextarea() {
-	$('textarea').keyup();
 }
 
 // character count
 function determineWordCount(level) {
-	console.log('hey switch case: ', level)
 	switch (level) {
 		case 'not'        : return  70;
 		case 'Improved'   : return 140;
@@ -196,11 +195,6 @@ function determineWordCount(level) {
 		case 'Restorative': return 420;
 		default           : return   0;
 	}
-}
-
-// returns first word in string
-function getText(text) {
-	return text.slice(0, text.indexOf(' '))
 }
 
 // syncing envision
