@@ -14,6 +14,9 @@ function reconnect(fromParse) {
 	envision.natural.DOM          = fromParse.natural.DOM
 	envision.natural.explanations = fromParse.natural.explanations
 
+    envision.quality.scores = fromParse.quality.scores
+    envision.natural.scores = fromParse.natural.scores
+
 	envision.totalScore           = fromParse.totalScore;
 	envision.maxScore             = fromParse.maxScore;
 }
@@ -80,14 +83,12 @@ function test () {
         var va = $(valueAddeds[index]);
         var optionsLength = va.children().length;
         var selectedIndex = Math.floor(Math.random() * optionsLength);
-        // selectedIndex = optionsLength - 1;
+        
         va.prop('selectedIndex', selectedIndex).change();
         $(textarea).val(text).keyup();
-        // console.log($(applicables[index]))
-        // (Math.floor(Math.random) * 2) ? $(applicables[index]).prop('selectedIndex', 1).change() : false;
+
         if (randomForm()) {
             $(applicables[index]).prop('selectedIndex', 1).change();
         }
     })
 }
-
