@@ -22,7 +22,8 @@ StudentView = Parse.View.extend({
 
 	events: {
 		'click .name': 'showForm',
-		'click .x'   : 'deleteStudent'
+		'click .x'   : 'deleteStudent',
+        'click .note': 'makeNote'
 	},
 
 	initialize: function() {
@@ -39,12 +40,13 @@ StudentView = Parse.View.extend({
 		studentRow += '<td class="name">'+ this.model.get('firstName') + ' ' + this.model.get('lastName') +'</td>';
 
 		_.each(scores, function(score) {
-			studentRow += '<td class="score">'+ score +'</td>';
+			studentRow += '<td class="tar">'+ score +'</td>';
 		})
 
-        studentRow += '<td class="score total-student-score">'+ this.model.get('totalScore') +'</td>';
-		studentRow += '<td class="score max-student-score">'+ this.model.get('maxScore') +'</td>';
-		studentRow += '<td class="score">'+ this.model.get('timeTaken') +'</td>';
+        studentRow += '<td class="tar total-student-score">'+ this.model.get('totalScore') +'</td>';
+		studentRow += '<td class="tar max-student-score">'+ this.model.get('maxScore') +'</td>';
+        studentRow += '<td class="tar">'+ this.model.get('timeTaken') +'</td>';
+		studentRow += '<td class="note">'+ (this.model.get('notes') || '') +'</td>';
         this.$el.append(studentRow);
 	},
 
@@ -62,7 +64,32 @@ StudentView = Parse.View.extend({
 			this.remove();
 			this.model.destroy();
 		}
-	}
+	},
+
+    makeNote: function() {
+        var note = this.$el.children('.note');
+        var input = $('<input></input>').val((this.model.get('notes') || ''));
+        // only want the input inside note <td>
+        note.html(input);
+        // focus that input
+        input.focus();
+        // scroll to the right all the way
+        $(document).scrollLeft(100000);
+
+        var that = this
+        // save change
+        input.change(function() {
+            that.model.set('notes', $(this).remove().val())
+            note.text(that.model.get('notes'))
+            that.model.save();
+        })
+
+        // don't save, nothing has changed
+        input.on('focusout', function() {
+            $(this).remove();
+             note.text(that.model.get('notes') || '')
+        })
+    }
 })
 
 
@@ -126,7 +153,7 @@ function displayGroup(klass) {
 		// set the current admin group
 		admin.group = admin[klass];
 		// display column headers. Add column header to arg string -> .new-column-header
-		createColumns('total-score.max-score.time');
+		createColumns('total-score.max-score.time.notes');
 		// display the students
 		adminDisplay(admin.group);
 		// set session
@@ -141,7 +168,7 @@ function adminDisplay(group) {
 	// dispaly final avgs
 	displayScores(group);
 	// display avg time
-	$('#avgs').append('<td class="score special">'+ group.avgTime +'</td>');
+	$('#avgs').append('<td class="tar special">'+ group.avgTime +'</td>');
 }
 
 // create student views
@@ -230,12 +257,12 @@ function displayScores(group) {
     avgs += '<td class="name special">Average</td>';
     // add cell for each avgs score
     _.each(group.avgScores, function(score) {
-        avgs += '<td class="score special">'+ score +'</td>';
+        avgs += '<td class="tar special">'+ score +'</td>';
     })
     // averaging the score totals
-    avgs += '<td class="score special">' + avgTotals(group, 'totalScore') + '</td>';
+    avgs += '<td class="tar special">' + avgTotals(group, 'totalScore') + '</td>';
     // averaging the max totals
-    avgs += '<td class="score special">' + avgTotals(group, 'maxScore') + '</td>';
+    avgs += '<td class="tar special">' + avgTotals(group, 'maxScore') + '</td>';
     // close out the table row
     avgs += '</tr>';
     // append avgs row to table

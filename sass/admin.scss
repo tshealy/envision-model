@@ -52,7 +52,7 @@ table {
 		cursor: pointer;
 	}
 
-	.score {
+	.tar {
 		text-align: right;
 	}
 
@@ -72,6 +72,15 @@ table {
 			}
 		}
 	}
+
+    .note {
+        text-align: left;
+        cursor: text;
+
+        input {
+            width: 100px;
+        }
+    }
 
 	.special {
 		background: rgb(210, 233, 235);

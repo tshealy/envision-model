@@ -52,7 +52,7 @@ table .question-number {
   cursor: pointer;
 }
 /* line 55, ../sass/admin.scss */
-table .score {
+table .tar {
   text-align: right;
 }
 /* line 59, ../sass/admin.scss */
@@ -73,27 +73,36 @@ table .name:last-child:hover {
   background: initial;
 }
 /* line 76, ../sass/admin.scss */
+table .note {
+  text-align: left;
+  cursor: text;
+}
+/* line 80, ../sass/admin.scss */
+table .note input {
+  width: 100px;
+}
+/* line 85, ../sass/admin.scss */
 table .special {
   background: #d2e9eb;
 }
 
-/* line 81, ../sass/admin.scss */
+/* line 90, ../sass/admin.scss */
 .standard, .conserving {
   background: #ababab;
 }
 
-/* line 85, ../sass/admin.scss */
+/* line 94, ../sass/admin.scss */
 .selected {
   color: #FFF;
   background: #7e7d7d;
 }
 
-/* line 90, ../sass/admin.scss */
+/* line 99, ../sass/admin.scss */
 #group {
   text-transform: capitalize;
 }
 
-/* line 94, ../sass/admin.scss */
+/* line 103, ../sass/admin.scss */
 .x {
   cursor: pointer;
 }
