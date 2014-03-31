@@ -4,18 +4,18 @@
 
 // combined functions for displaying questions
 function display(questions) {
-	// throw the questions into the DOM
-	displayQuestions(questions);
+    // set each question's word count
+    setWordCount();
+    // throw the questions into the DOM
+    displayQuestions(questions);
     // display scores
-    // displayScores()
+    displayScores();
     // display explanation text
     retrieveExplanations();
     // change selected and corresponding scores based on current session for value added
     updateSelect('va', 'valueAdded');
     // change selected based on current session for applicability
     updateSelect('ap', 'applicable');
-    // display scores
-    displayScores()
 	// need to re-update data ater updateSelect functions run
 	setSession();
 }
@@ -167,36 +167,23 @@ function retrieveExplanations() {
 	})
 }
 
-// // update selects with selected option selected
-// function updateSelect(klass, propName) {
-// 	$('.' + klass).each(function(index) {
-// 		var selectedIndex = envision.DOM[propName][index]
-// 		// check for 0 to avoid unecessary processing
-// 		if (selectedIndex) {
-// 			$(this).prop('selectedIndex', selectedIndex);
-//             // runs if applicable select is set to 'not applicable' so that its sibling valueAdded select will be disabled. Avoiding .change() because it affects too many other variables.
-//             if (klass === 'ap') {
-//                 var nextEl = $(this).parent().next();
-//                 // disable valueAdded select
-//                 nextEl.children().attr('disabled', 'disabled');
-//                 // replace score and possible points with '- -'
-//                 nextEl.next().text('- -').next().text('- -');
-//             }
-// 		}
-// 	})
-// }
-
 // update selects with selected option selected
 function updateSelect(klass, propName) {
-    var maxScore = envision.maxScore
-    $('.' + klass).each(function(index) {
-        var selectedIndex = envision.DOM[propName][index]
-        // check for 0 to avoid unecessary processing
-        if (selectedIndex) {
-            $(this).prop('selectedIndex', selectedIndex).change();
-        }
-    })
-    console.log('maxScore: ', maxScore)
+	$('.' + klass).each(function(index) {
+		var selectedIndex = envision.DOM[propName][index]
+		// check for 0 to avoid unecessary processing
+		if (selectedIndex) {
+			$(this).prop('selectedIndex', selectedIndex);
+            // runs if applicable select is set to 'not applicable' so that its sibling valueAdded select will be disabled. Avoiding .change() because it affects too many other variables.
+            if (klass === 'ap') {
+                var nextEl = $(this).parent().next();
+                // disable valueAdded select
+                nextEl.children().attr('disabled', 'disabled');
+                // replace score and possible points with '- -'
+                nextEl.next().text('- -').next().text('- -');
+            }
+		}
+	})
 }
 
 // character count
@@ -212,11 +199,23 @@ function determineWordCount(level) {
 	}
 }
 
+// set wordCount for each question. Temporarily here though it will move to data.js where it belongs. I have my reasons
+function setWordCount () {
+    // if wordCounts have been set, DON'T RESET!
+    if (!envision.questions[0].wordCount) {
+        _.each(envision.questions, function (question, index) {
+            var i = envision.DOM.valueAdded[index] - 1;
+            question.wordCount = determineWordCount(i > -1 ? question.valueAdded[i].level : '')
+        })
+    }
+}
+
 // syncing envision
 function syncEnvision(category) {
-	envision.questions = envision[category].questions;
-	envision.DOM = envision[category].DOM;
-	envision.explanations = envision[category].explanations;
-	envision.scores = envision[category].scores;
+    envision.questions = envision[category].questions;
+    envision.DOM = envision[category].DOM;
+    envision.explanations = envision[category].explanations;
+    envision.scores = envision[category].scores;
 }
+
 
