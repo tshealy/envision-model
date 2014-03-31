@@ -5,7 +5,7 @@
 // combined functions for displaying questions
 function display(questions) {
     // set each question's word count
-    setWordCount();
+    setWordCount(questions, envision.DOM);
     // throw the questions into the DOM
     displayQuestions(questions);
     // display scores
@@ -184,30 +184,6 @@ function updateSelect(klass, propName) {
             }
 		}
 	})
-}
-
-// character count
-function determineWordCount(level) {
-	switch (level) {
-		case 'not'        : return  70;
-		case 'Improved'   : return 140;
-		case 'Enhanced'   : return 210;
-		case 'Superior'   : return 280;
-		case 'Conserving' : return 350;
-		case 'Restorative': return 420;
-		default           : return   0;
-	}
-}
-
-// set wordCount for each question. Temporarily here though it will move to data.js where it belongs. I have my reasons
-function setWordCount () {
-    // if wordCounts have been set, DON'T RESET!
-    if (!envision.questions[0].wordCount) {
-        _.each(envision.questions, function (question, index) {
-            var i = envision.DOM.valueAdded[index] - 1;
-            question.wordCount = determineWordCount(i > -1 ? question.valueAdded[i].level : '')
-        })
-    }
 }
 
 // syncing envision
