@@ -639,10 +639,6 @@ function getCache() {
             valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
         }
 
-        // set word counts
-        setWordCount(envision.quality.questions, envision.quality.DOM);
-        setWordCount(envision.natural.questions, envision.natural.DOM);
-
 		// set explanation
 		envision.quality.explanations = makeArray(envision.quality.questions.length, '');
 		envision.natural.explanations = makeArray(envision.natural.questions.length, '');
@@ -714,30 +710,6 @@ function processSelectOptions(questions) {
         // no value added option
 		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
 	})
-}
-
-// character count
-function determineWordCount(level) {
-    switch (level) {
-        case 'not'        : return  70;
-        case 'Improved'   : return 140;
-        case 'Enhanced'   : return 210;
-        case 'Superior'   : return 280;
-        case 'Conserving' : return 350;
-        case 'Restorative': return 420;
-        default           : return   0;
-    }
-}
-
-// set word count for each question
-function setWordCount (questions, DOM) {
-    // temporary if
-    if (!questions[0].wordCount) {
-        _.each(questions, function (question, index) {
-            var i = DOM.valueAdded[index] - 1;
-            question.wordCount = determineWordCount(i > -1 ? question.valueAdded[i].level : '')
-        })
-    }
 }
 
 // relate vals for default Conservative

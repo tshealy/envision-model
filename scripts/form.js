@@ -4,7 +4,7 @@
 
 // combined functions for displaying questions
 function display(questions) {
-    // set each question's word count
+    // set each question's word count. For now this will run every time form is loaded. A waist, but necessary for now to function with admin.js when viewing submitted forms.
     setWordCount(questions, envision.DOM);
     // throw the questions into the DOM
     displayQuestions(questions);
@@ -184,6 +184,28 @@ function updateSelect(klass, propName) {
             }
 		}
 	})
+}
+
+// character count
+function determineWordCount(level) {
+    switch (level) {
+        case 'not'        : return  70;
+        case 'Improved'   : return 140;
+        case 'Enhanced'   : return 210;
+        case 'Superior'   : return 280;
+        case 'Conserving' : return 350;
+        case 'Restorative': return 420;
+        default           : return   0;
+    }
+}
+
+// set word count for each question
+function setWordCount (questions, DOM) {
+    _.each(questions, function (question, index) {
+        // subtract one . . 
+        var i = DOM.valueAdded[index] - 1;
+        question.wordCount = DOM.applicable[index] ? determineWordCount('not') : determineWordCount(i > -1 ? question.valueAdded[i].level : '');
+    })
 }
 
 // syncing envision
