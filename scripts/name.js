@@ -1,4 +1,5 @@
 ;$(document).ready(function() {
+    displayNames();
 	validateName();
 	toAdmin();
 	determinText();
@@ -14,7 +15,7 @@ function validateName() {
 		} else {
 			envision.firstName = firstName;
 			envision.lastName = lastName;
-			envision.timer = envision.timer === undefined ? new Date() : envision.timer;
+			startTimer();
 
 			setSession();
 			window.location = 'quality_of_life/index.html';
@@ -39,5 +40,11 @@ function determinText() {
 
 	var text = envision.conserving === true ? conserving : standard;
 	$('#dependent-text').append(text);
+}
+
+// put name values in inputs if already set
+function displayNames () {
+    if (envision.firstName) $('.first-name').val(envision.firstName);
+    if (envision.lastName) $('.last-name').val(envision.lastName);
 }
 

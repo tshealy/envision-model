@@ -7,17 +7,19 @@ $(document).ready(function() {
 // save the form if all word minimums have been met
 function submitForm() {
 	$('.submit').click(function() {
-		// find questions not passing word count requirement
-		var questionsWordCount = verifyWordCount(envision.quality.questions.concat(envision.natural.questions));
-		// if all questions pass, save form
-		if (!questionsWordCount.length) {
-			// set timer to converted hours:mins:secs
-			envision.timeTaken = getTimer(new Date() - new Date(envision.timer));
+        verifyNames(function () {
+    		// find questions not passing word count requirement
+    		var questionsWordCount = verifyWordCount(envision.quality.questions.concat(envision.natural.questions));
+    		// if all questions pass, save form
+    		if (!questionsWordCount.length) {
+    			// set timer to converted hours:mins:secs
+    			envision.timeTaken = getTimer(new Date() - new Date(envision.timer));
 
-			save();
-		} else {
-			alert('You must meet the minimum character requirement for the following questions:\n\n' + questionsWordCount.join('\n'))
-		}
+    			save();
+    		} else {
+    			alert('You must meet the minimum character requirement for the following questions:\n\n' + questionsWordCount.join('\n'))
+    		}
+        });
 	})
 }
 
@@ -80,6 +82,17 @@ function disect() {
 	}
 
 	return form;
+}
+
+// verify name
+function verifyNames (fun) {
+    if (!envision.firstName || !envision.lastName) {
+        if (!alert('You must submit a first and last name.')) {
+            window.location = '../index.html';
+        }
+    } else {
+        fun();
+    }
 }
 
 // find any questions that do not pass the word count requirement

@@ -1,4 +1,7 @@
 ;$(document).ready(function() {
+    // start timer if not started yet
+    startTimer();
+    // display the questions
 	display(envision.questions)
 })
 

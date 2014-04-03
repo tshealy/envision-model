@@ -92,3 +92,7 @@ function test () {
         }
     })
 }
+
+function startTimer () {
+    envision.timer = envision.timer === undefined ? new Date() : envision.timer;
+}
