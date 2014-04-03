@@ -28,14 +28,15 @@ table .thin {
 /* line 26, ../sass/responses.scss */
 table .wide {
   width: 80%;
+  word-break: break-word;
 }
-/* line 30, ../sass/responses.scss */
+/* line 31, ../sass/responses.scss */
 table .name {
   text-align: right;
   display: table-cell;
   vertical-align: top;
 }
-/* line 36, ../sass/responses.scss */
+/* line 37, ../sass/responses.scss */
 table .question-number {
   font-weight: bold;
   font-size: 24px;
@@ -43,14 +44,14 @@ table .question-number {
   border-top: 3px solid #000;
   border-bottom: 3px solid #000;
 }
-/* line 44, ../sass/responses.scss */
+/* line 45, ../sass/responses.scss */
 table .header {
   font-weight: bold;
   font-size: 18px;
   border-bottom: 2px solid #000;
   text-align: center;
 }
-/* line 51, ../sass/responses.scss */
+/* line 52, ../sass/responses.scss */
 table .right-border {
   border-right: 2px solid #000;
 }
