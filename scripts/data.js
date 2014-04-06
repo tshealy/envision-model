@@ -622,7 +622,8 @@ function getCache() {
 		}
 
 		// true for Conserving default
-		envision.conserving = randomForm() ? true : false;
+        // envision.conserving = randomForm() ? true : false;
+		envision.conserving = true;
 
         // concatenating questions for easy reference
         envision.questions = envision.quality.questions.concat(envision.natural.questions);
