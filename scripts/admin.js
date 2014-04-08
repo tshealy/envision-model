@@ -147,8 +147,8 @@ function displayGroup(klass) {
 		$(this).addClass('selected');
 		// set text of the table header
 		$('#group').text(klass);
-		// set envision select options for form viewing
-		setEnvision(klass);
+		// set conserving value
+        envision.conserving = klass === 'conserving' ? true : false;
 
 		// set the current admin group
 		admin.group = admin[klass];
@@ -176,13 +176,6 @@ function displayStudents(students) {
 	_.each(students.models, function(student) {
 		new StudentView({model: student});
 	})
-}
-
-// sets select options for accurate viewing of student form. just being nit picky
-function setEnvision(klass) {
-	envision.conserving = klass === 'conserving' ? true : false;
-	// create select drop down data
-	processSelectOptions(envision.quality.questions.concat(envision.natural.questions))
 }
 
 // make a row with a question number in each column
@@ -316,4 +309,5 @@ function logout() {
 		window.open('../admin_login/index.html')
 	})
 }
+
 

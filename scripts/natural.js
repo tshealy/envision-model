@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	syncEnvision('natural')
+	envision.questionCategory = 'natural';
+    setSession();
 	submitForm();
 	update();
 });

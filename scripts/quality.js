@@ -1,3 +1,4 @@
 $(document).ready(function() {
-	syncEnvision('quality');
+    envision.questionCategory = 'quality';
+    setSession();
 })

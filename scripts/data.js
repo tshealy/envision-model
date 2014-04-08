@@ -620,80 +620,22 @@ function getCache() {
 				}
 			]
 		}
-
-		// true for Conserving default
-        // envision.conserving = randomForm() ? true : false;
-		envision.conserving = true;
-
-        // concatenating questions for easy reference
+        // setting values that are not dependent on conserving value
         envision.questions = envision.quality.questions.concat(envision.natural.questions);
+        // set question max points
+        determineMaxPoints(envision.questions)
+        // envision total posible points
+        envision.maxScore = maxScore(envision.questions)
 
-        envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.questions) : 0;
-
-        envision.quality.DOM = {
-            applicable: makeArray(envision.quality.questions.length, 0),
-            valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeArray(envision.quality.questions.length, 0)
-        }
-
-        envision.natural.DOM = {
-            applicable: makeArray(envision.natural.questions.length, 0),
-            valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeArray(envision.natural.questions.length, 0)
-        }
-
-		// set explanation
-		envision.quality.explanations = makeArray(envision.quality.questions.length, '');
-		envision.natural.explanations = makeArray(envision.natural.questions.length, '');
-
-		// set scores
-        envision.quality.scores = scores(envision.quality.questions);
-        envision.natural.scores = scores(envision.natural.questions);
-
-		// set question max points
-		determineMaxPoints(envision.questions)
-
-		// create select drop down data
-		processSelectOptions(envision.questions)
-
-		// envision total posible points
-		envision.maxScore = maxScore(envision.questions)
-
-		// get details for links
-		envision.details = details();
-
-		// stores envision
-		sessionStorage.setItem('envision', JSON.stringify(envision));
-		
+        sessionStorage.setItem('envision', JSON.stringify(envision));		
 	}
-}
-
-// set scores array
-function scores(questions) {
-    if (envision.conserving) {
-        return _.map(questions, function(question) {
-            return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
-        })
-    }
-    return makeArray(questions.length, 0);
-}
-
-// randomize form given
-function randomForm() {
-	return Math.floor(Math.random() * 2);
-}
-
-function makeArray(length, item) {
-	var array = [];
-	for (var i = 0; i < length; i++) {
-		array.push(item)
-	}
-	return array.slice()
 }
 
 // sets maxPoints for each question
 function determineMaxPoints(questions) {
-	_.each(questions, function(question, index) {
-		question.maxPoints = _.max(_.map(question.valueAdded, function(category) { return category.val }));
-	})
+    _.each(questions, function(question, index) {
+        question.maxPoints = _.max(_.map(question.valueAdded, function(category) { return category.val }));
+    })
 }
 
 // calculate envision's max score
@@ -701,56 +643,5 @@ function maxScore(questions) {
     // map the maxScore of each question and reduce
     return _.reduce(_.map(questions, function(question) { return question.maxPoints;}), function(memo, num) { return memo + num })
 }
-
-// takes valueAdded array of each question and generates option tags with correct values
-function processSelectOptions(questions) {
-	_.each(questions, function(question) {
-		question.selectOptions = _.map(question.valueAdded, function(val) {
-			return "<option value=" + val.val + ">" + val.level + " (" + relate(question, val.val) + ")</option>";
-		}).join('');
-        // no value added option
-		question.selectOptions = "<option class='no-value' value='0'>No Value Added (" + relate(question, 0) + ")</option>" + question.selectOptions;
-	})
-}
-
-// relate vals for default Conservative
-function relate(question, val) {
-    if (envision.conserving) {
-    	var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
-
-    	if (val === conservativeVal) {
-    		return val;
-    	}
-    	if (val < conservativeVal) {
-    		return '-' + (conservativeVal - val).toString();
-    	}
-    	return '+' + (question.maxPoints - conservativeVal).toString();
-    }
-    return val;
-}
-
-function conservingTotalScore(questions) {
-	return _.reduce(_.map(questions, function(question) {
-		return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
-	}), function(memo, num) {return memo + num})
-}
-
-function findQuestion(questions, number) {
-	return _.findWhere(questions, {number: number})
-}
-
-function findValue(question, level) {
-	return _.findWhere(question.valueAdded, {level: level}).val;
-}
-
-// gets relative points for details links
-function detailsPoints(type, number, level) {
-	var question = findQuestion(envision[type].questions, number);
-	var val = findValue(question, level);
-	return relate(question, val);
-}
-
-
-
 
 

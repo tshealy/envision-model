@@ -1,8 +1,11 @@
 ;$(document).ready(function() {
-    // start timer if not started yet
-    startTimer();
-    // display the questions
-	display(envision.questions)
+    envisionCheck(function () {
+        syncEnvision(envision.questionCategory)
+        // start timer if not started yet
+        startTimer();
+        // display the questions
+    	display(envision.questions)
+    })
 })
 
 // combined functions for displaying questions

@@ -2,7 +2,7 @@
     displayNames();
 	validateName();
 	toAdmin();
-	determinText();
+    envisionCheck(determinText);
 })
 
 function validateName() {
@@ -35,11 +35,12 @@ function toAdmin() {
 }
 
 function determinText() {
-	var standard = 'You are starting at the industry norm benchmark with 0 points. Every decision made above industry norm will earn you "level of achievement" points.';
+    var text = 'Please rate the case study provided to you during the information session. Your role in the project is Sustainability Coordinator and your job is to meet Envision\'s "levels of achievement". This will require you to make decisions, plan ahead, and create project details for your entire team.<br><br>';
+    var standard = 'You are starting at the industry norm benchmark with 0 points. Every decision made above industry norm will earn you "level of achievement" points.';
 	var conserving = 'You are startng at the environmental neutral benchmark, that is the <em>conserving</em> level of achievement with 304 points. Decisions made  below the <em>conserving</em> level will lose you points. Decisions made  above <em>conserving</em> will earn you points.';
 
-	var text = envision.conserving === true ? conserving : standard;
-	$('#dependent-text').append(text);
+	text += envision.conserving === true ? conserving : standard;
+	$('.directions-copy').append(text);
 }
 
 // put name values in inputs if already set
