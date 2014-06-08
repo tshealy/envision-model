@@ -50,14 +50,14 @@
 		<div class="bottom-nav">
 			<div class="arrow previous-page">
 
-				<a href="../index.html" class="arrow-left"></a>
-				<a href="../index.html" class="rectangle">Previous Page</a>
+				<a href="../" class="arrow-left"></a>
+				<a href="../" class="rectangle">Previous Page</a>
 			</div>
 
 			<div class="arrow next-page">
 
-				<a href="../natural_world/index.html" class="arrow-right"></a>
-				<a href="../natural_world/index.html" class="rectangle">Next Page</a>
+				<div class="rectangle submit">Submit</div>
+
 			</div>
 		</div>
 
@@ -108,6 +108,26 @@
 		</tr>
 
 	</script>
+
+    <script type="text/template" id="modal-template">
+        <div class="modal-container">
+            <div class="modal">
+                <h1><%= msg %></h1>
+                <%= text %>
+                <div class="modal-button proceed">ok</div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="modal-template-confirm">
+        <div class="modal-container">
+            <div class="modal">
+                <h1>Are you sure you want to submit?</h1>
+                <div class="modal-button cancel">cancel</div>
+                <div class="modal-button proceed">submit</div>
+            </div>
+        </div>
+    </script>
 
 	<script type="text/javascript" src="../scripts/parse.js"></script>
     <script type="text/javascript" src="../scripts/data.js"></script>

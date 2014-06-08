@@ -36,7 +36,7 @@ function envisionCheck (fun) {
 }
 
 function setDefaults (quality, natural) {
-    envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.questions) : 0;
+    envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions) : 0;
 
     envision.quality.DOM = {
         applicable: makeZeroArray(quality.length),

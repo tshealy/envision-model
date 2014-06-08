@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    window.location = '../quality_of_life';
 	envision.questionCategory = 'natural';
     setSession();
 	submitForm();

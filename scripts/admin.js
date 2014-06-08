@@ -34,7 +34,8 @@ StudentView = Parse.View.extend({
 
 	render: function() {
         var studentRow = '';
-        var scores = this.model.get('quality').scores.concat(this.model.get('natural').scores);
+        console.log(envision.natural.questions.length)
+        var scores = this.model.get('quality').scores.concat(this.model.get('natural') ? this.model.get('natural').scores : _.map(_.range(envision.natural.questions.length), function (n) { return 0 }));
 
 		studentRow += '<td class="x">x</td>';
 		studentRow += '<td class="name">'+ this.model.get('firstName') + ' ' + this.model.get('lastName') +'</td>';
@@ -222,8 +223,8 @@ function complieExplanations(students) {
 
 	// get natural questions explanations
 	var natural = _.map(envision.natural.questions, function(question, index) {
-		return getExplanation(students, 'natural', index)
-	})
+        return getExplanation(students, 'natural', index)
+    });
 
 	// returning explanations
 	return quality.concat(natural);
@@ -233,7 +234,7 @@ function getExplanation(students, type, index) {
 	return _.map(students.models, function(student) {
 		return {
 			fullName:  	 student.get('firstName') + ' ' + student.get('lastName'),
-			explanation: student.get(type).explanations[index]
+			explanation: student.get(type) ? student.get(type).explanations[index] : ''
 		}
 	})
 }
@@ -277,7 +278,7 @@ function avgScores(students, type) {
 
 	for (var i = 0; i < length; i++) {
 		scores.push(Math.round(_.reduce(_.map(students.models, function(student) {
-			return student.get(type).scores[i];
+			return student.get(type) ? student.get(type).scores[i] : 0;
 		}), function(memo, num) {return memo + num}) / students.models.length))
 	}
 

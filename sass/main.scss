@@ -9,6 +9,7 @@ body {
 	background: #acacac;
 	font-size: 22px;
 	line-height: 28px;
+    position: relative;
 }
 
 * {
@@ -145,4 +146,45 @@ header {
 
 .natural {
 	background: #909D51;
+}
+
+.modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(234, 234, 234, 0.5);
+}
+
+.modal {
+    text-align: center;
+    width: 360px;
+    padding: 20px;
+    margin: 200px auto;
+    background: #FFF;
+    border: 3px solid;
+    border-radius: 3px;
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // margin-top: -200px;
+    // margin-left: -180px;
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .modal-text {
+        margin-bottom: 30px;
+    }
+
+    .modal-button {
+        padding: 10px 20px;
+        background: #FFA500;
+        display: inline-block;
+        border-radius: 4px;
+        color: #FFF;
+        cursor: default;
+    }
 }

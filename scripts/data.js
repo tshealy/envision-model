@@ -623,9 +623,9 @@ function getCache() {
         // setting values that are not dependent on conserving value
         envision.questions = envision.quality.questions.concat(envision.natural.questions);
         // set question max points
-        determineMaxPoints(envision.questions)
+        determineMaxPoints(envision.quality.questions)
         // envision total posible points
-        envision.maxScore = maxScore(envision.questions)
+        envision.maxScore = maxScore(envision.quality.questions)
 
         sessionStorage.setItem('envision', JSON.stringify(envision));		
 	}

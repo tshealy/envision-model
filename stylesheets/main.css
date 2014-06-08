@@ -69,19 +69,20 @@ body {
   background: #acacac;
   font-size: 22px;
   line-height: 28px;
+  position: relative;
 }
 
-/* line 14, ../sass/main.scss */
+/* line 15, ../sass/main.scss */
 * {
   vertical-align: top;
 }
 
-/* line 18, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
 a {
   text-decoration: none;
 }
 
-/* line 22, ../sass/main.scss */
+/* line 23, ../sass/main.scss */
 header {
   color: #FFF;
   height: 100px;
@@ -90,11 +91,11 @@ header {
   margin: 0 auto;
   position: relative;
 }
-/* line 30, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 header a {
   color: #FFF;
 }
-/* line 34, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 header h1 {
   font-size: 60px;
   line-height: 110px;
@@ -102,7 +103,7 @@ header h1 {
   display: inline-block;
   cursor: pointer;
 }
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 header .admin {
   text-align: right;
   display: inline-block;
@@ -112,7 +113,7 @@ header .admin {
   cursor: pointer;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .next-page, .previous-page {
   position: absolute;
   display: inline-block;
@@ -120,7 +121,7 @@ header .admin {
   height: 120px;
   top: 0;
 }
-/* line 59, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .next-page .rectangle, .previous-page .rectangle {
   color: #FFF;
   width: 105px;
@@ -131,7 +132,7 @@ header .admin {
   vertical-align: top;
   cursor: pointer;
 }
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .next-page .arrow-right, .next-page .arrow-left, .previous-page .arrow-right, .previous-page .arrow-left {
   position: absolute;
   top: 0;
@@ -143,22 +144,22 @@ header .admin {
   vertical-align: top;
   cursor: pointer;
 }
-/* line 83, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 .next-page .arrow-right, .previous-page .arrow-right {
   right: 0;
   border-left: 60px solid #3c72a5;
 }
-/* line 88, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 .next-page .arrow-left, .previous-page .arrow-left {
   left: 0px;
   border-right: 60px solid #3c72a5;
 }
 
-/* line 94, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 .next-page {
   right: 0;
 }
-/* line 97, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .next-page .rectangle {
   line-height: 65px;
   height: 65px;
@@ -166,18 +167,18 @@ header .admin {
   padding-left: 15px;
   border-radius: 0 15px 15px 0;
 }
-/* line 105, ../sass/main.scss */
+/* line 106, ../sass/main.scss */
 .next-page .submit {
   text-align: center;
   border-radius: 15px;
   padding: 0 20px;
 }
 
-/* line 112, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .previous-page {
   left: 0;
 }
-/* line 115, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .previous-page .rectangle {
   line-height: 25px;
   padding-top: 7px;
@@ -188,7 +189,7 @@ header .admin {
   border-radius: 15px 0 0 15px;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 .bottom-nav {
   position: relative;
   width: 95%;
@@ -196,7 +197,7 @@ header .admin {
   margin: 40px auto 0;
   padding-top: 15px;
 }
-/* line 134, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .bottom-nav .review {
   border: 1px solid black;
   width: 414px;
@@ -204,12 +205,50 @@ header .admin {
   margin: 0 auto 0;
 }
 
-/* line 142, ../sass/main.scss */
+/* line 143, ../sass/main.scss */
 .quality {
   background: #D87400;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .natural {
   background: #909D51;
+}
+
+/* line 151, ../sass/main.scss */
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(234, 234, 234, 0.5);
+}
+
+/* line 160, ../sass/main.scss */
+.modal {
+  text-align: center;
+  width: 360px;
+  padding: 20px;
+  margin: 200px auto;
+  background: #FFF;
+  border: 3px solid;
+  border-radius: 3px;
+}
+/* line 174, ../sass/main.scss */
+.modal h1 {
+  margin-bottom: 30px;
+}
+/* line 178, ../sass/main.scss */
+.modal .modal-text {
+  margin-bottom: 30px;
+}
+/* line 182, ../sass/main.scss */
+.modal .modal-button {
+  padding: 10px 20px;
+  background: #FFA500;
+  display: inline-block;
+  border-radius: 4px;
+  color: #FFF;
+  cursor: default;
 }
