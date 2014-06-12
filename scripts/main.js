@@ -11,11 +11,11 @@ function reconnect(fromParse) {
 	envision.quality.DOM          = fromParse.quality.DOM
 	envision.quality.explanations = fromParse.quality.explanations
 
-	envision.natural.DOM          = fromParse.natural.DOM
-	envision.natural.explanations = fromParse.natural.explanations
+	// envision.natural.DOM          = fromParse.natural.DOM
+	// envision.natural.explanations = fromParse.natural.explanations
 
     envision.quality.scores = fromParse.quality.scores
-    envision.natural.scores = fromParse.natural.scores
+    // envision.natural.scores = fromParse.natural.scores
 
 	envision.totalScore           = fromParse.totalScore;
 	envision.maxScore             = fromParse.maxScore;

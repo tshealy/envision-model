@@ -196,11 +196,11 @@ function updateSelect(klass, propName) {
 function determineWordCount(level) {
     switch (level) {
         case 'not'        : return  70;
-        case 'Improved'   : return 140;
-        case 'Enhanced'   : return 210;
-        case 'Superior'   : return 280;
-        case 'Conserving' : return 350;
-        case 'Restorative': return 420;
+        case 'Improved'   : return 100;
+        case 'Enhanced'   : return 150;
+        case 'Superior'   : return 200;
+        case 'Conserving' : return 250;
+        case 'Restorative': return 300;
         default           : return   0;
     }
 }

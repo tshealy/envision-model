@@ -43,18 +43,18 @@ function setDefaults (quality, natural) {
         valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeZeroArray(quality.length)
     }
 
-    envision.natural.DOM = {
-        applicable: makeZeroArray(natural.length),
-        valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeZeroArray(natural.length)
-    }
+    // envision.natural.DOM = {
+    //     applicable: makeZeroArray(natural.length),
+    //     valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeZeroArray(natural.length)
+    // }
 
     // set explanation
     envision.quality.explanations = makeStringArray(quality.length);
-    envision.natural.explanations = makeStringArray(natural.length);
+    // envision.natural.explanations = makeStringArray(natural.length);
 
     // set scores
     envision.quality.scores = scores(quality);
-    envision.natural.scores = scores(natural);
+    // envision.natural.scores = scores(natural);
 
     // sets envision and sets selects and details links
     setClientSide();
