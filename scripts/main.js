@@ -33,7 +33,8 @@ function adminLoggedIn() {
 
 // get params from url and make an array of objects
 function getParams() {
-    var str = window.location.search
+    // var str = window.location.search
+    var str = window.href.split('?')
     var obj = {};
     var array = [];
 
