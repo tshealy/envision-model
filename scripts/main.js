@@ -34,15 +34,16 @@ function adminLoggedIn() {
 // get params from url and make an array of objects
 function getParams() {
     // var str = window.location.search
-    var str = window.href.split('?')
+    var str = window.location.href.split('?')
     var obj = {};
     var array = [];
 
     // using a look ahead regex to split the params
-    _.each(str.split(/(?=[&])/), function(str){
-        array = str.slice(1).split('=');
+    _.each(str[1].split('&'), function(str){
+        array = str.split('=');
         obj[array[0]] = array[1]
     })
+
     return obj
 }
 
