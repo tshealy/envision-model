@@ -35,8 +35,6 @@ function adminLoggedIn() {
 function getParams() {
     // var str = window.location.search
     var str = window.location.href.split('?')
-    alert(window.location.href)
-    alert(window.location.href.split('?'))
     var obj = {};
     var array = [];
 
@@ -45,7 +43,6 @@ function getParams() {
         array = str.split('=');
         obj[array[0]] = array[1]
     })
-    alert(obj.question)
 
     return obj
 }

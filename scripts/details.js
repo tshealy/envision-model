@@ -96,8 +96,7 @@ function getQuestion() {
 
 // display the details
 function makeItRain() {
-    // var template = _.template(templateHTML);
-    var template = _.template($('#question').text());
+    var template = _.template(templateHTML);
     // get the question
     var question = getQuestion();
     // format the description
