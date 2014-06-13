@@ -96,7 +96,6 @@ function getQuestion() {
 
 // display the details
 function makeItRain() {
-    console.log('hey', template)
     var template = _.template(templateHTML);
     // get the question
     var question = getQuestion();
