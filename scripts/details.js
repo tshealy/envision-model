@@ -1,82 +1,6 @@
 envision = JSON.parse(sessionStorage.getItem('envision'));
 
-;$(document).ready(function() {
-    // console.log(_.template(template)())
-	displayDetails()
-});
-
-function displayDetails() {
-    // display the details
-    makeItRain();
-	// determine color
-	colorDepends();
-	// uggly hack to remove parens that shouldn't be there
-	removeParens();
-}
-
-// get the question number from url and use it to find question in envision
-function getQuestion() {
-    var questionNum = $('#qNumber').text();
-    var question = _.findWhere(envision.details, {number: questionNum});
-    return question;
-}
-
-// display the details
-function makeItRain() {
-    var template = _.template(template);
-    // get the question
-    var question = getQuestion();
-    // format the description
-    question.descriptionHTML = formatDescription(question.description);
-    // format the ol
-    question.olHTML = formatOL(question.list);
-    // append the template
-    $('#details').append(template({question: question}));
-}
-
-// using my bullify.js to make the lists
-// put description in DOM
-function formatDescription(list) {
-    var unorderedList = new Bullify('ul', 'li');
-    var description = '';
-
-    _.each(list, function(item) {
-        if (typeof(item) === 'string') {
-            description += '<p>'+item+'</p><br><br>';
-        } else {
-            // make a ul out of the array
-            description += unorderedList.bullify(item);
-        }
-    })
-    return description;
-}
-
-// put ol's in the DOM
-function formatOL(list) {
-    var orderdList = new Bullify('ol', 'li');
-    return orderdList.bullify(list);
-}
-
-// untidy way of getting rid of parens I don't want
-function removeParens() {
-	$('.points').each(function() {
-		if ($(this).text() === '()') {
-			$(this).text('');
-		}
-	})
-}
-
-// change color pallet based on what type of questoin
-function colorDepends() {
-	if ($('#qNumber').text().slice(0,1) === 'Q') {
-		$('.color-depends').css('background', '#D87400');
-	} else {
-		$('.color-depends').css('background', '#909D51');
-	}
-}
-
-
-var template = '<div class="overview width color-depends">' +
+var templateHTML = '<div class="overview width color-depends">' +
     '<span class="question-blurb"><%= question.number %> <%= question.synopsis %></span>' +
     '<span class="breakdown">Intent</span>' +
     '<span class="intent"><%= question.intent %></span>' +
@@ -148,6 +72,85 @@ var template = '<div class="overview width color-depends">' +
 '<div class="section-heading width">Evaluation Criteria and Documentation</div>' +
  
 '<div class="width" id="ol"><%= question.olHTML %></div>';
+
+;$(document).ready(function() {
+    // console.log(_.template(template)())
+	displayDetails()
+});
+
+function displayDetails() {
+    // display the details
+    makeItRain();
+	// determine color
+	colorDepends();
+	// uggly hack to remove parens that shouldn't be there
+	removeParens();
+}
+
+// get the question number from url and use it to find question in envision
+function getQuestion() {
+    var questionNum = $('#qNumber').text();
+    var question = _.findWhere(envision.details, {number: questionNum});
+    return question;
+}
+
+// display the details
+function makeItRain() {
+    console.log('hey', template)
+    var template = _.template(templateHTML);
+    // get the question
+    var question = getQuestion();
+    // format the description
+    question.descriptionHTML = formatDescription(question.description);
+    // format the ol
+    question.olHTML = formatOL(question.list);
+    // append the template
+    $('#details').append(template({question: question}));
+}
+
+// using my bullify.js to make the lists
+// put description in DOM
+function formatDescription(list) {
+    var unorderedList = new Bullify('ul', 'li');
+    var description = '';
+
+    _.each(list, function(item) {
+        if (typeof(item) === 'string') {
+            description += '<p>'+item+'</p><br><br>';
+        } else {
+            // make a ul out of the array
+            description += unorderedList.bullify(item);
+        }
+    })
+    return description;
+}
+
+// put ol's in the DOM
+function formatOL(list) {
+    var orderdList = new Bullify('ol', 'li');
+    return orderdList.bullify(list);
+}
+
+// untidy way of getting rid of parens I don't want
+function removeParens() {
+	$('.points').each(function() {
+		if ($(this).text() === '()') {
+			$(this).text('');
+		}
+	})
+}
+
+// change color pallet based on what type of questoin
+function colorDepends() {
+	if ($('#qNumber').text().slice(0,1) === 'Q') {
+		$('.color-depends').css('background', '#D87400');
+	} else {
+		$('.color-depends').css('background', '#909D51');
+	}
+}
+
+
+
 
 
 
