@@ -252,3 +252,8 @@ header .admin {
   color: #FFF;
   cursor: default;
 }
+
+/* line 192, ../sass/main.scss */
+#qNumber {
+  color: #FFF;
+}
