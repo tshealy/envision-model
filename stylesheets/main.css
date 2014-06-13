@@ -257,3 +257,8 @@ header .admin {
 #qNumber {
   color: #FFF;
 }
+
+/* line 196, ../sass/main.scss */
+.question-jpeg {
+  width: 100%;
+}
