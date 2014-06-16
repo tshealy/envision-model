@@ -235,15 +235,15 @@ header .admin {
   border: 3px solid;
   border-radius: 3px;
 }
-/* line 174, ../sass/main.scss */
+/* line 169, ../sass/main.scss */
 .modal h1 {
   margin-bottom: 30px;
 }
-/* line 178, ../sass/main.scss */
+/* line 173, ../sass/main.scss */
 .modal .modal-text {
   margin-bottom: 30px;
 }
-/* line 182, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 .modal .modal-button {
   padding: 10px 20px;
   background: #FFA500;
@@ -253,12 +253,19 @@ header .admin {
   cursor: default;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 187, ../sass/main.scss */
 #qNumber {
   color: #FFF;
 }
 
+/* line 191, ../sass/main.scss */
+.iframe-container {
+  height: 800px;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* line 196, ../sass/main.scss */
-.question-jpeg {
+iframe {
   width: 100%;
+  height: 100%;
 }

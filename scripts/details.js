@@ -75,7 +75,7 @@ var templateHTML = '<div class="overview width color-depends">' +
 
 ;$(document).ready(function() {
 	displayDetails();
-    $('iframe').height($(window).height());
+    // $('iframe').height($(window).height());
 });
 
 function displayDetails() {
