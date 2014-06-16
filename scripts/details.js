@@ -74,8 +74,8 @@ var templateHTML = '<div class="overview width color-depends">' +
 '<div class="width" id="ol"><%= question.olHTML %></div>';
 
 ;$(document).ready(function() {
-    // console.log(_.template(template)())
-	displayDetails()
+	displayDetails();
+    $('iframe').height($(window).height());
 });
 
 function displayDetails() {
