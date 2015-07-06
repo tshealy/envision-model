@@ -3,8 +3,8 @@ function envisionCheck (fun) {
     envision = JSON.parse(sessionStorage.getItem('envision'));
     envision.questions = envision.quality.questions.concat(envision.natural.questions);
 
-    // process question data that is dependent on the conserving value
-    if (envision.conserving === undefined) {
+    // process question data that is dependent on the primed value
+    if (envision.primed === undefined) {
         console.log('gotta check num')
         var Default = Parse.Object.extend('Default');
         var query = new Parse.Query(Default);
@@ -12,8 +12,8 @@ function envisionCheck (fun) {
             success: function (data) {
                 // got num from Parse
                 var num = data.get('num');
-                // set conserving val based on num
-                envision.conserving = num % 2 ? true : false;
+                // set primed val based on num
+                envision.primed = num % 2 ? true : false;
                 // set the defaults for envision questions
                 setDefaults(envision.quality.questions, envision.natural.questions);
                 // ++ the num from parse and save
@@ -23,7 +23,7 @@ function envisionCheck (fun) {
             },
             error: function () {
                 console.log('error: parse did not return num')
-                envision.conserving = randomForm() ? true : false;
+                envision.primed = randomForm() ? true : false;
                 setDefaults(envision.quality.questions, envision.natural.questions);
                 fun();
             }
@@ -36,16 +36,16 @@ function envisionCheck (fun) {
 }
 
 function setDefaults (quality, natural) {
-    envision.totalScore = envision.conserving === true ? conservingTotalScore(envision.quality.questions) : 0;
+    envision.totalScore = envision.primed === true ? primedTotalScore(envision.quality.questions) : 0;
 
     envision.quality.DOM = {
         applicable: makeZeroArray(quality.length),
-        valueAdded: envision.conserving === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeZeroArray(quality.length)
+        valueAdded: envision.primed === true ? [4,4,4,2,2,4,4,4,3,3,4,4] : makeZeroArray(quality.length)
     }
 
     // envision.natural.DOM = {
     //     applicable: makeZeroArray(natural.length),
-    //     valueAdded: envision.conserving === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeZeroArray(natural.length)
+    //     valueAdded: envision.primed === true ? [2,4,2,4,4,3,4,3,4,4,2,2,1,4] : makeZeroArray(natural.length)
     // }
 
     // set explanation
@@ -72,7 +72,7 @@ function setClientSide () {
 
 // set scores array
 function scores(questions) {
-    if (envision.conserving) {
+    if (envision.primed) {
         return _.map(questions, function(question) {
             return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
         })
@@ -106,7 +106,7 @@ function processSelectOptions(questions) {
 
 // relate vals for default Conservative
 function relate(question, val) {
-    if (envision.conserving) {
+    if (envision.primed) {
         var conservativeVal = _.findWhere(question.valueAdded, {level: 'Conserving'}).val
 
         if (val === conservativeVal) {
@@ -120,7 +120,7 @@ function relate(question, val) {
     return val;
 }
 
-function conservingTotalScore(questions) {
+function primedTotalScore(questions) {
     return _.reduce(_.map(questions, function(question) {
         return _.findWhere(question.valueAdded, {level: 'Conserving'}).val
     }), function(memo, num) {return memo + num})
@@ -140,4 +140,3 @@ function detailsPoints(type, number, level) {
     var val = findValue(question, level);
     return relate(question, val);
 }
-

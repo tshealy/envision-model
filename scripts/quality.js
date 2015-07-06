@@ -53,7 +53,7 @@ function modalConfirm () {
 
 function save() {
     // instantiate student
-    var student = envision.conserving === true ? new StudentB() : new StudentA();
+    var student = envision.primed === true ? new StudentB() : new StudentA();
     // set attributes
     student.set(disect())
 
@@ -135,5 +135,3 @@ function update() {
         $('.submit').text('Update');
     }
 }
-
-

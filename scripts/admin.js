@@ -1,10 +1,10 @@
 // global admin object
 var admin = {
 	standard:   {},
-	conserving: {}
+	primed: {}
 };
 
-// student collections, A for standard, B for conserving
+// student collections, A for standard, B for primed
 var StudentsA = Parse.Collection.extend({
 	model: StudentA
 })
@@ -100,7 +100,7 @@ $(document).ready(function() {
 	if (adminLoggedIn()) {
 		// set click events
 		displayGroup('standard');
-		displayGroup('conserving');
+		displayGroup('primed');
 		// fetch collections
 		fetchStudents();
 	}
@@ -113,7 +113,7 @@ $(document).ready(function() {
 function fetchStudents() {
 	// retrieve the students
 	admin.standard.students = new StudentsA();
-	admin.conserving.students = new StudentsB();
+	admin.primed.students = new StudentsB();
 
 	// making calculations and groupings
 	function adminSetup(group, students) {
@@ -128,9 +128,9 @@ function fetchStudents() {
 		$('.standard').click();
 	})
 
-	// just fetch the conserving students
-	admin.conserving.students.fetch().then(function(students) {
-		adminSetup('conserving', students)
+	// just fetch the primed students
+	admin.primed.students.fetch().then(function(students) {
+		adminSetup('primed', students)
 	});
 }
 
@@ -148,8 +148,8 @@ function displayGroup(klass) {
 		$(this).addClass('selected');
 		// set text of the table header
 		$('#group').text(klass);
-		// set conserving value
-        envision.conserving = klass === 'conserving' ? true : false;
+		// set primed value
+        envision.primed = klass === 'primed' ? true : false;
 
 		// set the current admin group
 		admin.group = admin[klass];
@@ -310,5 +310,3 @@ function logout() {
 		window.open('../admin_login/index.html')
 	})
 }
-
-

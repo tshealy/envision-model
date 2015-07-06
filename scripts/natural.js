@@ -29,7 +29,7 @@ function save() {
 	// a confirm for submission
 	if (confirm('Are you sure you want to submit')) {
 		// instantiate student
-		var student = envision.conserving === true ? new StudentB() : new StudentA();
+		var student = envision.primed === true ? new StudentB() : new StudentA();
 		// set attributes
 		student.set(disect())
 
@@ -114,5 +114,3 @@ function update() {
 		$('.submit').text('Update');
 	}
 }
-
-
