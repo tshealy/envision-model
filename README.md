@@ -1,3 +1,3 @@
-envision
+Envision
 ========
-A project for a Clemson grad student wishing to assess the influence of default settings on a form.
+Changes to the Envision Rating System to assess engineers decision making. 
